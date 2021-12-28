@@ -41,7 +41,7 @@
   background-color: inherit;
   text-align: center;
   cursor: pointer;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 /*환자 add를 클릭하면 나오는 팝업 창*/

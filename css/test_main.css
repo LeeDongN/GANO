@@ -43,7 +43,7 @@
 .top_bar {
   display: grid;
   grid-template-columns: 100px 100px 100px;
-  column-gap: 600px;
+  column-gap: 40%
 }
 
 /* 첫번째 페이지*/
