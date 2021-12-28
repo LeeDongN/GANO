@@ -1,0 +1,98 @@
+/*icon과 input submit를 같이 쓰기 위함*/
+.icon-input-btn {
+  display: inline-block;
+  position: relative;
+  top: 20%;
+  width:150px;
+  height: 50px
+}
+
+.icon-input-btn input[type="submit"] {
+  padding-left: 2em;
+}
+
+.icon-input-btn .fa {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+/*환자를 클릭하면 나오는 팝업창에 관련한 */
+.patients_plus_position {
+  position: relative;
+  left: auto;
+  top: 30px;
+}
+
+#dashed {
+  border: dashed;
+  border-color: grey;
+}
+
+.button_nonEffect {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap
+}
+
+/*환자 add를 클릭하면 나오는 팝업 창*/
+.p_add_grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 600px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 300px 100px;
+}
+
+.P_add_1 {
+  border-right: 2px gray dashed;
+  margin-left: 20px;
+  margin-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  margin-bottom: auto;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+}
+
+.P_add_2 {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+}
+
+.P_add_3 {
+  border-top: 1px gray solid;
+  margin-left: 20px;
+  margin-right: 20px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+}
+
+.P_add_border {
+  border: 1px solid #ccc !important;
+  border-top: 1px solid #ccc !important;
+  border-bottom: 1px solid #ccc !important;
+  border-left: 1px solid #ccc !important;
+  border-right: 1px solid #ccc !important;
+}

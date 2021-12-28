@@ -1,0 +1,297 @@
+#main {
+  width: 100%;
+  text-align: center;
+  border-radius: 20px;
+}
+
+.text_bolder {
+  font-weight: bold;
+}
+
+.item_center {
+  align-items: center;
+}
+
+.dn-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
+.dn-pt {
+  padding-top: 10px;
+}
+
+.dn-pr {
+  padding-right: 10px;
+}
+
+.bgpage {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 800px;
+}
+
+.top_bar {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  column-gap: 600px;
+}
+
+/* 첫번째 페이지*/
+.fpg_display_bottommiddle {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%, 0%);
+  -ms-transform: translate(-50%, 0%)
+}
+
+/*환자 list 화면*/
+.patients_list_grid {
+  display: grid;
+  max-width: auto;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(auto-fill, minmax(33.33%, auto));
+}
+
+.patients_list_header {
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+.patients_grid {
+  display: grid;
+  grid-template-rows: 70px 30px repeat(3, minmax(40px, auto)) minmax(50px, auto);
+  grid-template-columns: 90px 1fr;
+}
+/*---------------------------------------------------------------*/
+/*patients list화면에 표시되는 환자들*/
+.pl_item_header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  text-align: center;
+  padding-top: 15px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.pl_item_1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  border-right: 2px gray dashed;
+}
+.pl_item_1-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+.pl_item_2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  border-right: 2px gray dashed;
+}
+.pl_item_2-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+.pl_item_3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+  border-right: 2px gray dashed;
+}
+.pl_item_3-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+.pl_item_4 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  border-right: 2px gray dashed;
+}
+.pl_item_4-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+.pl_item_6 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 6;
+  grid-row-end: 7;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 10px;
+  border-right: 2px gray dashed;
+}
+.pl_item_6-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 7;
+  padding-left: 15px;
+  padding-top: 5px;
+  margin-bottom: 0px;
+}
+.pl_item_5 {
+  background-color: #FFE2E2 !important;
+  margin-right: 0px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+.pl_mg {
+  margin: 0px;
+}
+.pl_edit {
+  margin-right: 15px
+}
+.pl_edit_color {
+  background-color: #EED7CE !important;
+}
+.pl_del {
+  margin-left: 15px;
+}
+.pl_del_color {
+  background-color: #FFC7C7 !important
+}
+/*-----------------------------------------------------------*/
+.patients_plus {
+  display: grid;
+  height: 248px;
+}
+
+.patients_plus_color {
+  color: #000 !important;
+  background-color: #FEE3EC !important;
+  opacity: 0.35
+}
+
+/*환자 리스 페이지의 환자 미리보기 파트*/
+.color_1 {
+  background-color: #FEE3EC !important;
+}
+
+/*환자 추가하는 페이지의 배경  */
+.color_2 {
+  background-color: #FFE8E8 !important;
+}
+
+.color_3 {
+  background-color: #444F54 !important;
+}
+
+.color_4 {
+  background-color: #3E4149 !important;
+}
+
+.dn-color {
+  background-color: #FBECEC !important
+}
+
+.dn-color-2 {
+  background-color: #679B9B !important
+}
+
+/*환자 추가 페이지에서의 grid 들*/
+.p_plus_grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: minmax(40px, auto) 250px 110px;
+}
+
+.plus_color {
+  border-bottom: 1px solid #304841
+}
+
+.plus_1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 1;
+}
+
+.plus_2 {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.plus_3 {
+  border-left: 2px gray dashed;
+  padding-left: 20px;
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/*세로 가로 가운데로 배치함*/
+.plus_4 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #A685E2;
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.plus_5 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  background-color: #EE9595;
+  grid-column: 2;
+  grid-row: 3
+}

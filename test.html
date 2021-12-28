@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko" dir="ltr">
+
+<head>
+  <title>GANO</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main_style.css">
+  <link rel="stylesheet" href="css/test_main.css">
+  <link rel="stylesheet" href="css/p-list-popup.css">
+  <link rel="stylesheet" href="css/test_Info.css">
+  <link rel="stylesheet" href="css/animation.css">
+</head>
+
+<style>
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Oswald"
+  }
+
+  #main {
+    font-family: "Open Sans"
+  }
+  #write {
+    font-family: 'Sunflower', sans-serif;
+  }
+    {
+    background-color: pink
+  }
+</style>
+
+<body>
+  <section id="main">
+    <div class="w3-bar w3-hide-small w3-top">
+      <!--네비게이션 바 만들기-->
+      <nav class="w3-sidebar w3-bar-block color_3 w3-animate-left w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;left:0;" id="mySidebar">
+        <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a>
+        <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Home</a>
+        <a href="#patients_list" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">Patients List</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">CONTACT</a>
+      </nav>
+
+      <!--상단에 고정되어 있는 바 만들기-->
+      <div class="w3-black top_bar">
+        <a href="javascript:void(0)" class="w3-bar-item w3-button w3-left" onclick="w3_open()"><i class="material-icons w3-xxxlarge item_center">menu</i></a>
+        <a href="#" class="w3-center button_nonEffect" style="color:white">
+          <h1>GANO</h1>
+        </a>
+        <a href="#patients_list" class="w3-bar-item w3-button w3-right"><i class="material-icons w3-xxlarge item_center">person</i>group</a>
+      </div>
+    </div>
+    <!-- Overlay effect when opening sidebar on small screens -->
+    <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+    <!--헤더 설정-->
+    <div class="w3-content bgpage" style="max-width:1600px;">
+      <header class="w3-display-container w3-wide w3-padding-48 w3-black">
+        <div class="w3-display-middle w3-text-white w3-center">
+          <h1 class="w3-jumbo"><b>GANO</b></h1>
+          <h6>간호사를 위한 <span class="w3-tag">인수인계</span> 서비스</h6>
+        </div>
+      </header>
+      <div class="fpg_display_bottommiddle w3-black w3-wide">
+        <a href="#patients_list" class="w3-center button_nonEffect" style="color:white">
+          <i class="fa fa-angle-double-down" style="filter:invert; font-size: 50px; opacity: 0.9"></i>
+        </a>
+      </div>
+    </div>
+
+
+
+    <!--페이지 컨텐츠-->
+    <div class="w3-content color_2" style="max-width:2000px">
+      <!--환자 추가 및 미리보기 섹션-->
+      <div class="w3-content patients_list_grid" id="patients_list" name="patients_list">
+        <div class="w3-container w3-padding-64 patients_list_header" style="max-width:1200px">
+          <h1 class="w3-wide w3-center pt-5">Patients List</h1>
+          <p class="w3-opacity w3-center"><i>Remember your patients!</i></p><br>
+          <div class="w3-row-padding w3-padding-32" id="AddOption" style="margin:0 -16px">
+
+
+            <!--환자별로 인계 내용을 확인할 수 있음-->
+            <!--추가 하는 박스를 만듦-->
+            <div class="w3-third w3-margin-bottom">
+              <div id="dashed" class="patients_plus w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2 py-3 px-3" style="border-radius:10px;" onclick="P_plusModal_open()">
+                <i class="material-icons md-dark md-inactive patients_plus_position" style="font-size:100px; padding-top: 15px">note_add</i>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Patient Modal -->
+    <div id="PatientsModal" class="dn-modal">
+      <div class="p_plus_grid w3-animate-top dn-color w3-card-4 text_bolder">
+        <div class="plus_1 w3-teal">
+          <p class="w3-large mt-2" id="mp_id"></p><span onclick="PatientsModal_close()" class="w3-button w3-teal w3-large w3-display-topright">×</span>
+        </div>
+        <div class="plus_2 w3-center">
+
+        </div>
+        <div class="plus_3 text_bolder" style="align-self: center">
+          <p class="w3-left-align pt-3" id="mp_date" style="text-decoration:underline; text-underline-position:under;">. 입원 날짜: 2021.12.08</p>
+          <p class="w3-left-align" id="mp_past" style="text-decoration:underline; text-underline-position:under;">. 과거력: 000</p>
+          <p class="w3-left-align" id="mp_dia" style="text-decoration:underline; text-underline-position:under;">. 진단명: 000</p>
+          <p class="w3-left-align" id="mp_sym" style="text-decoration:underline; text-underline-position:under;">. 주증상: 000</p>
+          <p class="w3-left-align" id="mp_doc" style="text-decoration:underline; text-underline-position:under;">. 주치의: 000</p>
+        </div>
+        <button class="plus_4 w3-section w3-center w3-button my-auto w3-card-2 w3-hover-shadow" onclick="js:begin_write()" style="border-radius:10px; width:60%; height:57%">
+          <p class="text_bolder pt-3 w3-center"><i class="fa fa-edit" style="font-size:20px; padding-right: 5px;"></i>인계 작성</p>
+        </button>
+        <button class="plus_5 w3-section w3-center w3-button my-auto w3-card-2 w3-hover-shadow" style="border-radius:10px; width:60%; height:57%">
+          <p class="text_bolder pt-3 w3-center"><i class="fa fa-address-card" style="font-size:20px; padding-right: 5px;"></i>인계 보기</p>
+        </button>
+      </div>
+    </div>
+
+
+    <!-- 환자 추가 버튼 누를 시 나오는 팝업 창-->
+    <div id="P_plusModal" class="dn-modal">
+      <div class="p_add_grid w3-animate-top dn-color w3-card-4 text_bolder">
+        <div class="plus_1 w3-teal">
+          <p class="w3-large mt-2">Add Patient<span onclick="P_plusModal_close2()" class="w3-button w3-teal w3-large w3-display-topright">×</span></p>
+        </div>
+
+        <div class="P_add_1 text_bolder">
+          <p class="w3-left-align"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+          <input class="w3-input P_plus_border" type="text" placeholder="Patient id" id="p_id">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 입원 날짜</label></p>
+          <input class="w3-input P_plus_border" type="date" placeholder="입원 날짜" id="p_date">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 과거력</label></p>
+          <input id="p_past" class="w3-input P_plus_border" type="text" placeholder="과거력">
+        </div>
+        <div class="P_add_2 text_bolder">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
+          <input id="p_dia" class="w3-input P_plus_border" type="text" placeholder="진단명">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주증상</label></p>
+          <input id="p_sym" class="w3-input P_plus_border" type="text" placeholder="주증상">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주치의</label></p>
+          <input id="p_doc" class="w3-input P_plus_border" type="text" placeholder="주치의">
+        </div>
+
+        <div class="P_add_3 text_bolder">
+          <span class="icon-input-btn">
+            <i class="fa fa-user-plus" style="font-size:25px"></i>
+            <input type="button" class="plus_5 w3-card-2 w3-hover-shadow" onclick="P_plusModal_close()" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:20px" id="itemAdd" value="환자 추가"></input>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 환자 Edit 누를 시 나오는 창 -->
+    <div id="Edit" class="dn-modal">
+      <div class="p_add_grid w3-animate-top dn-color w3-card-4 text_bolder">
+        <div class="plus_1 w3-teal">
+          <p class="w3-large mt-2">Edit Patient<span onclick="Edit_close()" class="w3-button w3-teal w3-large w3-display-topright">×</span></p>
+        </div>
+
+        <div class="P_add_1 text_bolder">
+          <p class="w3-left-align"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+          <input class="w3-input P_plus_border" type="text" id="E-p_id" value=""/>
+          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 입원 날짜</label></p>
+          <input class="w3-input P_plus_border" type="date" value="" id="E-p_date"/>
+          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 과거력</label></p>
+          <input id="E-p_past" class="w3-input P_plus_border" type="text" value=""/>
+        </div>
+        <div class="P_add_2 text_bolder">
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
+          <input id="E-p_dia" class="w3-input P_plus_border" type="text" value=""/>
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주증상</label></p>
+          <input id="E-p_sym" class="w3-input P_plus_border" type="text" value=""/>
+          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주치의</label></p>
+          <input id="E-p_doc" class="w3-input P_plus_border" type="text" value=""/>
+        </div>
+
+        <div class="P_add_3 text_bolder">
+          <span class="icon-input-btn">
+            <i class="fa fa-user-plus" style="font-size:25px"></i>
+            <input id="Editon" type="button" class="plus_5 w3-card-2 w3-hover-shadow" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:20px" id="itemEdit" value="정보 수정"></input>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- 000000000000000000000인계를 작성하는 Section0000000000000000 -->
+  <section id="write" class="in-main">
+    <div class="info-grid">
+      <div class="info-header">
+        <p style=" float:left;">000환자</p>
+        <p style="float:left;"> 아파서</p>
+        <p style="float:right;">List</p>
+      </div>
+      <div class="info-new-patient">
+        <button class="text_bolder w3-hover-opacity w3-card-2 w3-hover-shadow info-new-patient-button" onclick="New_Info_open()" type="button" name="new-patient" value="신규 환자">신규 환자</button>
+      </div>
+      <div class="info-new-patient-contents">
+        <p>hi</p>
+      </div>
+      <div class="info-regular">
+        <button class="text_bolder w3-hover-opacity w3-card-2 w3-hover-shadow info-regular-button" type="button" value="regular">prn 오더</button>
+      </div>
+      <div class="info-regular-contents">
+        <p>hi</p>
+      </div>
+      <div class="info-special">
+        <button class="text_bolder info-special-button w3-hover-opacity w3-card-2 w3-hover-shadow" type="button" onclick="vital_open">Vital</button>
+        <button class="text_bolder info-special-button w3-hover-opacity w3-card-2 w3-hover-shadow" type="button" onclick="unusal_open">특이사항</button>
+      </div>
+      <div class="info-special-contents">
+
+      </div>
+    </div>
+
+
+    <!-- 신규환자 누를 시 나오는 창 -->
+    <div id="New_Info" class="Info-modal">
+      <div class="Info_new w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="plus_1 info-popup-color">
+          <p class="w3-large mt-2">내원 이유</p><span onclick="New_Info_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="Info_new-1">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_1_open()" value="시술/수술">수술/시술</button>
+        </div>
+        <div class="Info_new-2">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_2_open()" value="증상/질병 악화">증상/질병 악화</button>
+        </div>
+        <div class="Info_new-3">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">검사</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 시술/수술을 클릭했을 때 나오는 창-->
+    <div id="New_1" class="Info-new-case1-modal">
+      <div class="Info-new-case1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="plus_1 info-popup-color">
+          <p class="w3-large mt-2">수술/시술</p><span onclick="New_1_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="Info-new-case1-1">
+          <button type="button" id="checkup_open" class="w3-card-2 w3-hover-shadow Info_new-case1-button" onclick="checkup_open()" value="검사">검사 정보</button>
+        </div>
+        <div class="checkup-">
+          <button type="button" id="surgery_open" class="w3-card-2 w3-hover-shadow Info_new-case1-button" onclick="surgery_open()" value="검사"><p style="margin-top:15px; margin-bottom:0px;">수술/시술</p><p>정보</p></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 증상악화를 클릭했을 때 나오는 창-->
+    <div id="New_2" class="Info-new-case2-modal">
+      <div class="Info-new-case2-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="plus_1 info-popup-color">
+          <p class="w3-large mt-2">증상/질병 악화</p><span onclick="New_2_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="Info-new-case2-1">
+          <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
+          <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
+        </div>
+        <div class="Info-new-case2-2">
+          <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
+          <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
+        </div>
+        <div class="Info-new-case2-3">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
+        </div>
+        <div class="Info-new-case2-4">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="care_open()" value="검사">증상 관리</button>
+        </div>
+        <div class="Info-new-case2-5">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" value="검사">저장하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 검사를 클릭했을 때 나오는 창-->
+    <div id="New_3" class="Info-new-case3-modal">
+      <div class="Info-new-case3-grid w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="plus_1 info-popup-color">
+          <p class="w3-large mt-2">검사 정보</p><span onclick="New_3_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+
+        <div class="Info-new-case3-1">
+          <p class="info-p-space w3-left-align mt-3">주호소</p>
+          <input class="info-input-space info-input w3-input P_plus_border" type="text" placeholder="내원 시 상태">
+        </div>
+        <div class="Info-new-case3-2">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
+        </div>
+        <div class="Info-new-case3-3">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="care_open()" value="검사">치료 상황</button>
+        </div>
+        <div class="Info-new-case3-4">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">저장하기</button>
+        </div>
+      </div>
+    </div>
+
+
+
+<!-- #############################################################-->
+    <!--검사정보를 클릭했을 때 나오는 창-->
+    <div id="checkup" class="checkup-modal">
+      <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="checkup-a info-popup-color">
+          <p class="w3-large mt-2">검사 정보</p><span onclick="checkup_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="checkup-b1">
+          <p class="Info-new-case1-p">검사 항목</p>
+        </div>
+        <div class="checkup-b2">
+          <p class="Info-new-case1-p">검사 내용</p>
+        </div>
+        <div class="checkup-b3">
+          <p style="margin-top:15px; padding-right: 5px">미시행</p>
+        </div>
+        <div id="checkup-title" class="checkup-c1">
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 항목">
+        </div>
+        <div id="checkup-contents" class="checkup-c2">
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 내용">
+        </div>
+        <div id="checkup-box" class="checkup-c3">
+          <input class="info-input P_plus_border" style="margin-top: 10px; "type="checkbox">
+        </div>
+        <div class="checkup-d">
+          <button id="dashed" type="button" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" onclick="add_checkup_box()" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
+            <i class="fa fa-plus" style="font-size:20px; padding-top:15px"></i>
+          </button>
+        </div>
+        <div class="checkup-e">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 수술 정보를 클릭했을 때 나오는 창-->
+    <div id="surgery" class="Info-new-case1-1-modal">
+      <div class="Info-new-case1-1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="plus_1 info-popup-color">
+          <p class="w3-large mt-2">수술/시술 정보</p><span onclick="surgery_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="Info-new-case1-1a">
+          <p class="w3-left-align info-p-space"><label>수술명</label></p>
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="수술명">
+        </div>
+        <div class="Info-new-case1-1b">
+          <p class="w3-left-align info-p-space"><label>수술 날짜</label></p>
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="수술 날짜">
+        </div>
+        <div class="Info-new-case1-1c">
+          <p class="w3-left-align info-p-space"><label>식이</label></p>
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="식이">
+        </div>
+        <div class="Info-new-case1-1d">
+          <input type="checkbox" class="info-check-space" id="befor_sur" name="befor_sur">
+          <label for="befor_sur"> 수술 전 간호</label><br>
+        </div>
+        <div class="Info-new-case1-1e">
+          <input type="checkbox" class="info-check-space" id="after_sur" name="after_sur">
+          <label for="after_sur"> 수술 후 간호</label><br>
+        </div>
+        <div class="Info-new-case1-1f">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-case1-button" style="margin-top:10px" onclick="New_3_open()" value="검사">저장하기</button>
+        </div>
+      </div>
+    </div>
+
+    <!--증상 관리, 치료를 누를 시 나오는 창 -->
+    <div id="care" class="checkup-modal">
+      <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
+        <div class="checkup-a info-popup-color">
+          <p class="w3-large mt-2">치료 상황</p><span onclick="care_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
+        </div>
+        <div class="checkup-b1">
+          <p class="Info-new-case1-p">치료 항목</p>
+        </div>
+        <div class="checkup-b2">
+          <p class="Info-new-case1-p">치료 내용</p>
+        </div>
+        <div class="checkup-b3">
+          <p style="margin-top:15px; padding-right: 5px">부작용</p>
+        </div>
+        <div class="checkup-c1">
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="치료 항목">
+        </div>
+        <div class="checkup-c2">
+          <input class="info-input info-input-space P_plus_border" type="text" placeholder="치료 내용">
+        </div>
+        <div class="checkup-c3">
+          <input class="info-input P_plus_border" style="margin-top: 10px; "type="checkbox">
+        </div>
+        <div class="checkup-d">
+          <div id="dashed" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
+            <i class="fa fa-plus" style="font-size:20px; padding-top:15px"></i>
+          </div>
+        </div>
+        <div class="checkup-e">
+          <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <script src="js/test_info.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="js/test_main_page.js"></script>
+  <script src="js/test_patient_list.js"></script>
+  <script src="js/test_writeInfo.js"></script>
+</body>
+
+</html>

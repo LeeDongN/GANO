@@ -1,0 +1,494 @@
+#write{
+  display: none;
+}
+.info-radius {
+  border-radius: 10px;
+}
+.info-popup-color {
+  background-color: #DEBA9D !important;
+}
+.in-main {
+  background-color: #FAEEE0 !important;
+  min-height: 800px;
+}
+.info-grid {
+  display: grid;
+  max-width: auto;
+  grid-template-rows: 70px repeat(3, minmax(100px, auto));
+  grid-template-columns: 1fr 9fr;
+}
+.info-input {
+  padding: 8px;
+  display: block;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  width: 90%
+}
+.info-input-space {
+  margin-left: 15px;
+}
+.info-p-space {
+  margin-left: 20px;
+  margin-top: 15px;
+  margin-bottom: 5px;
+}
+.info-check-space {
+  margin-top: 20px;
+}
+.info-header {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  background-color: #DEBA9D !important;
+}
+/*______________________________________________________________________*/
+/*신규환자 입력에 관한 것*/
+.info-new-patient {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+  padding-left: 9%;
+  padding-right: 9%;
+  padding-top: 30px;
+  background-color: #F9E4C8 !important;
+  border-right: 1px solid #DBD0C0;
+}
+.info-new-patient-contents {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.info-new-patient-button {
+  border-radius:7px;
+  width:90%;
+  height:60%;
+  text-align:center;
+  border: 0;
+  background-color: #F5E8C7 !important
+}
+
+/*신규환자 클릭시 나오는 팝업창*/
+.Info-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.Info_new {
+  display: grid;
+  border-radius:7px;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 300px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 70px 70px 70px;
+}
+.Info_new-color {
+  background-color: #FAEEE0 !important;
+}
+.Info_new-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.Info_new-2 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.Info_new-3 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.Info_new-button {
+  border-radius:7px;
+  margin-top: 13px;
+  width:50%;
+  height:60%;
+  text-align:center;
+  border: 0;
+  color: black;
+  background-color: #F5E8C7 !important
+}
+
+/*수술/시술을 눌렀을 때 나오는 팝업창*/
+.Info-new-case1-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 270px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.Info-new-case1-grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 300px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 150px;
+}
+.Info_new-case1-button {
+  border-radius:7px;
+  margin-top: 28px;
+  width:70%;
+  height:60%;
+  text-align:center;
+  border: 0;
+  color: black;
+  background-color: #F5E8C7 !important
+}
+.Info-new-case1-1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.Info-new-case2-2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+/*수술/시술 정보를 눌렀을 때 나오는 팝업창*/
+.Info-new-case1-1-modal {
+  z-index: 4;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.Info-new-case1-1-grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 400px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 82px 82px 82px 50px 80px;
+}
+.Info-new-case1-1a {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.Info-new-case1-1b {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.Info-new-case1-1c {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.Info-new-case1-1d {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+.Info-new-case1-1e {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+.Info-new-case1-1f {
+  margin-left: 40px;
+  margin-right: 40px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 6;
+  grid-row-end: 7;
+}
+
+
+/*검사정보를 눌렀을 때 나오는 팝업창*/
+.checkup-modal {
+  z-index: 4;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.checkup-grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 500px;
+  grid-template-columns: 175px 275px 50px;
+  grid-template-rows: 43px 45px minmax(45px, auto) 70px 55px;
+}
+.checkup-a {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+.checkup-b1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.checkup-b2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.checkup-b3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.checkup-c1 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.checkup-c2 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.checkup-c3 {
+  grid-column-start: 3;
+  grid-column-end: 4;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.checkup-d {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.checkup-e {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+.Info-new-case1-p {
+  margin-top: 15px;
+  margin-left: 20px;
+  text-align: left;
+}
+.Info-new-case1-button {
+  border-radius: 7px;
+  margin-top: 0px;
+  width: 30%;
+  height: 80%;
+  text-align:center;
+  border: 0;
+  background-color: #F5E8C7 !important
+}
+/*--------------------------------------------------------------*/
+/*증상 조절을 눌렀을 때 나오는 창*/
+.Info-new-case2-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.Info-new-case2-grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 380px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 80px 80px 70px 70px;
+}
+.Info-new-case2-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.Info-new-case2-2{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.Info-new-case2-3 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.Info-new-case2-4 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.Info-new-case2-5 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+/*--------------------------------------------------------------------*/
+/*검사를 눌렀을 때 나오는 창*/
+.Info-new-case3-modal {
+  z-index: 3;
+  display: none;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+.Info-new-case3-grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 500px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 120px 70px 70px;
+}
+.Info-new-case3-1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+.Info-new-case3-2 {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.Info-new-case3-3 {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.Info-new-case3-4 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+/*______________________________________________________________________*/
+/*규칙적인 상황들에 관련된 상황*/
+.info-regular {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3;
+  grid-row-end: 4;
+  padding-top: 30px;
+  padding-left: 9%;
+  padding-right: 9%;
+  background-color: #F9E4C8 !important;
+  border-right: 1px solid #DBD0C0;
+}
+.info-regular-contents {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;
+  grid-row-end: 4;
+}
+.info-regular-button {
+  border-radius:7px;
+  width:90%;
+  height:60%;
+  text-align:center;
+  border: 0;
+  background-color: #F5E8C7 !important
+}
+/*______________________________________________________________________*/
+/*특별한 상황이 닥쳤을 때의 창*/
+.info-special {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+  grid-auto-rows: minmax(100px, auto);
+  padding-top: 30px;
+  padding-left: 9%;
+  padding-right: 9%;
+  background-color: #F9E4C8 !important;
+  border-right: 1px solid #DBD0C0;
+}
+.info-special-contents {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+.info-special-button {
+  border-radius:7px;
+  text-align:center;
+  border: 0;
+  background-color: #F5E8C7 !important
+}
