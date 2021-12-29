@@ -1,5 +1,23 @@
 #write {
   display: none;
+  font-weight: bold;
+}
+
+.hvr-fade {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+.hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
+  background-color: #2098D1;
+  color: white;
 }
 
 .info-radius {
@@ -12,10 +30,10 @@
 
 .info-main {
   display: grid;
-  background-color: #FAEEE0 !important;
+  background-color: #FFF8F3 !important;
   position: relative;
   width: 100vw;
-  height: 100vw;
+  height: 70vw;
 }
 
 .info-grid {
@@ -23,7 +41,8 @@
   position: relative;
   width: 100%;
   height: 100%;
-  grid-template-columns: 240px auto;
+  grid-template-columns: 220px auto;
+  grid-gap: 0px;
 }
 
 .info-input {
@@ -48,6 +67,14 @@
   margin-top: 20px;
 }
 
+.info-sidebar-frame {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 2px 14px;
+  width: 100%;
+  overflow: hidden;
+}
 /*______________________________________________________________________*/
 /*사이드바에 관한 css*/
 .info-sidebar {
@@ -60,22 +87,26 @@
   position: relative;
   width: 220px;
   height: 100%;
+  margin-right: 0px;
+  grid-template-columns: 1fr;
   grid-template-rows: 45px 90px 90px minmax(300px, auto);
 }
 
 .info-sidebar-user {
   position: absolute;
   grid-row: 1 / 2;
+  grid-column: 1 / 2;
   display: flex;
   align-items: center;
   min-height: 27px;
   font-size: 14px;
   padding: 2px 14px;
   width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
-.info-sidebar-user1 {
+.info-sidebar-icon1 {
   flex-shrink: 0;
   flex-grow: 0;
   border-radius: 3px;
@@ -88,7 +119,7 @@
   margin-right: 8px;
 }
 
-.info-sidebar-user2 {
+.info-sidebar-icon2 {
   user-select: none;
   transition: background 20ms ease-in 0s;
   display: flex;
@@ -129,25 +160,71 @@
 .info-sidebar-NameDate {
   position: absolute;
   grid-row: 2 / 3;
-  flex-grow: 0;
-  flex-shrink: 0;
-  padding-bottom: 8px;
-  box-shadow: transparent 0px 0px 0px;
-  transition: box-shadow 300ms ease 0s;
+  display: grid;
+  width: 100%;
 }
 
-.info-sidebar-Name {}
+.info-sidebar-Name {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 2px 14px;
+  padding-left: 40px;
+  width: 100%;
+  overflow: hidden;
+}
 
-.info-sidebar-Date {}
+.info-sidebar-Date {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  padding: 2px 14px;
+  width: 100%;
+  padding-left:32px;
+  overflow: hidden;
+}
 
 .info-sidebar-conven {
   position: absolute;
   grid-row: 3 / 4;
+  display: grid;
+  width: 100%;
 }
-
+.info-sidebar-conven-tool {
+  display: flex;
+  align-items: center;
+  padding: 2px 14px;
+  overflow: hidden;
+}
+.info-sidebar-ToList {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 2px 14px;
+  padding-left: 16px;
+  width: 100%;
+  overflow: hidden;
+}
+.info-sidebar-showinfo {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding: 2px 14px;
+  width: 100%;
+  overflow: hidden;
+}
 .info-sidebar-writeType {
   position: absolute;
   grid-row: 4 / 5;
+  display: grid;
+  width: 100%;
+  margin-top: 20px;
+  grid-template-rows: repeat(auto-fill, minmax(20%, auto));
+  grid-template-columns: 1fr;
+}
+
+.info-sidebar-newPatient {
+
 }
 
 /*______________________________________________________________________*/

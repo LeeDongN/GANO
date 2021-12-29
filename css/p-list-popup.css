@@ -3,7 +3,7 @@
   display: inline-block;
   position: relative;
   top: 20%;
-  width:150px;
+  width: 150px;
   height: 50px
 }
 
@@ -11,7 +11,36 @@
   padding-left: 2em;
 }
 
-.icon-input-btn .fa {
+.icon-input-btn .fas {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-input-btn .far {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-btn {
+  display: inline-block;
+  position: relative;
+  top: 20%;
+  width: 150px;
+  height: 50px
+}
+
+.icon-btn .far {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-btn .fas {
   display: inline-block;
   position: absolute;
   left: 10%;

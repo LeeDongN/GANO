@@ -18,7 +18,7 @@ $('#itemAdd').click(function() {
   var i = 'patient_' + k++;
   contents += '<div id="' + i + '" class="w3-third w3-margin-bottom">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
-  contents += '<div class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)">';
+  contents += '<div class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
   contents += '<p id="id_' + k + '" class="pl_item_header plus_color text_bolder" style="font-size: 18px"><b>' + p_Data.p_id + '</b></p>';
   contents += '<p class="w3-left-align pl_item_1 text_bolder">입원 날짜</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_1-2">' + p_Data.p_date + '</p>';

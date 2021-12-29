@@ -1,7 +1,9 @@
 const main = document.querySelector("#main");
 const writein = document.querySelector("#write");
+const patientModal = document.querySelector("#PatientsModal")
 
 function begin_write() {
+  document.getElementById("PatientsModal").style.display = "none";
   main.style.WebkitAnimation = "fadeOut 0.5s";
   main.style.animation = "fadeOut 0.5s";
   setTimeout(() => {
@@ -13,7 +15,18 @@ function begin_write() {
     }, 200)
   }, 200);
 };
-
+function ToList() {
+  writein.style.WebkitAnimation = "fadeOut 0.5s";
+  writein.style.animation = "fadeOut 0.5s";
+  setTimeout(() => {
+    main.style.WebkitAnimation = "fadeIn 0.5s";
+    main.style.animation = "fadeIn 0.5s";
+    setTimeout(() => {
+      writein.style.display = "none";
+      main.style.display = "block";
+    }, 200)
+  }, 200);
+};
 //신규환자 팝업창
 function New_Info_open() {
   document.getElementById("New_Info").style.display = 'block';

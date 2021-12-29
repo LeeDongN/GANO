@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <link rel="stylesheet" href="css/main_style.css">
   <link rel="stylesheet" href="css/test_main.css">
@@ -42,7 +41,7 @@
 </style>
 
 <body>
-  <section id="main">
+  <section id="main" style="user-select: none;">
     <div class="w3-bar w3-hide-small w3-top">
       <!--네비게이션 바 만들기-->
       <nav class="w3-sidebar w3-bar-block color_3 w3-animate-left w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;left:0;" id="mySidebar">
@@ -95,7 +94,7 @@
             <!--환자별로 인계 내용을 확인할 수 있음-->
             <!--추가 하는 박스를 만듦-->
             <div class="w3-third w3-margin-bottom">
-              <div id="dashed" class="patients_plus w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2 py-3 px-3" style="border-radius:10px;" onclick="P_plusModal_open()">
+              <div id="dashed" class="patients_plus w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2 py-3 px-3" style="border-radius:10px;" onclick="P_plusModal_open()" role="button">
                 <i class="material-icons md-dark md-inactive patients_plus_position" style="font-size:100px; padding-top: 15px">note_add</i>
               </div>
             </div>
@@ -121,12 +120,18 @@
           <p class="w3-left-align" id="mp_sym" style="text-decoration:underline; text-underline-position:under;">. 주증상: 000</p>
           <p class="w3-left-align" id="mp_doc" style="text-decoration:underline; text-underline-position:under;">. 주치의: 000</p>
         </div>
-        <button class="plus_4 w3-section w3-center w3-button my-auto w3-card-2 w3-hover-shadow" onclick="js:begin_write()" style="border-radius:10px; width:60%; height:57%">
-          <p class="text_bolder pt-3 w3-center"><i class="fa fa-edit" style="font-size:20px; padding-right: 5px;"></i>인계 작성</p>
-        </button>
-        <button class="plus_5 w3-section w3-center w3-button my-auto w3-card-2 w3-hover-shadow" style="border-radius:10px; width:60%; height:57%">
-          <p class="text_bolder pt-3 w3-center"><i class="fa fa-address-card" style="font-size:20px; padding-right: 5px;"></i>인계 보기</p>
-        </button>
+        <div class="plus_4">
+          <span class="icon-btn  w3-card-2 w3-hover-shadow" onclick="js:begin_write()" style="border-radius:10px; background-color: #FEC0C1;" role="button">
+            <i class="fas fa-hand-holding-medical" style="font-size:25px; padding-right: 5px; margin-bottom:3px"></i>
+            <p class="w3-section my-auto" style="margin-left:20px">인계 작성</p>
+          </span>
+        </div>
+        <div class="plus_5">
+          <span class="icon-btn  w3-card-2 w3-hover-shadow" style="border-radius:10px; background-color: #EE9595;" role="button">
+            <i class="far fa-eye" style="font-size:25px; padding-right: 5px; margin-top:3px"></i>
+            <p class="w3-section my-auto" style="margin-left:20px">인계 보기</p>
+          </span>
+        </div>
       </div>
     </div>
 
@@ -139,26 +144,27 @@
         </div>
 
         <div class="P_add_1 text_bolder">
-          <p class="w3-left-align"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+          <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
           <input class="w3-input P_plus_border" type="text" placeholder="Patient id" id="p_id">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 입원 날짜</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
           <input class="w3-input P_plus_border" type="date" placeholder="입원 날짜" id="p_date">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 과거력</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-hospital"></i> 과거력</label></p>
           <input id="p_past" class="w3-input P_plus_border" type="text" placeholder="과거력">
         </div>
         <div class="P_add_2 text_bolder">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
           <input id="p_dia" class="w3-input P_plus_border" type="text" placeholder="진단명">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주증상</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-sad-cry"></i> 주증상</label></p>
           <input id="p_sym" class="w3-input P_plus_border" type="text" placeholder="주증상">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주치의</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
           <input id="p_doc" class="w3-input P_plus_border" type="text" placeholder="주치의">
         </div>
 
         <div class="P_add_3 text_bolder">
           <span class="icon-input-btn">
-            <i class="fa fa-user-plus" style="font-size:25px"></i>
-            <input type="button" class="plus_5 w3-card-2 w3-hover-shadow" onclick="P_plusModal_close()" style="border-radius:10px; border-width:0px; width:100%; height:100%; text-align:center; padding-left:20px" id="itemAdd" value="환자 추가"></input>
+            <i class="fas fa-procedures" style="font-size:25px"></i>
+            <input type="button" class="plus_5 w3-card-2 w3-hover-shadow" onclick="P_plusModal_close()" style="border-radius:10px; border-width:0px; width:100%; height:100%; text-align:center; padding-left:35px; background-color:#FEC0C1;"
+              id="itemAdd" value="환자 추가"></input>
           </span>
         </div>
       </div>
@@ -172,26 +178,27 @@
         </div>
 
         <div class="P_add_1 text_bolder">
-          <p class="w3-left-align"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+          <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
           <input class="w3-input P_plus_border" type="text" id="E-p_id" value="" />
-          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 입원 날짜</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
           <input class="w3-input P_plus_border" type="date" value="" id="E-p_date" />
-          <p class="w3-left-align mt-3"><label><i class="fa fa-portrait"></i> 과거력</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-hospital"></i> 과거력</label></p>
           <input id="E-p_past" class="w3-input P_plus_border" type="text" value="" />
         </div>
         <div class="P_add_2 text_bolder">
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
           <input id="E-p_dia" class="w3-input P_plus_border" type="text" value="" />
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주증상</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-sad-cry"></i> 주증상</label></p>
           <input id="E-p_sym" class="w3-input P_plus_border" type="text" value="" />
-          <p class="w3-left-align mt-3"><label><i class="fa fa-file-alt"></i> 주치의</label></p>
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
           <input id="E-p_doc" class="w3-input P_plus_border" type="text" value="" />
         </div>
 
         <div class="P_add_3 text_bolder">
           <span class="icon-input-btn">
-            <i class="fa fa-user-plus" style="font-size:25px"></i>
-            <input id="Editon" type="button" class="plus_5 w3-card-2 w3-hover-shadow" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:20px" id="itemEdit" value="정보 수정"></input>
+            <i class="fas fa-file-signature" style="font-size:25px;"></i>
+            <input id="Editon" type="button" class="plus_5 w3-card-2 w3-hover-shadow" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:32px; border-width:0px; background-color:#FEC0C1;" id="itemEdit"
+              value="정보 수정"></input>
           </span>
         </div>
       </div>
@@ -200,14 +207,15 @@
 
 
 
+
   <!-- 000000000000000000000인계를 작성하는 Section0000000000000000 -->
-  <section id="write" class="info-main">
+  <section id="write" style="user-select: none; " class="info-main">
     <div class="info-grid">
       <div class="info-sidebar">
         <div class="info-sidebar-grid">
-          <div class="info-sidebar-user">
-            <div class="info-sidebar-user1">
-              <div class="info-sidebar-user2">
+          <div class="info-sidebar-user hvr-fade" role="button">
+            <div class="info-sidebar-icon1">
+              <div class="info-sidebar-icon2">
                 <div style="width:100%; height:100%;">
                   <i class="fa fa-address-card"></i>
                 </div>
@@ -215,26 +223,80 @@
             </div>
             <div class="info-sidebar-user3">
               <div class="info-sidebar-user4">
-                <div class="info-sidebar-user5" style="">
+                <div class="info-sidebar-user5">
                   00 이의 GANO
                 </div>
               </div>
             </div>
           </div>
-
           <div class="info-sidebar-NameDate">
-            <div class="info-sidebar-Name">
-
+            <div class="info-sidebar-Name w3-hover-shadow" style="height:40px" role="button">
+              <p style="font-size:25px; text-align:center; margin-bottom:0px">홍 <span>길</span> <span>동</span></p>
             </div>
-            <div class="info-sidebar-Date">
-
+            <div class="info-sidebar-Date w3-hover-shadow" role="button">
+              <p style="font-size:13px; margin-bottom:0px; color:gray; letter-spacing:2px;">2021 <span> .12 </span> <span> .19</span> <span> D</span></p>
             </div>
           </div>
           <div class="info-sidebar-conven">
-            <p>hi</p>
+            <div class="info-sidebar-conven-tool">
+              <p style="word-spacing:3px; margin-bottom:0px; color:gray; font-size: 11px;">Tool bar</p>
+            </div>
+            <div id="ToList" class="info-sidebar-ToList w3-hover-shadow" onclick="ToList()" role="button">
+              <div class="info-sidebar-icon1">
+                <div class="info-sidebar-icon2">
+                  <div style="width:100%; height:100%;">
+                    <i class="fas fa-clipboard-list"></i>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-bottom:0px;"> List Page</p>
+            </div>
+            <div class="info-sidebar-showinfo w3-hover-shadow" role="button">
+              <div class="info-sidebar-icon1">
+                <div class="info-sidebar-icon2">
+                  <div style="width:100%; height:100%;">
+                    <i class="far fa-eye"></i>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-bottom:0px;">인계 보기</p>
+            </div>
           </div>
+
           <div class="info-sidebar-writeType">
-            <p>hi</p>
+            <div class="info-sidebar-conven-tool">
+              <p style="word-spacing:3px; margin-bottom:0px; color:gray; font-size: 11px;">인계 작성란</p>
+            </div>
+            <div class="info-sidebar-frame w3-hover-shadow" role="button">
+              <div class="info-sidebar-icon1" style="margin-bottom:5px;">
+                <div class="info-sidebar-icon2">
+                  <div style="width:100%; height:100%;">
+                    <span role="button" class="material-icons w3-hover-shadow">arrow_right</span>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-bottom:0px;">신규환자 등록</p>
+            </div>
+            <div class="info-sidebar-frame w3-hover-shadow" role="button">
+              <div class="info-sidebar-icon1" style="margin-bottom:5px;">
+                <div class="info-sidebar-icon2">
+                  <div style="width:100%; height:100%;">
+                    <span role="button" class="material-icons w3-hover-shadow">arrow_right</span>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-bottom:0px;">반복 업무</p>
+            </div>
+            <div class="info-sidebar-frame w3-hover-shadow" role="button">
+              <div class="info-sidebar-icon1" style="margin-bottom:5px;">
+                <div class="info-sidebar-icon2">
+                  <div style="width:100%; height:100%;">
+                    <span role="button" class="material-icons w3-hover-shadow">arrow_right</span>
+                  </div>
+                </div>
+              </div>
+              <p style="margin-bottom:0px;">특별한 상황</p>
+            </div>
           </div>
         </div>
       </div>
@@ -437,7 +499,7 @@
     </div>
 
   </section>
-
+  <script src="https://kit.fontawesome.com/c5cbf70f3e.js" crossorigin="anonymous"></script>
   <script src="js/test_info.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/test_main_page.js"></script>
