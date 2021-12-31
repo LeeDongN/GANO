@@ -4,6 +4,7 @@
 <head>
   <title>GANO</title>
   <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -370,21 +371,31 @@
             </div>
             <div class="info-contents-write" style="width:818.6px">
               <div class="info-contents-write1">
-                  <div class="Info-new-case2-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-                    <div class="Info-new-case2-1">
-                      <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
-                      <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
-                    </div>
-                    <div class="Info-new-case2-2">
-                      <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-                      <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
-                    </div>
+                <div class="Info-new-case2-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
+                  <div class="Info-new-case2-1">
+                    <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
+                    <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
+                  </div>
+                  <div class="Info-new-case2-2">
+                    <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
+                    <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
                   </div>
                 </div>
-
-
+              </div>
               <div class="info-contents-write1">
-                b
+                <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
+                  <div class="checkup-grid1">
+                    <div class="checkup-header">
+                      <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 항목</p>
+                      <input class="checkup-checkbox-grid info-input P_plus_border" type="checkbox" style="background-color:black;"></input>
+                    </div>
+                    <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 항목">
+                  </div>
+                  <div class="checkup-grid2">
+                    <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 내용</p>
+                    <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 내용">
+                  </div>
+                </div>
               </div>
               <div class="info-contents-write1">
                 a
@@ -396,7 +407,7 @@
     </div>
 
 
-    <!-- 신규환자 누를 시 나오는 창 -->
+    <!-- 신규환자 누를 시 나오는 창
     <div id="New_Info" class="Info-modal">
       <div class="Info_new w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="plus_1 info-popup-color">
@@ -412,9 +423,9 @@
           <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">검사</button>
         </div>
       </div>
-    </div>
+    </div>-->
 
-    <!-- 시술/수술을 클릭했을 때 나오는 창-->
+    <!-- 시술/수술을 클릭했을 때 나오는 창
     <div id="New_1" class="Info-new-case1-modal">
       <div class="Info-new-case1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="plus_1 info-popup-color">
@@ -430,9 +441,9 @@
           </button>
         </div>
       </div>
-    </div>
-
-    <!-- 증상악화를 클릭했을 때 나오는 창-->
+    </div>-->
+    <!--
+  증상악화를 클릭했을 때 나오는 창
     <div id="New_2" class="Info-new-case2-modal">
       <div class="Info-new-case2-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="plus_1 info-popup-color">
@@ -457,8 +468,8 @@
         </div>
       </div>
     </div>
-
-    <!-- 검사를 클릭했을 때 나오는 창-->
+-->
+    <!-- 검사를 클릭했을 때 나오는 창
     <div id="New_3" class="Info-new-case3-modal">
       <div class="Info-new-case3-grid w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="plus_1 info-popup-color">
@@ -479,12 +490,12 @@
           <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">저장하기</button>
         </div>
       </div>
-    </div>
+    </div>-->
 
 
 
     <!-- #############################################################-->
-    <!--검사정보를 클릭했을 때 나오는 창-->
+    <!--검사정보를 클릭했을 때 나오는 창
     <div id="checkup" class="checkup-modal">
       <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="checkup-a info-popup-color">
@@ -517,9 +528,9 @@
           <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
         </div>
       </div>
-    </div>
+    </div>-->
 
-    <!-- 수술 정보를 클릭했을 때 나오는 창-->
+    <!-- 수술 정보를 클릭했을 때 나오는 창
     <div id="surgery" class="Info-new-case1-1-modal">
       <div class="Info-new-case1-1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="plus_1 info-popup-color">
@@ -551,7 +562,7 @@
       </div>
     </div>
 
-    <!--증상 관리, 치료를 누를 시 나오는 창 -->
+    증상 관리, 치료를 누를 시 나오는 창
     <div id="care" class="checkup-modal">
       <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
         <div class="checkup-a info-popup-color">
@@ -584,7 +595,7 @@
           <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
         </div>
       </div>
-    </div>
+    </div> -->
 
   </section>
   <script src="https://kit.fontawesome.com/c5cbf70f3e.js" crossorigin="anonymous"></script>

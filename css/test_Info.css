@@ -430,6 +430,7 @@
   width: 260px;
   height: max-content;
 }
+
 /*______________________________________________________________________*/
 /*신규환자 클릭시 나오는 팝업창*/
 .Info-modal {
@@ -619,93 +620,59 @@
 }
 
 /*검사정보를 눌렀을 때 나오는 팝업창*/
-.checkup-modal {
-  z-index: 4;
-  display: none;
-  padding-top: 200px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4)
-}
-
 .checkup-grid {
   display: grid;
   margin: auto;
-  background-color: #fff;
+  height: 100%;
   position: relative;
   padding: 0;
   outline: 0;
-  width: 500px;
-  grid-template-columns: 175px 275px 50px;
-  grid-template-rows: 43px 45px minmax(45px, auto) 70px 55px;
+  grid-template-rows: minmax(80px, auto) minmax(80px, auto);
 }
 
-.checkup-a {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 2;
+.checkup-grid1 {
+  grid-column: 1 / 1;
+  grid-row: 1 / 2;
+  display: grid;
+  margin-right: 20px;
 }
 
-.checkup-b1 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 2;
-  grid-row-end: 3;
+.checkup-grid2 {
+  grid-column: 1 / 1;
+  grid-row: 2 / 3;
+  display: grid;
+  margin-right: 20px;
+  margin-bottom: 15px;
 }
 
-.checkup-b2 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+.checkup-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 5px;
+  padding-right: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  box-sizing: content-box;
+  flex-shrink: 0;
 }
 
-.checkup-b3 {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 2;
-  grid-row-end: 3;
+.checkup-checkbox {
+  fill: rgba(55, 53, 47, 0.4);
 }
 
-.checkup-c1 {
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-
-.checkup-c2 {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-
-.checkup-c3 {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row-start: 3;
-  grid-row-end: 4;
-}
-
-.checkup-d {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
-}
-
-.checkup-e {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 5;
-  grid-row-end: 6;
+.checkup-checkbox-grid {
+  user-select: none;
+  cursor: pointer;
+  opacity: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 3px;
+  height: 24px;
+  width: 24px;
+  padding: 0px;
 }
 
 .Info-new-case1-p {
@@ -726,58 +693,28 @@
 
 /*--------------------------------------------------------------*/
 /*증상 조절을 눌렀을 때 나오는 창*/
-.Info-new-case2 {
-  z-index: 3;
-  display: block;
-  padding-top: 200px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4)
-}
-
-.Info-new-case2-modal {
-  z-index: 3;
-  display: none;
-  padding-top: 200px;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4)
-}
-
 .Info-new-case2-grid {
   display: grid;
   margin: auto;
+  height: 100%;
   background-color: #fff;
   position: relative;
   padding: 0;
   outline: 0;
-  width: 380px;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 43px 80px 80px 70px 70px;
+  grid-template-rows: minmax(80px, auto) minmax(80px, auto);
 }
 
 .Info-new-case2-1 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 2;
-  grid-row-end: 3;
+  grid-column: 1 / 1;
+  grid-row: 1 / 2;
+  margin-right: 20px;
 }
 
 .Info-new-case2-2 {
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  grid-row-end: 4;
+  grid-column: 1 / 1;
+  grid-row: 2 / 3;
+  margin-bottom: 15px;
+  margin-right: 20px;
 }
 
 .Info-new-case2-3 {
