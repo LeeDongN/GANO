@@ -15,6 +15,7 @@
   -webkit-transition-property: color, background-color;
   transition-property: color, background-color;
 }
+
 .hvr-fade:hover, .hvr-fade:focus, .hvr-fade:active {
   background-color: #2098D1;
   color: white;
@@ -75,6 +76,7 @@
   width: 100%;
   overflow: hidden;
 }
+
 /*______________________________________________________________________*/
 /*사이드바에 관한 css*/
 .info-sidebar {
@@ -180,7 +182,7 @@
   font-size: 14px;
   padding: 2px 14px;
   width: 100%;
-  padding-left:32px;
+  padding-left: 32px;
   overflow: hidden;
 }
 
@@ -190,12 +192,14 @@
   display: grid;
   width: 100%;
 }
+
 .info-sidebar-conven-tool {
   display: flex;
   align-items: center;
   padding: 2px 14px;
   overflow: hidden;
 }
+
 .info-sidebar-ToList {
   display: flex;
   align-items: center;
@@ -205,6 +209,7 @@
   width: 100%;
   overflow: hidden;
 }
+
 .info-sidebar-showinfo {
   display: flex;
   align-items: center;
@@ -213,6 +218,7 @@
   width: 100%;
   overflow: hidden;
 }
+
 .info-sidebar-writeType {
   position: absolute;
   grid-row: 4 / 5;
@@ -223,16 +229,208 @@
   grid-template-columns: 1fr;
 }
 
-.info-sidebar-newPatient {
-
-}
-
 /*______________________________________________________________________*/
-/*사이드바에 관한 css*/
-.info-new-patient-contents {
+.info-contents {
   grid-column: 2 / 3;
+  display: grid;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 45px 128px minmax(300px, auto);
 }
 
+.info-contents-nameDate {
+  grid-row: 1 / 2;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  min-height: 27px;
+  font-size: 14px;
+  padding: 2px 14px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.info-contents-header {
+  grid-row: 2 / 3;
+  display: grid;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  margin-left: 96px;
+  margin-bottom: 8px;
+  margin-top: 30px;
+  border-bottom: 1px solid gray;
+}
+
+.info-contents-header-icon {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  margin: 8px 8px 0px 3px;
+  align-self: flex-start;
+  pointer-events: auto;
+}
+
+.info-contents-header-icon2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  width: 36px;
+}
+
+.info-contents-header-icon3 {
+  height: 36px;
+  width: 36px;
+  font-size: 36px;
+  line-height: 1.1;
+  margin-left: 0px;
+  color: black;
+}
+
+.info-contents-header-icon4 {
+  position: relative;
+  width: 36px;
+  height: 36px;
+}
+
+.info-contents-header-p {
+  color: rgb(55, 53, 47);
+  font-weight: 600;
+  line-height: 1.2;
+  font-size: 35px;
+  cursor: text;
+  display: flex;
+  align-items: center;
+}
+
+.info-contents-header-p2 {
+  max-width: 100%;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 3px 2px;
+}
+
+.info-contents-header-explain {
+  max-width: 100%;
+  width: 780px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-size: 14px;
+  padding-left: 6px;
+  padding-bottom: 4px;
+  padding-top: 3px;
+}
+
+.info-contents-write-frame {
+  grid-row: 3 / 4;
+  display: grid;
+  min-width: 100%;
+  overflow: hidden;
+  float: left;
+  padding-left: 96px;
+  padding-right: 96px;
+}
+
+.info-contents-write-grid {
+  display: grid;
+  position: relative;
+  padding-bottom: 180px;
+  min-width: 100%;
+  grid-template-columns: auto 35px;
+  grid-template-rows: 42px minmax(200px, auto);
+}
+
+.info-contents-write-add {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 11px;
+}
+
+.info-contents-write-sort {
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  grid-template-columns: repeat(auto-fill, minmax(33.33%, auto));
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.info-contents-wirte-sort1 {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  width: 260px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  box-sizing: content-box;
+  flex-shrink: 0;
+}
+
+.info-contents-wirte-sort2 {
+  user-select: none;
+  overflow: hidden;
+  padding: 3px 6px 3px 3px;
+  border-radius: 3px;
+  max-width: 190px;
+}
+
+.info-contents-wirte-sort3 {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 1;
+  min-width: 0px;
+  height: 18px;
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 14px;
+  line-height: 120%;
+  color: rgb(93, 23, 21);
+  background: rgb(255, 226, 221);
+  margin: 0px;
+}
+
+.info-contents-wirte-sort4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.info-contents-write {
+  display: grid;
+  grid-column: 1 / 2;
+  grid-row: 2 / 3;
+  grid-auto-rows: minmax(100px, auto);
+  grid-template-columns: repeat(auto-fill, minmax(33.33%, auto));
+}
+
+.info-contents-write1 {
+  flex: 0 0 auto;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 5px;
+  margin-right: 10px;
+  box-sizing: content-box;
+  width: 260px;
+  height: max-content;
+}
+/*______________________________________________________________________*/
 /*신규환자 클릭시 나오는 팝업창*/
 .Info-modal {
   z-index: 3;
@@ -528,6 +726,20 @@
 
 /*--------------------------------------------------------------*/
 /*증상 조절을 눌렀을 때 나오는 창*/
+.Info-new-case2 {
+  z-index: 3;
+  display: block;
+  padding-top: 200px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4)
+}
+
 .Info-new-case2-modal {
   z-index: 3;
   display: none;
