@@ -238,6 +238,7 @@
   height: 100%;
   grid-template-columns: 1fr;
   grid-template-rows: 45px 128px minmax(300px, auto);
+  background-color: #FFF8F3;
 }
 
 .info-contents-nameDate {
@@ -380,6 +381,7 @@
   margin-bottom: 0px;
   box-sizing: content-box;
   flex-shrink: 0;
+  justify-content: space-between;
 }
 
 .info-contents-wirte-sort2 {
@@ -426,11 +428,52 @@
   padding-right: 5px;
   padding-bottom: 5px;
   margin-right: 10px;
+  margin-bottom: 5px;
   box-sizing: content-box;
   width: 260px;
   height: max-content;
 }
 
+.info-contents-add-hidden {
+  display: none;
+}
+
+.checkup-header input {
+  border: 0;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  opacity: 0;
+}
+
+.checkup-header label {
+  position: relative;
+  float: right;
+  color: #C8C8C8;
+}
+
+.checkup-header label:before {
+  margin: 5px;
+  content: "\f005";
+  font-family: FontAwesome;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #ccc;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.checkup-header input:checked ~ label:before {
+  color: #FFC107;
+}
+
+.checkup-header label:hover:before {
+  color: #ffdb70;
+}
 /*______________________________________________________________________*/
 /*신규환자 클릭시 나오는 팝업창*/
 .Info-modal {
@@ -657,21 +700,17 @@
   flex-shrink: 0;
 }
 
-.checkup-checkbox {
-  fill: rgba(55, 53, 47, 0.4);
-}
-
 .checkup-checkbox-grid {
   user-select: none;
   cursor: pointer;
-  opacity: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   border-radius: 3px;
-  height: 24px;
-  width: 24px;
+  height: 14px;
+  width: 14px;
+  margin-top: 10px;
   padding: 0px;
 }
 

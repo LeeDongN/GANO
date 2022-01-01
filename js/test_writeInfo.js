@@ -103,3 +103,30 @@ function unusal_close() {
   document.getElementById("unusal").style.display='none';
 }
 ///////////////////////////////////////////////////////////////
+$("#info-contents-hidden1").mouseover(function() {
+  $("#info-contents-write-add1").fadeIn(100);
+  document.getElementById("info-contents-write-add2").style.display='none';
+  document.getElementById("info-contents-write-add3").style.display='none';
+});
+
+$("#info-contents-hidden2").mouseover(function() {
+  $("#info-contents-write-add2").fadeIn(100);
+  document.getElementById("info-contents-write-add1").style.display='none';
+  document.getElementById("info-contents-write-add3").style.display='none';
+});
+
+$("#info-contents-hidden3").mouseover(function() {
+  $("#info-contents-write-add3").fadeIn(100);
+  document.getElementById("info-contents-write-add1").style.display='none';
+  document.getElementById("info-contents-write-add2").style.display='none';
+});
+
+function add_checkup_box1() {
+  $('#info-contents-checkup1').clone().appendTo('#info-contents-hidden1');
+};
+function add_checkup_box2() {
+  $('#info-contents-checkup2').clone().appendTo('#info-contents-hidden2');
+};
+function add_checkup_box3() {
+  $('#info-contents-checkup3').clone().appendTo('#info-contents-hidden3');
+};

@@ -146,19 +146,19 @@
 
         <div class="P_add_1 text_bolder">
           <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
-          <input class="w3-input P_plus_border" type="text" placeholder="Patient id" id="p_id">
+          <input class="w3-input" type="text" placeholder="Patient id" id="p_id">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
-          <input class="w3-input P_plus_border" type="date" placeholder="입원 날짜" id="p_date">
+          <input class="w3-input" type="date" placeholder="입원 날짜" id="p_date">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-hospital"></i> 과거력</label></p>
-          <input id="p_past" class="w3-input P_plus_border" type="text" placeholder="과거력">
+          <input id="p_past" class="w3-input" type="text" placeholder="과거력">
         </div>
         <div class="P_add_2 text_bolder">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
-          <input id="p_dia" class="w3-input P_plus_border" type="text" placeholder="진단명">
+          <input id="p_dia" class="w3-input" type="text" placeholder="진단명">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-sad-cry"></i> 주증상</label></p>
-          <input id="p_sym" class="w3-input P_plus_border" type="text" placeholder="주증상">
+          <input id="p_sym" class="w3-input" type="text" placeholder="주증상">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
-          <input id="p_doc" class="w3-input P_plus_border" type="text" placeholder="주치의">
+          <input id="p_doc" class="w3-input" type="text" placeholder="주치의">
         </div>
 
         <div class="P_add_3 text_bolder">
@@ -180,19 +180,19 @@
 
         <div class="P_add_1 text_bolder">
           <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
-          <input class="w3-input P_plus_border" type="text" id="E-p_id" value="" />
+          <input class="w3-input " type="text" id="E-p_id" value="" />
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
-          <input class="w3-input P_plus_border" type="date" value="" id="E-p_date" />
+          <input class="w3-input " type="date" value="" id="E-p_date" />
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-hospital"></i> 과거력</label></p>
-          <input id="E-p_past" class="w3-input P_plus_border" type="text" value="" />
+          <input id="E-p_past" class="w3-input " type="text" value="" />
         </div>
         <div class="P_add_2 text_bolder">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
-          <input id="E-p_dia" class="w3-input P_plus_border" type="text" value="" />
+          <input id="E-p_dia" class="w3-input " type="text" value="" />
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-sad-cry"></i> 주증상</label></p>
-          <input id="E-p_sym" class="w3-input P_plus_border" type="text" value="" />
+          <input id="E-p_sym" class="w3-input " type="text" value="" />
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
-          <input id="E-p_doc" class="w3-input P_plus_border" type="text" value="" />
+          <input id="E-p_doc" class="w3-input " type="text" value="" />
         </div>
 
         <div class="P_add_3 text_bolder">
@@ -302,7 +302,6 @@
         </div>
       </div>
 
-
       <div class="info-contents">
         <div class="info-contents-nameDate">
           <div class="info-sidebar-icon1">
@@ -346,14 +345,20 @@
                     </div>
                   </div>
                 </div>
+                <div id="info-contents-write-add1" class="info-contents-add-hidden">
+                  <i onclick="add_checkup_box1()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
+                </div>
               </div>
-              <div class="info-contents-wirte-sort1">
+              <div id="info-contents-write-hidden2-1" class="info-contents-wirte-sort1">
                 <div class="info-contents-wirte-sort2">
                   <div class="info-contents-wirte-sort3" style="background-color:#FDECC8">
                     <div class="info-contents-wirte-sort4">
                       검사 정보
                     </div>
                   </div>
+                </div>
+                <div id="info-contents-write-add2" class="info-contents-add-hidden">
+                  <i onclick="add_checkup_box2()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
                 </div>
               </div>
               <div class="info-contents-wirte-sort1">
@@ -364,41 +369,64 @@
                     </div>
                   </div>
                 </div>
+                <div id="info-contents-write-add3" class="info-contents-add-hidden">
+                  <i onclick="add_checkup_box3()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
+                </div>
               </div>
             </div>
             <div class="info-contents-write-add">
               <i class="fas fa-plus" style="color:gray;" role="button"></i>
             </div>
             <div class="info-contents-write" style="width:818.6px">
-              <div class="info-contents-write1">
-                <div class="Info-new-case2-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                  <div class="Info-new-case2-1">
-                    <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
-                    <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
-                  </div>
-                  <div class="Info-new-case2-2">
-                    <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-                    <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
-                  </div>
-                </div>
-              </div>
-              <div class="info-contents-write1">
-                <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                  <div class="checkup-grid1">
-                    <div class="checkup-header">
-                      <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 항목</p>
-                      <input class="checkup-checkbox-grid info-input P_plus_border" type="checkbox" style="background-color:black;"></input>
+              <div id="info-contents-hidden1" style="grid-column:1 / 2;">
+                <div id="info-contents-checkup1" class="info-contents-write1">
+                  <div class="Info-new-case2-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
+                    <div class="Info-new-case2-1">
+                      <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
+                      <input class="w3-input  info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
                     </div>
-                    <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 항목">
-                  </div>
-                  <div class="checkup-grid2">
-                    <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 내용</p>
-                    <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 내용">
+                    <div class="Info-new-case2-2">
+                      <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
+                      <input class="w3-input  info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="info-contents-write1">
-                a
+              <div id="info-contents-hidden2" style="grid-column:2 / 3;">
+                <div id="info-contents-checkup2"class="info-contents-write1">
+                  <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
+                    <div class="checkup-grid1">
+                      <div class="checkup-header">
+                        <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 항목</p>
+                        <input id="st2" class="checkup-checkbox-grid" type="checkbox"></input>
+                        <label for="st2" style="font-size: 10px; margin-top:7px"></label>
+                      </div>
+                      <input class="info-input info-input-space " type="text" placeholder="검사 항목"></input>
+                    </div>
+                    <div class="checkup-grid2">
+                      <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 내용</p>
+                      <input class="info-input info-input-space " type="text" placeholder="검사 내용"></input>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="info-contents-hidden3" style="grid-column:3 / 4;">
+                <div id="info-contents-checkup3"class="info-contents-write1">
+                  <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
+                    <div class="checkup-grid1">
+                      <div class="checkup-header">
+                        <p class="Info-new-case1-p" style="margin-bottom:5px;">치료 항목</p>
+                        <input id="st1" class="checkup-checkbox-grid" type="checkbox"></input>
+                        <label for="st1" style="font-size: 10px;  margin-top:7px"></label>
+                      </div>
+                      <input class="info-input info-input-space " type="text" placeholder="치료 항목">
+                    </div>
+                    <div class="checkup-grid2">
+                      <p class="Info-new-case1-p" style="margin-bottom:5px;">치료 내용</p>
+                      <input class="info-input info-input-space " type="text" placeholder="치료 내용"></input>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -451,11 +479,11 @@
         </div>
         <div class="Info-new-case2-1">
           <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
-          <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
+          <input class="w3-input  info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
         </div>
         <div class="Info-new-case2-2">
           <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-          <input class="w3-input P_plus_border info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
+          <input class="w3-input  info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
         </div>
         <div class="Info-new-case2-3">
           <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
@@ -478,7 +506,7 @@
 
         <div class="Info-new-case3-1">
           <p class="info-p-space w3-left-align mt-3">주호소</p>
-          <input class="info-input-space info-input w3-input P_plus_border" type="text" placeholder="내원 시 상태">
+          <input class="info-input-space info-input w3-input " type="text" placeholder="내원 시 상태">
         </div>
         <div class="Info-new-case3-2">
           <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
@@ -511,13 +539,13 @@
           <p style="margin-top:15px; padding-right: 5px">미시행</p>
         </div>
         <div id="checkup-title" class="checkup-c1">
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 항목">
+          <input class="info-input info-input-space " type="text" placeholder="검사 항목">
         </div>
         <div id="checkup-contents" class="checkup-c2">
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="검사 내용">
+          <input class="info-input info-input-space " type="text" placeholder="검사 내용">
         </div>
         <div id="checkup-box" class="checkup-c3">
-          <input class="info-input P_plus_border" style="margin-top: 10px; " type="checkbox">
+          <input class="info-input " style="margin-top: 10px; " type="checkbox">
         </div>
         <div class="checkup-d">
           <button id="dashed" type="button" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" onclick="add_checkup_box()" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
@@ -538,15 +566,15 @@
         </div>
         <div class="Info-new-case1-1a">
           <p class="w3-left-align info-p-space"><label>수술명</label></p>
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="수술명">
+          <input class="info-input info-input-space " type="text" placeholder="수술명">
         </div>
         <div class="Info-new-case1-1b">
           <p class="w3-left-align info-p-space"><label>수술 날짜</label></p>
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="수술 날짜">
+          <input class="info-input info-input-space " type="text" placeholder="수술 날짜">
         </div>
         <div class="Info-new-case1-1c">
           <p class="w3-left-align info-p-space"><label>식이</label></p>
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="식이">
+          <input class="info-input info-input-space " type="text" placeholder="식이">
         </div>
         <div class="Info-new-case1-1d">
           <input type="checkbox" class="info-check-space" id="befor_sur" name="befor_sur">
@@ -578,13 +606,13 @@
           <p style="margin-top:15px; padding-right: 5px">부작용</p>
         </div>
         <div class="checkup-c1">
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="치료 항목">
+          <input class="info-input info-input-space " type="text" placeholder="치료 항목">
         </div>
         <div class="checkup-c2">
-          <input class="info-input info-input-space P_plus_border" type="text" placeholder="치료 내용">
+          <input class="info-input info-input-space " type="text" placeholder="치료 내용">
         </div>
         <div class="checkup-c3">
-          <input class="info-input P_plus_border" style="margin-top: 10px; " type="checkbox">
+          <input class="info-input " style="margin-top: 10px; " type="checkbox">
         </div>
         <div class="checkup-d">
           <div id="dashed" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
