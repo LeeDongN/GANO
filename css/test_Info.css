@@ -279,7 +279,7 @@
   flex-shrink: 0;
   position: relative;
   z-index: 1;
-  margin: 8px 8px 0px 3px;
+  margin: 5px 6px 0px 3px;
   align-self: flex-start;
   pointer-events: auto;
 }

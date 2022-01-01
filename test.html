@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/main_style.css">
   <link rel="stylesheet" href="css/test_main.css">
   <link rel="stylesheet" href="css/p-list-popup.css">
@@ -218,7 +219,7 @@
             <div class="info-sidebar-icon1">
               <div class="info-sidebar-icon2">
                 <div style="width:100%; height:100%;">
-                  <i class="far fa-user-circle" style="font-weight:400"></i>
+                  <i class="fas fa-user-nurse"></i>
                 </div>
               </div>
             </div>
@@ -235,7 +236,8 @@
               <p style="font-size:25px; text-align:center; margin-bottom:0px; font-weight:550">홍 <span>길</span> <span>동</span></p>
             </div>
             <div class="info-sidebar-Date w3-hover-shadow" role="button">
-              <p style="font-size:13px; margin-bottom:0px; color:gray; letter-spacing:2px;">2021 <span> .12 </span> <span> .19</span> <span> D</span></p>
+              <input type="date" style="border-width:0px; background-color:#F9E4C8"/>
+              <!--<p style="font-size:13px; margin-bottom:0px; color:gray; letter-spacing:2px;">2021 <span> .12 </span> <span> .19</span> <span> D</span></p>-->
             </div>
           </div>
           <div class="info-sidebar-conven">
@@ -271,8 +273,8 @@
             <div class="info-sidebar-frame w3-hover-shadow" role="button">
               <div class="info-sidebar-icon1" style="margin-bottom:5px;">
                 <div class="info-sidebar-icon2">
-                  <div style="width:100%; height:100%;">
-                    <span role="button" class="material-icons w3-hover-shadow" style="color:gray;">arrow_right</span>
+                  <div style="width:100%; height:100%; padding-left:7px;">
+                    <i class="far fa-clipboard"></i>
                   </div>
                 </div>
               </div>
@@ -306,8 +308,8 @@
         <div class="info-contents-nameDate">
           <div class="info-sidebar-icon1">
             <div class="info-sidebar-icon2">
-              <div style="width:100%; height:100%;">
-                <i class="far fa-meh-blank"></i>
+              <div style="width:100%; height:100%; padding-left:3px;">
+                <i class="fas fa-head-side-mask"></i>
               </div>
             </div>
           </div>
@@ -319,7 +321,7 @@
               <div class="info-contents-header-icon2">
                 <div class="info-contents-header-icon3">
                   <div class="info-contents-header-icon4">
-                    <i class="far fa-meh-blank"></i>
+                    <i class="far fa-clipboard"></i>
                   </div>
                 </div>
               </div>
@@ -379,7 +381,7 @@
             </div>
             <div class="info-contents-write" style="width:818.6px">
               <div id="info-contents-hidden1" style="grid-column:1 / 2;">
-                <div id="info-contents-checkup1" class="info-contents-write1">
+                <div id="info-contents-checkup1_0" class="info-contents-write1">
                   <div class="Info-new-case2-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
                     <div class="Info-new-case2-1">
                       <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
@@ -393,13 +395,13 @@
                 </div>
               </div>
               <div id="info-contents-hidden2" style="grid-column:2 / 3;">
-                <div id="info-contents-checkup2"class="info-contents-write1">
+                <div id="info-contents-checkup2_0" class="info-contents-write1">
                   <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
                     <div class="checkup-grid1">
                       <div class="checkup-header">
                         <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 항목</p>
-                        <input id="st2" class="checkup-checkbox-grid" type="checkbox"></input>
-                        <label for="st2" style="font-size: 10px; margin-top:7px"></label>
+                        <input id="st2_0" class="checkup-checkbox-grid" type="checkbox"></input>
+                        <label for="st2_0" style="font-size: 10px; margin-top:7px"></label>
                       </div>
                       <input class="info-input info-input-space " type="text" placeholder="검사 항목"></input>
                     </div>
@@ -411,13 +413,13 @@
                 </div>
               </div>
               <div id="info-contents-hidden3" style="grid-column:3 / 4;">
-                <div id="info-contents-checkup3"class="info-contents-write1">
+                <div id="info-contents-checkup3_0" class="info-contents-write1">
                   <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
                     <div class="checkup-grid1">
                       <div class="checkup-header">
                         <p class="Info-new-case1-p" style="margin-bottom:5px;">치료 항목</p>
-                        <input id="st1" class="checkup-checkbox-grid" type="checkbox"></input>
-                        <label for="st1" style="font-size: 10px;  margin-top:7px"></label>
+                        <input id="st1_0" class="checkup-checkbox-grid" type="checkbox"></input>
+                        <label for="st1_0" style="font-size: 10px; margin-top:7px"></label>
                       </div>
                       <input class="info-input info-input-space " type="text" placeholder="치료 항목">
                     </div>
@@ -626,8 +628,8 @@
     </div> -->
 
   </section>
+  <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
   <script src="https://kit.fontawesome.com/c5cbf70f3e.js" crossorigin="anonymous"></script>
-  <script src="js/test_info.js"></script>
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/test_main_page.js"></script>
   <script src="js/test_patient_list.js"></script>
