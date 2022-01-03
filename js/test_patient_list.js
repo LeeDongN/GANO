@@ -148,9 +148,10 @@ function readModal(a) {
   return modalData;
 };
 
+var global_modalData = {};
 function PatientsModal_open(k) {
   var modalData = readModal(k)
-  console.log(modalData.dia.innerText);
+  global_modalData = modalData;
   document.getElementById("mp_id").innerHTML = modalData.id.innerText;
   document.getElementById('mp_dia').innerHTML = ". 진단명 : " + modalData.dia.innerText;
   document.getElementById('mp_past').innerHTML = ". 과거력 : " + modalData.past.innerText;

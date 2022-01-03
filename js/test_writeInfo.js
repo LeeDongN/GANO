@@ -2,7 +2,10 @@ const main = document.querySelector("#main");
 const writein = document.querySelector("#write");
 const patientModal = document.querySelector("#PatientsModal")
 
-function begin_write() {
+function begin_write(k) {
+  console.log(global_modalData.id.innerText);
+  document.getElementById("info-name").innerHTML = global_modalData.id.innerText;
+  document.getElementById("info-header-name").innerHTML = global_modalData.id.innerText;
   document.getElementById("PatientsModal").style.display = "none";
   main.style.WebkitAnimation = "fadeOut 0.5s";
   main.style.animation = "fadeOut 0.5s";
@@ -14,6 +17,7 @@ function begin_write() {
       writein.style.display = "block"
     }, 200)
   }, 200);
+  global_modalData = {};
 };
 
 function ToList() {
@@ -28,6 +32,7 @@ function ToList() {
     }, 200)
   }, 200);
 };
+
 //신규환자 팝업창
 function New_Info_open() {
   document.getElementById("New_Info").style.display = 'block';

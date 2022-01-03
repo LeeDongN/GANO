@@ -123,7 +123,7 @@
           <p class="w3-left-align" id="mp_doc" style="text-decoration:underline; text-underline-position:under;">. 주치의: 000</p>
         </div>
         <div class="plus_4">
-          <span class="icon-btn  w3-card-2 w3-hover-shadow" onclick="js:begin_write()" style="border-radius:10px; background-color: #FEC0C1;" role="button">
+          <span class="icon-btn  w3-card-2 w3-hover-shadow" onclick="js:begin_write(this)" style="border-radius:10px; background-color: #FEC0C1;" role="button">
             <i class="fas fa-hand-holding-medical" style="font-size:25px; padding-right: 5px; margin-bottom:3px"></i>
             <p class="w3-section my-auto" style="margin-left:20px">인계 작성</p>
           </span>
@@ -146,7 +146,10 @@
         </div>
 
         <div class="P_add_1 text_bolder">
-          <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+          <div class="P_add_id">
+            <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
+            <p>hi</p>
+          </div>
           <input class="w3-input" type="text" placeholder="Patient id" id="p_id">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
           <input class="w3-input" type="date" placeholder="입원 날짜" id="p_date">
@@ -199,7 +202,7 @@
         <div class="P_add_3 text_bolder">
           <span class="icon-input-btn">
             <i class="fas fa-file-signature" style="font-size:25px;"></i>
-            <input id="Editon" type="button" class="plus_5 w3-card-2 w3-hover-shadow" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:32px; border-width:0px; background-color:#FEC0C1;" id="itemEdit"
+            <input id="Editon" type="button" class="plus_5 w3-card-2 w3-hover-shadow" style="border-radius:10px; width:100%; height:100%; text-align:center; padding-left:32px; border-width:0px; background-color:#FEC0C1;"
               value="정보 수정"></input>
           </span>
         </div>
@@ -233,11 +236,10 @@
           </div>
           <div class="info-sidebar-NameDate">
             <div class="info-sidebar-Name info-hover" style="height:40px" role="button">
-              <p style="font-size:25px; text-align:center; margin-bottom:0px; font-weight:550">홍 <span>길</span> <span>동</span></p>
+              <p id="info-name" style="font-size:25px; text-align:center; margin-bottom:0px; font-weight:550; letter-spacing: 9px;"></p>
             </div>
             <div class="info-sidebar-Date info-hover" role="button">
-              <input type="date" style="border-width:0px; background-color:#F9E4C8" />
-              <!--<p style="font-size:13px; margin-bottom:0px; color:gray; letter-spacing:2px;">2021 <span> .12 </span> <span> .19</span> <span> D</span></p>-->
+              <p style="font-size:13px; margin-bottom:0px; color:gray; letter-spacing:2px;">2021 <span> .12 </span> <span> .19</span> <span> D</span></p>
             </div>
           </div>
           <div class="info-sidebar-conven">
@@ -392,7 +394,8 @@
             </div>
           </div>
         </div>
-        <p style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px;">홍길동 2021 .12 .19 Day</p>
+        <p id="info-header-name" style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px;">홍길동</p>
+        <p style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px; margin-left:5px;">2021 .12 .19 Day</p>
       </div>
       <div class="info-contents-header">
         <div style="display: flex">

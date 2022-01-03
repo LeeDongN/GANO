@@ -99,6 +99,10 @@
   grid-row-start: 2;
 }
 
+.P_add_id {
+  display: flex;
+  justify-content: space-between;
+}
 .P_add_2 {
   margin-left: 20px;
   margin-right: 20px;
