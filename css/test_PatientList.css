@@ -59,14 +59,14 @@
 .patients_list_grid {
   display: grid;
   max-width: auto;
-  grid-template-rows: 200px minmax(100px, auto);
+  grid-template-rows: 260px minmax(100px, auto);
   grid-template-columns: repeat(auto-fill, minmax(33.333%, auto));
 }
 
 .patients_list_header {
   grid-column: 1 / 4;
   grid-row: 1 / 2;
-  margin-top: 35px;
+  margin-top: 55px;
 }
 
 .patients_list_body {
@@ -75,9 +75,18 @@
   margin-top: 35px;
 }
 
+.patients_list_body2 {
+  display: grid;
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  grid-template-columns: repeat(3, 33.333%);
+  margin-top: 35px;
+  justify-content: flex-start;
+}
 /*-------------------------------------------------------*/
 /*시작하는 부분*/
 .patients_list_start {
+  width: 100%;
   grid-column: 2 / 3;
 }
 /*환자 병실 선택 및 설정*/
@@ -186,6 +195,8 @@
 
 .List_Empty_bed_block {
   display: block;
+  width: 95%;
+  margin: auto;
 }
 
 .List_Empty_bed_frame {

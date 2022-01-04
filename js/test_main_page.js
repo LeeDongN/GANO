@@ -51,6 +51,15 @@ function roomAdd() {
   };
 }
 
+$('input[type=number][maxlength]').on('input', function(ev) {
+    var $this = $(this);
+    var maxlength = $this.attr('maxlength');
+    var value = $this.val();
+    if (value && value.length >= maxlength) {
+        $this.val(value.substr(0, maxlength));
+    }
+});
+
 function emptyBedAdd() {
   var empty = document.getElementById("roomOption_person").value;
   for (i=0; i<empty; i++){

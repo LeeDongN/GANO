@@ -86,10 +86,10 @@
     <div class="w3-content color_2" style="max-width:100%; min-height:800px">
       <!--환자 추가 및 미리보기 섹션-->
       <div class="w3-content patients_list_grid" id="patients_list" name="patients_list">
+        <!--List 페이지 헤더 부분-->
         <div class="w3-container w3-padding-64 patients_list_header" style="max-width:1200px">
           <h1 class="w3-wide w3-center">Patients List</h1>
           <p class="w3-opacity w3-center">Remember your patients!</p><br>
-
           <div id="patients_list_roomChoise_frame" class="patients_list_roomChoise_frame">
             <div style="display:flex" id="list_roomChoise_frame2">
               <div id="roomClone_0" class="patients_list_roomChoise_items w3-card w3-hover-opacity" role="button">
@@ -103,27 +103,29 @@
             </div>
           </div>
         </div>
+        <!--리스트페이지 컨텐츠 부분-->
         <div class="patients_list_body">
-          <div class="w3-row-padding w3-padding-32" id="AddOption" style="margin:0 -16px">
+          <div class="w3-padding-32 patients_list_body2" id="AddOption" style="margin:0 -16px; padding:0 8px;">
             <!--병실 및 몇 인실인지 정할 수 있는 칸-->
-            <div id="patients_list_start" class="w3-third w3-margin-bottom patients_list_start">
+            <div id="patients_list_start" class="patients_list_start w3-margin-bottom">
               <div class="patients_plus w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2 py-3 px-3" style="border-radius:10px;" onclick="roomOption_open()" role="button">
                 <i class="material-icons md-dark md-inactive patients_plus_position" style="font-size:100px;">touch_app</i>
                 <p style="font-size:17px; margin-bottom:0px; margin-top:7px;">시작하기</p>
               </div>
             </div>
-            <!--빈 병상 -->
-            <div id="List_Empty_bed_0" class="w3-third w3-margin-bottom List_Empty_bed_none">
-              <div class="List_Empty_bed_frame w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2" style="border-radius:10px;" onclick="P_plusModal_open()" role="button">
-                <div class="List_Empty_bed_name">
-                  <p class="List_Empty_bed_nameStyle">1번 병상</p>
-                </div>
-                <div class="List_Empty_bed_icon">
-                  <i class="material-icons md-dark md-inactive" style="font-size:100px;">hotel</i>
-                </div>
-              </div>
-            </div>
+
           </div>
+        </div>
+      </div>
+    </div>
+    <!--빈 병상 -->
+    <div id="List_Empty_bed_0" class="w3-third w3-margin-bottom List_Empty_bed_none">
+      <div class="List_Empty_bed_frame w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2" style="border-radius:10px;" onclick="P_plusModal_open()" role="button">
+        <div class="List_Empty_bed_name">
+          <p class="List_Empty_bed_nameStyle">1번 병상</p>
+        </div>
+        <div class="List_Empty_bed_icon">
+          <i class="material-icons md-dark md-inactive" style="font-size:100px;">hotel</i>
         </div>
       </div>
     </div>
@@ -139,13 +141,13 @@
               <p style="margin-bottom:0px;">최대</p>
             </div>
             <div class="List_roomOption_body2_input">
-              <input style="height:30px; width:30px;" type="number" min="1" max="8" id="roomOption_person">
+              <input style="height:30px; width:30px;" type="number" maxlength="1" id="roomOption_person">
             </div>
             <div class="List_roomOption_body2_text">
               <p style="margin-bottom:0px;">인실인 병실</p>
             </div>
             <div class="List_roomOption_body2_input">
-              <input style="height:30px; width:30px;" type="number" min="1" max="8" id="roomOption_room">
+              <input style="height:30px; width:30px;" type="number" maxlength="1" id="roomOption_room">
             </div>
             <div class="List_roomOption_body2_text">
               <p style="margin-bottom:0px;">개를 맡고 있어요!</p>

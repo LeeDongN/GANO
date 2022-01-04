@@ -16,7 +16,7 @@ $('#itemAdd').click(function() {
   var p_Data = readFormData();
   var contents = '';
   var i = 'patient_' + k++;
-  contents += '<div id="' + i + '" class="w3-third w3-margin-bottom">';
+  contents += '<div id="' + i + '" class="w3-margin-bottom" style="margin-left:10px; margin-right:10px;">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
   contents += '<div class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
   contents += '<p id="id_' + k + '" class="pl_item_header plus_color text_bolder" style="font-size: 18px"><b>' + p_Data.p_id + '</b></p>';
