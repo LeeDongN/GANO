@@ -41,11 +41,11 @@ $('#itemAdd').click(function() {
   contents += '<a onclick="onDelete(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_del_color" style="border-radius:10px; width:40%; height:45%"><p class="text_bolder pl_mg">퇴원</p></a>';
   contents += '</span>'
   contents += '</div>';
-
   contents += '</div>';
   contents += '</div>';
-
-  $('#AddOption').prepend(contents); // 추가기능
+  $('#'+global_bedID).children().hide();
+  $('#'+global_bedID).append(contents);
+   // 추가기능
   resetForm();
 });
 
@@ -61,8 +61,11 @@ function resetForm() {
 
 //환자 정보 삭제
 function onDelete(e) {
+  var remove_info = e.parentNode.parentNode.parentNode.parentNode.id;
+  var remove_bed = e.parentNode.parentNode.parentNode.parentNode.parentNode.id;
   if (confirm('퇴원을 진행하겠습니다. 오늘도 환자들을 도와주셔서 감사합니다.')) {
-    e.parentNode.parentNode.parentNode.parentNode.remove();
+    $('#' + remove_info).remove();
+    $('#' + remove_bed).children().show();
   }
 };
 //Edit 기능

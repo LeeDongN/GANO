@@ -15,9 +15,12 @@ function PatientsModal_close() {
 
 }
 
+var global_bedID = {};
 //환자 추가 버튼 누를 시 나타나는 팝업 창
-function P_plusModal_open() {
+function P_plusModal_open(a) {
   document.getElementById("P_plusModal").style.display='block';
+  global_bedID = $(a).parent().prop('id');
+  console.log(global_bedID);
 }
 
 function P_plusModal_close() {
