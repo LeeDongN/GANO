@@ -3,7 +3,6 @@ const writein = document.querySelector("#write");
 const patientModal = document.querySelector("#PatientsModal")
 
 function begin_write(k) {
-  console.log(global_modalData.id.innerText);
   document.getElementById("info-name").innerHTML = global_modalData.id.innerText;
   document.getElementById("info-header-name").innerHTML = global_modalData.id.innerText;
   document.getElementById("PatientsModal").style.display = "none";
@@ -172,13 +171,13 @@ function add_checkup_box2() {
   $('#info-contents-hidden2').append(contents);
 };
 
-var cure1 = 1;
-var cure2 = 1;
+var care1 = 1;
+var care2 = 1;
 
 function add_checkup_box3() {
   contents = '';
-  var i = 'str1_' + cure1++;
-  var l = 'info-contents-checkup3_' + cure2++;
+  var i = 'str1_' + care1++;
+  var l = 'info-contents-checkup3_' + care2++;
   var contents = $('#info-contents-checkup3_0').clone();
   contents.find('label').attr('for', i)
   contents.find('input:eq(0)').attr('id', i)

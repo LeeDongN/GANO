@@ -59,15 +59,162 @@
 .patients_list_grid {
   display: grid;
   max-width: auto;
-  grid-auto-rows: minmax(100px, auto);
-  grid-template-columns: repeat(auto-fill, minmax(33.33%, auto));
+  grid-template-rows: 200px minmax(100px, auto);
+  grid-template-columns: repeat(auto-fill, minmax(33.333%, auto));
 }
 
 .patients_list_header {
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / 4;
+  grid-row: 1 / 2;
+  margin-top: 35px;
 }
 
+.patients_list_body {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  margin-top: 35px;
+}
+
+/*-------------------------------------------------------*/
+/*시작하는 부분*/
+.patients_list_start {
+  grid-column: 2 / 3;
+}
+/*환자 병실 선택 및 설정*/
+.patients_list_roomChoise_frame {
+  display: none;
+  width: 100%;
+  height: 25px;
+  justify-content: flex-start;
+}
+
+.patients_list_roomChoise_items {
+  width: 65px;
+  height: 23px;
+  margin-right: 10px;
+  border-radius: 7px;
+}
+
+.patients_list_roomChoise_items2 {
+  display: flex;
+  width: 65px;
+  height: 23px;
+  justify-content: flex-start;
+  font-size: 14px;
+  padding-left: 5px;
+  border-radius: 5px;
+  background-color: #F7E7D6;
+}
+
+.patients_list_roomChoise_add {
+  width: 30px;
+  height: 23px;
+}
+
+.patients_list_roomChoise_add2 {
+  width: 30px;
+  height: 23px;
+}
+
+/*병실 및 인원 설정 팝업창*/
+.List_roomOption_grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 400px;
+  grid-template-rows: minmax(40px, auto) 100px 70px;
+}
+
+.List_roomOption_header {
+  grid-row: 1 / 2;
+}
+
+.List_roomOption_body {
+  display: grid;
+  grid-row: 2 / 3;
+  align-content: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.List_roomOption_body2 {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+  height: 30px;
+}
+
+.List_roomOption_body2_input {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+}
+
+.List_roomOption_body2_text {
+  min-width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.List_roomOption_button {
+  display: grid;
+  grid-row:  3 / 4;
+  align-content: center;
+  justify-content: center;
+}
+
+.List_roomOption_button2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  background-color: #FEC0C1;
+}
+
+/*인원수에 맞는 빈 병상에 관한 css*/
+.List_Empty_bed_none {
+  display: none;
+}
+
+.List_Empty_bed_block {
+  display: block;
+}
+
+.List_Empty_bed_frame {
+  display: grid;
+  grid-template-rows: 55px 182px;
+  height: 248px;
+  border: 3px groove gray;
+}
+
+.List_Empty_bed_name {
+  padding-top: 5px;
+  grid-row: 1 / 2;
+  align-self: center;
+  margin-left: 20px;
+  margin-right: 20px;
+  border-bottom: 2px solid gray;
+}
+
+.List_Empty_bed_nameStyle {
+  font-size: 20px;
+  margin-bottom: 0px;
+  font-weight: 600;
+}
+
+.List_Empty_bed_icon {
+  grid-row: 2 / 3;
+  align-self: center;
+}
+/*-------------------------------------------------------*/
 .patients_grid {
   display: grid;
   grid-template-rows: 70px 30px repeat(3, minmax(40px, auto)) minmax(50px, auto);
@@ -206,6 +353,7 @@
 .patients_plus {
   display: grid;
   height: 248px;
+  border: 3px dashed gray;
 }
 
 .patients_plus_color {
@@ -292,4 +440,136 @@
   margin-bottom: auto;
   grid-column: 2;
   grid-row: 3
+}
+
+/*icon과 input submit를 같이 쓰기 위함*/
+.icon-input-btn {
+  display: inline-block;
+  position: relative;
+  top: 20%;
+  width: 150px;
+  height: 50px
+}
+
+.icon-input-btn input[type="submit"] {
+  padding-left: 2em;
+}
+
+.icon-input-btn .fas {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-input-btn .far {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-btn {
+  display: inline-block;
+  position: relative;
+  top: 20%;
+  width: 150px;
+  height: 50px
+}
+
+.icon-btn .far {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+.icon-btn .fas {
+  display: inline-block;
+  position: absolute;
+  left: 10%;
+  top: 23%;
+}
+
+/*환자를 클릭하면 나오는 팝업창에 관련한 */
+.patients_plus_position {
+  position: relative;
+  left: auto;
+  top: 30px;
+}
+
+#dashed {
+  border: dashed;
+  border-color: grey;
+}
+
+.button_nonEffect {
+  border: none;
+  display: inline-block;
+  padding: 8px 16px;
+  vertical-align: middle;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  background-color: inherit;
+  text-align: center;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/*환자 add를 클릭하면 나오는 팝업 창*/
+.p_add_grid {
+  display: grid;
+  margin: auto;
+  background-color: #fff;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 600px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 43px 300px 100px;
+}
+
+.P_add_1 {
+  border-right: 2px gray dashed;
+  margin-left: 20px;
+  margin-right: 0px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-right: 20px;
+  margin-bottom: auto;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+}
+
+.P_add_id {
+  display: flex;
+  justify-content: space-between;
+}
+.P_add_2 {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: auto;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+}
+
+.P_add_3 {
+  border-top: 1px gray solid;
+  margin-left: 20px;
+  margin-right: 20px;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 3;
+}
+
+.P_add_border {
+  border: 1px solid #ccc !important;
+  border-top: 1px solid #ccc !important;
+  border-bottom: 1px solid #ccc !important;
+  border-left: 1px solid #ccc !important;
+  border-right: 1px solid #ccc !important;
 }

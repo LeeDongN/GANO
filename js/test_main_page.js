@@ -28,6 +28,51 @@ function P_plusModal_close2() {
   resetForm();
 }
 
+//병실 및 인원 설정
+function roomOption_open() {
+  document.getElementById("roomOption").style.display='block';
+}
+
+function roomOption_close() {
+  document.getElementById("roomOption").style.display='none';
+  document.getElementById("roomOption_room").value = "";
+  document.getElementById("roomOption_person").value = "";
+}
+
+function roomAdd() {
+  var room = document.getElementById("roomOption_room").value;
+  for (i=0; i<room-1; i++){
+    var k = "roomClone_" + (i+1);
+    var contents = $('#roomClone_0').clone();
+    contents.prop("id", k)
+    contents.find('p').text((i+2) + '번 병실');
+    contents.find('div:eq(0)').attr('style', 'background-color:#F7E7D6; opacity:0.5');
+    $('#list_roomChoise_frame2').append(contents);
+  };
+}
+
+function emptyBedAdd() {
+  var empty = document.getElementById("roomOption_person").value;
+  for (i=0; i<empty; i++){
+    var k = "List_Empty_bed_" + i;
+    var contents = $('#List_Empty_bed_0').clone();
+    contents.prop("id", k)
+    contents.prop("class", "w3-third w3-margin-bottom List_Empty_bed_block")
+    contents.find('p').text((i+1) + '번 병상')
+    $('#AddOption').append(contents);
+  };
+}
+
+function roomOption_choose() {
+  roomAdd();
+  emptyBedAdd();
+  document.getElementById("roomOption").style.display='none';
+  document.getElementById("patients_list_start").style.display = 'none';
+  document.getElementById("patients_list_roomChoise_frame").style.display='flex';
+  //document.getElementById("roomOption_person").value;
+  document.getElementById("roomOption_room").value = "";
+  document.getElementById("roomOption_person").value = "";
+}
 
 //Edit 화면 팝업창
 function Edit_close() {
