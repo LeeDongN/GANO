@@ -76,8 +76,16 @@ function emptyBedAdd() {
   };
 }
 
+var global_AddOption = "";
 function roomAdd() {
   var room = document.getElementById("roomOption_room").value;
+  for (i = 0; i < room; i++) {
+    var k = "AddOption_" + i;
+    var contents = $('#AddOption').clone();
+    contents.prop("id", k)
+    $('#ListPage').append(contents);
+  };
+  $('#AddOption').siblings().hide();
 }
 
 function roomOption_choose() {
@@ -86,6 +94,7 @@ function roomOption_choose() {
   document.getElementById("roomOption").style.display = 'none';
   document.getElementById("patients_list_start").style.display = 'none';
   document.getElementById("patients_list_roomChoise_frame").style.display = 'flex';
+  roomAdd();
   document.getElementById("roomOption_room").value = "";
   document.getElementById("roomOption_person").value = "";
 }
