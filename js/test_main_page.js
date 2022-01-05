@@ -24,7 +24,8 @@ function PatientsModal_close() {
   document.getElementById('PatientsModal').style.display = 'none';
 }
 
-var global_bedID = {};
+var global_roomID = {};
+var global_bedID = {}; //각 침대마다의 고유 아이디
 //환자 추가 버튼 누를 시 나타나는 팝업 창
 function P_plusModal_open(a) {
   document.getElementById("P_plusModal").style.display = 'block';
@@ -76,13 +77,18 @@ function emptyBedAdd() {
   };
 }
 
-var global_AddOption = "";
 function roomAdd() {
   var room = document.getElementById("roomOption_room").value;
+  var bed = document.getElementById("roomOption_person").value;
   for (i = 0; i < room; i++) {
     var k = "AddOption_" + (i+1);
     var contents = $('#AddOption_0').clone();
     contents.prop("id", k)
+    //침대 id 부여(00_룸아이디_침대아이디)
+    for (l = 0; l < bed; l++) {
+      var bedID = "List_Empty_bed_" + i + "_" + l;
+      contents.children(':eq('+ (l+1) +')').prop("id", bedID)
+    };
     $('#ListPage').append(contents);
   };
   $('#AddOption_0').siblings().hide();
@@ -104,8 +110,7 @@ function roomChoise(a) {
   var id_split = id.split('_');
   var addOption_id = 'AddOption_'+id_split[1];
   $('#'+addOption_id).show();
-  $('#'+addOption_id).siblings().hide(); 
-  console.log(addOption_id);
+  $('#'+addOption_id).siblings().hide();
   $(a).prop("class", "patients_list_roomChoise_items patients_list_roomChoise_selected");
   $(a).siblings().removeClass("patients_list_roomChoise_selected");
   $(a).siblings().addClass("patients_list_roomChoise_Unselected");
