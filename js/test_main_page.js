@@ -72,7 +72,7 @@ function emptyBedAdd() {
     contents.prop("id", k)
     contents.prop("class", "w3-third w3-margin-bottom List_Empty_bed_block")
     contents.find('p').text((i + 1) + '번 병상')
-    $('#AddOption').append(contents);
+    $('#AddOption_0').append(contents);
   };
 }
 
@@ -80,12 +80,12 @@ var global_AddOption = "";
 function roomAdd() {
   var room = document.getElementById("roomOption_room").value;
   for (i = 0; i < room; i++) {
-    var k = "AddOption_" + i;
-    var contents = $('#AddOption').clone();
+    var k = "AddOption_" + (i+1);
+    var contents = $('#AddOption_0').clone();
     contents.prop("id", k)
     $('#ListPage').append(contents);
   };
-  $('#AddOption').siblings().hide();
+  $('#AddOption_0').siblings().hide();
 }
 
 function roomOption_choose() {
@@ -100,6 +100,12 @@ function roomOption_choose() {
 }
 
 function roomChoise(a) {
+  var id = $(a).prop("id");
+  var id_split = id.split('_');
+  var addOption_id = 'AddOption_'+id_split[1];
+  $('#'+addOption_id).show();
+  $('#'+addOption_id).siblings().hide(); 
+  console.log(addOption_id);
   $(a).prop("class", "patients_list_roomChoise_items patients_list_roomChoise_selected");
   $(a).siblings().removeClass("patients_list_roomChoise_selected");
   $(a).siblings().addClass("patients_list_roomChoise_Unselected");
