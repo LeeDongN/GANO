@@ -101,18 +101,27 @@
   width: 65px;
   height: 23px;
   margin-right: 10px;
-  border-radius: 7px;
+  border-radius: 3px;
 }
 
-.patients_list_roomChoise_items2 {
+.patients_list_roomChoise_items2{
   display: flex;
   width: 65px;
   height: 23px;
   justify-content: flex-start;
   font-size: 14px;
+  color: gray;
+  font-weight: 600;
   padding-left: 5px;
-  border-radius: 5px;
+  border-radius: 3px;
+}
+
+.patients_list_roomChoise_Unselected {
   background-color: #F7E7D6;
+}
+
+.patients_list_roomChoise_selected {
+  background-color: #CCD1E4;
 }
 
 .patients_list_roomChoise_add {
@@ -307,6 +316,10 @@
 }
 
 .pl_item_5 {
+  /*background-color: #E2C2B9 !important;
+  /*background-color: #ECE2E1 !important;
+  /*background-color: #CCD1E4 !important;
+  /*background-color: #F4DFD0 !important;*/
   background-color: #FFE2E2 !important;
   margin-right: 0px;
   border-bottom-right-radius: 10px;
@@ -503,7 +516,7 @@
   position: relative;
   padding: 0;
   outline: 0;
-  width: 600px;
+  width: 500px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 43px 200px 100px;
 }

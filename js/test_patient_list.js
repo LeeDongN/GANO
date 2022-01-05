@@ -15,7 +15,7 @@ $('#itemAdd').click(function() {
   var bedID = $('#' + global_bedID).find("p").text();
   var contents = '';
   var i = 'patient_' + k++;
-  contents += '<div id="' + i + '" class="w3-margin-bottom" style="margin-left:10px; margin-right:10px;">';
+  contents += '<div id="' + i + '" style="margin-left:10px; margin-right:10px; margin-bottom:11px;">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
   contents += '<div class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
 
