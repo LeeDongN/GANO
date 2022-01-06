@@ -27,7 +27,7 @@ $('#itemAdd').click(function() {
   contents += '<p class="w3-left-align pl_item_2 text_bolder">입원 날짜</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_2-2">' + p_Data.p_date + '</p>';
 
-  contents += '<p class="w3-left-align pl_item_3 text_bolder">진단명</p>';
+  contents += '<p class="w3-left-align pl_item_3 text_bolder">내원 이유</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_3-2">' + p_Data.p_dia + '</p>';
 
   contents += '<p class="w3-left-align pl_item_4 text_bolder">주치의</p>';
@@ -57,6 +57,8 @@ function resetForm() {
   document.getElementById("p_id").value = "";
   document.getElementById("p_date").value = "";
   document.getElementById("p_dia").value = "";
+  $("#p_dia option:eq(0)").attr('selected', true);
+  document.getElementById("add_label_selectbox").textContent = "";
   document.getElementById("p_doc").value = "";
 };
 
@@ -106,6 +108,7 @@ function Edit_open(a) {
   document.getElementById("E-p_id").value = view_data.id;
   document.getElementById("E-p_date").value = view_data.date;
   document.getElementById("E-p_dia").value = view_data.dia;
+  document.getElementById("E-p_label_selectbox").textContent = view_data.dia;
   document.getElementById("E-p_doc").value = view_data.doc;
   document.getElementById("Edit").style.display = 'block';
 };

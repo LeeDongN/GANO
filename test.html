@@ -174,7 +174,7 @@
         </div>
         <div class="plus_3 text_bolder" style="align-self: center">
           <p class="w3-left-align pt-3" id="mp_date" style="text-decoration:underline; text-underline-position:under;">. 입원 날짜: 2021.12.08</p>
-          <p class="w3-left-align" id="mp_dia" style="text-decoration:underline; text-underline-position:under;">. 진단명: 000</p>
+          <p class="w3-left-align" id="mp_dia" style="text-decoration:underline; text-underline-position:under;">. 내원 이유: 000</p>
           <p class="w3-left-align" id="mp_doc" style="text-decoration:underline; text-underline-position:under;">. 주치의: 000</p>
         </div>
         <div class="plus_4">
@@ -210,8 +210,16 @@
           <input class="w3-input" type="date" placeholder="입원 날짜" id="p_date">
         </div>
         <div class="P_add_2 text_bolder">
-          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
-          <input id="p_dia" class="w3-input" type="text" placeholder="진단명">
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 내원 이유</label></p>
+          <div class="selectbox" style="width:208px; height:39.5px;">
+            <label id="add_label_selectbox" for="p_dia" style="padding-top:7px; padding-bottom:7px;"></label>
+            <select style="padding-top:8px; padding-bottom:8px;" id="p_dia">
+              <option value="" disabled selected hidden>내원 이유</option>
+              <option value="수술/시술">수술/시술</option>
+              <option value="약물치료">약물치료</option>
+            </select>
+          </div>
+          <!--<input id="p_dia" class="w3-input" type="text" placeholder="진단명">-->
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
           <input id="p_doc" class="w3-input" type="text" placeholder="주치의">
         </div>
@@ -240,8 +248,15 @@
           <input class="w3-input " type="date" value="" id="E-p_date" />
         </div>
         <div class="P_add_2 text_bolder">
-          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 진단명</label></p>
-          <input id="E-p_dia" class="w3-input " type="text" value="" />
+          <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fa fa-file-alt"></i> 내원 이유</label></p>
+          <div class="selectbox" style="width:208px; height:39.5px;">
+            <label id="E-p_label_selectbox" for="p_dia" style="padding-top:7px; padding-bottom:7px; color:black;"></label>
+            <select style="padding-top:8px; padding-bottom:8px;" id="E-p_dia">
+              <option value="" disabled selected hidden>내원 이유</option>
+              <option value="수술/시술">수술/시술</option>
+              <option value="약물치료">약물치료</option>
+            </select>
+          </div>
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
           <input id="E-p_doc" class="w3-input " type="text" value="" />
         </div>
