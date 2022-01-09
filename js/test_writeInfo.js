@@ -117,38 +117,114 @@ function unusal_close() {
   document.getElementById("unusal").style.display = 'none';
 }
 ///////////////////////////////////////////////////////////////
-$("#info-contents-hidden1").mouseover(function() {
-  $("#info-contents-write-add1").fadeIn(100);
-  document.getElementById("info-contents-write-add2").style.display = 'none';
-  document.getElementById("info-contents-write-add3").style.display = 'none';
+/////////환자 기본 정보 추가를 위한 옵션 선택 창 /////
+function info_basicOption_close() {
+  document.getElementById("Info_basic-option").style.display = 'none';
+}
+
+
+function info_cart() {
+  var cart_length =$('#info_basic-option-cart').find('div.info_basic-option-button3').length;
+  var id = new Array();
+  //id배열에 cart에 추가되어 있는 id들을 넣는 함수//
+  for (k = 0; k < (cart_length + 1); k++) {
+    id.splice(0, 0, $('#info_basic-option-cart').find('div.info_basic-option-button3:eq('+ k +')').prop('id'));
+  };
+  return [id, cart_length]
+}
+
+$('#info_basicOption_past').click(function() {
+  var copy = $('#info_basicOption_past').parent().clone();
+  copy.children().prop('id', 'info_basicOption_past_carted' )
+  copy.children().attr('role', '');
+  var a = info_cart();
+  var id = a[0];
+  var cart_length = a[1];
+  //id배열에 클릭한 값의 id가 존재한다면 추가하지 않고 삭제//
+  if(id.includes('info_basicOption_past_carted')) {
+    $('#info_basicOption_past_carted').parent().remove();
+    $('#info_basicOption_past').attr('style','');
+  } else {
+    $('#info_basic-option-cart').append(copy);
+    $('#info_basicOption_past').attr('style', 'background-color:#D9D7F1; color:rgb(238, 78, 52);');
+  }
 });
 
-$("#info-contents-hidden2").mouseover(function() {
-  $("#info-contents-write-add2").fadeIn(100);
-  document.getElementById("info-contents-write-add1").style.display = 'none';
-  document.getElementById("info-contents-write-add3").style.display = 'none';
+
+$('#info_basicOption_surgery').click(function() {
+  var copy = $('#info_basicOption_surgery').parent().clone();
+  copy.children().prop('id', 'info_basicOption_surgery_carted');
+  copy.children().attr('role', '');
+  var a = info_cart();
+  var id = a[0];
+  var cart_length = a[1];
+  //id배열에 클릭한 값의 id가 존재한다면 추가하지 않고 삭제//
+  if(id.includes('info_basicOption_surgery_carted')) {
+    $('#info_basicOption_surgery_carted').parent().remove();
+    $('#info_basicOption_surgery').attr('style','');
+  } else {
+    $('#info_basic-option-cart').append(copy);
+    $('#info_basicOption_surgery').attr('style', 'background-color:#D9D7F1; color:rgb(238, 78, 52);');
+  }
 });
 
-$("#info-contents-hidden3").mouseover(function() {
-  $("#info-contents-write-add3").fadeIn(100);
-  document.getElementById("info-contents-write-add1").style.display = 'none';
-  document.getElementById("info-contents-write-add2").style.display = 'none';
+
+$('#info_basicOption_allergy').click(function() {
+  var copy = $('#info_basicOption_allergy').parent().clone();
+  copy.children().prop('id', 'info_basicOption_allergy_carted');
+  copy.children().attr('role', '');
+  var a = info_cart();
+  var id = a[0];
+  var cart_length = a[1];
+  //id배열에 클릭한 값의 id가 존재한다면 추가하지 않고 삭제//
+  if(id.includes('info_basicOption_allergy_carted')) {
+    $('#info_basicOption_allergy_carted').parent().remove();
+    $('#info_basicOption_allergy').attr('style','');
+  } else {
+    $('#info_basic-option-cart').append(copy);
+    $('#info_basicOption_allergy').attr('style', 'background-color:#D9D7F1; color:rgb(238, 78, 52);');
+  }
 });
 
-$("#info-sidebar-repeat").mouseover(function() {
-  document.getElementById("info-sidebar-repeat-hover").style.display = 'flex';
-});
-$("#info-sidebar-repeat").mouseout(function() {
-  document.getElementById("info-sidebar-repeat-hover").style.display = 'none';
-});
-$("#info-sidebar-special").mouseover(function() {
-  document.getElementById("info-sidebar-special-hover").style.display = 'flex';
-});
-$("#info-sidebar-special").mouseout(function() {
-  document.getElementById("info-sidebar-special-hover").style.display = 'none';
-});
+//카트에 담겨져있는 컨텐츠 리셋//
+$('#info_basic-option-cartReset').click(function() {
+  $('#info_basic-option-cart').children().remove();
+  $('#info_basicOption_past').attr('style', 'background-color:#FAEEE0; color:rgb(93, 23, 21);');
+  $('#info_basicOption_allergy').attr('style', 'background-color:#FAEEE0; color:rgb(93, 23, 21);');
+  $('#info_basicOption_surgery').attr('style', 'background-color:#FAEEE0; color:rgb(93, 23, 21);');
+})
+
+
+//카트에 담겨져있는 것 입력//
+$('#info_basic-option-input').click(function() {
+  var a = info_cart();
+  var id = a[0];
+  var cart_length = a[1];
+  var id_length = id.length;
+  var tmp = "";
+
+  for (k = 1; k < id_length; k++) {
+    var l = ""
+    l = id[k];
+    var split_id = '#info-basicInfo-' + l.split("_")[2];
+    tmp += $(split_id).clone().html();
+  }
+  $('#info-contents-hidden1').children().remove();
+  $('#info-contents-hidden1').append(tmp);
+  $('#info-contents-hidden').parent().parent().prop('style', 'display:grid');
+  info_basicOption_close();
+})
+/*
+if (id.includes('info_basicOption_past_carted')) {
+  $('#info-contents-hidden1').append($('#info-basicInfo-past'));
+} else if (id.includes('info_basicOption_surgery_carted')) {
+  $('#info-contents-hidden1').append($('#info-basicInfo-surgery'));
+} else if (id.includes('info_basicOption_allergy_carted')) {
+  $('#info-contents-hidden1').append($('#info-basicInfo-allergy'));
+}
+$('#info-contents-hidden1').parent().parent().parent().attr('style', 'display:grid;');*/
+
 var sym = 1;
-
 function add_checkup_box1() {
   contents = '';
   var l = 'info-contents-checkup1_' + sym++;

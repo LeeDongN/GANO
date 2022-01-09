@@ -298,6 +298,7 @@
   display: grid;
   grid-template-rows: 70px repeat(3, minmax(40px, auto)) minmax(50px, auto);
   grid-template-columns: 90px 1fr;
+  color: rgb(110, 110, 109);
 }
 
 .pl_item_header {
