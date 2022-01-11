@@ -16,7 +16,6 @@ function begin_write(k) {
       writein.style.display = "block"
     }, 200)
   }, 200);
-  global_modalData = {};
 };
 
 function ToList() {
@@ -194,6 +193,11 @@ $('#info_basic-option-cartReset').click(function() {
   $('#info_basicOption_surgery').attr('style', 'background-color:#FAEEE0; color:rgb(93, 23, 21);');
 })
 
+//내원 이유에 대한 input value 가져오기//
+function dia_inputValue() {
+  var dia = global_modalData.dia.innerText;
+  return dia;
+}
 
 //카트에 담겨져있는 것 입력//
 $('#info_basic-option-input').click(function() {
@@ -201,28 +205,25 @@ $('#info_basic-option-input').click(function() {
   var id = a[0];
   var cart_length = a[1];
   var id_length = id.length;
+  var dia = dia_inputValue();
+  console.log(dia);
   var tmp = "";
-
+  $("#info-basicInfo-dia2").html(dia);
+  tmp += $('#info-basicInfo-dia').html();
   for (k = 1; k < id_length; k++) {
     var l = ""
     l = id[k];
     var split_id = '#info-basicInfo-' + l.split("_")[2];
-    tmp += $(split_id).clone().html();
+    tmp += $(split_id).html();
   }
+
   $('#info-contents-hidden1').children().remove();
   $('#info-contents-hidden1').append(tmp);
   $('#info-contents-hidden').parent().parent().prop('style', 'display:grid');
   info_basicOption_close();
 })
-/*
-if (id.includes('info_basicOption_past_carted')) {
-  $('#info-contents-hidden1').append($('#info-basicInfo-past'));
-} else if (id.includes('info_basicOption_surgery_carted')) {
-  $('#info-contents-hidden1').append($('#info-basicInfo-surgery'));
-} else if (id.includes('info_basicOption_allergy_carted')) {
-  $('#info-contents-hidden1').append($('#info-basicInfo-allergy'));
-}
-$('#info-contents-hidden1').parent().parent().parent().attr('style', 'display:grid;');*/
+
+
 
 var sym = 1;
 function add_checkup_box1() {

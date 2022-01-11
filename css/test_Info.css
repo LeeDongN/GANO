@@ -813,6 +813,14 @@
   border-bottom: 1px dashed rgba(55, 53, 47, 0.6);
 }
 
+.Info-basicInfo-grid2 {
+  display: grid;
+  grid-template-columns: 3fr 2fr 3fr;
+  margin-left: 10px;
+  margin-right: 10px;
+  border-bottom: 1px dashed rgba(55, 53, 47, 0.6);
+}
+
 .Info-basicInfo-case2-1 {
   grid-column: 1 / 2;
   margin-right: 20px;
@@ -825,7 +833,7 @@
 
 .Info-basicInfo-case2-3 {
   grid-column: 3 / 4;
-  margin-right: 20px;
+  margin-right: 20px; 
 }
 
 .Info-new-case2-4 {

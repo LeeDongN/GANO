@@ -21,27 +21,27 @@ $('#itemAdd').click(function() {
 
   contents += '<p id="id_' + k + '" class="pl_item_header plus_color  text_bolder" style="font-size: 18px"><b>' + bedID + '</b></p>';
 
-  contents += '<p class="w3-left-align pl_item_1 text_bolder">환자 이름</p>';
+  contents += '<p class="w3-left-align pl_item_1">환자 이름</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_1-2">' + p_Data.p_id + '</p>';
 
-  contents += '<p class="w3-left-align pl_item_2 text_bolder">입원 날짜</p>';
+  contents += '<p class="w3-left-align pl_item_2">입원 날짜</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_2-2">' + p_Data.p_date + '</p>';
 
-  contents += '<p class="w3-left-align pl_item_3 text_bolder">내원 이유</p>';
+  contents += '<p class="w3-left-align pl_item_3">내원 이유</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_3-2">' + p_Data.p_dia + '</p>';
 
-  contents += '<p class="w3-left-align pl_item_4 text_bolder">주치의</p>';
+  contents += '<p class="w3-left-align pl_item_4">주치의</p>';
   contents += '<p id="doc_' + k + '" class="w3-left-align pl_item_4-2">' + p_Data.p_doc + '</p>';
 
   contents += '</div>';
 
   contents += '<div class="pl_item_5  ">'
   contents += '<span class="pl_edit">';
-  contents += '<a onclick="Edit_open(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_edit_color" style="border-radius:10px; width:40%; height:45%"><p class="text_bolder pl_mg">정보 수정</p></a>';
+  contents += '<a onclick="Edit_open(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_edit_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">수정</p></a>';
   contents += '</span>'
 
   contents += '<span class="pl_del">';
-  contents += '<a onclick="onDelete(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_del_color" style="border-radius:10px; width:40%; height:45%"><p class="text_bolder pl_mg">퇴원</p></a>';
+  contents += '<a onclick="onDelete(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_del_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">퇴원</p></a>';
   contents += '</span>'
   contents += '</div>';
   contents += '</div>';

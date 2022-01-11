@@ -4,59 +4,83 @@
   border-radius: 20px;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+  font-family: 'Open Sans'
+  unicode-range: U+AC00-D7A3;
+}
+
 .selectbox {
-    position: relative;
-    border-bottom: 1px solid #ccc;  /* 테두리 설정 */
-    z-index: 1;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
-    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
-    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
-    background-color: #FFFFFF;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+  /* 테두리 설정 */
+  z-index: 1;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  background-color: #FFFFFF;
 }
 
 /* 가상 선택자를 활용 화살표 대체 */
 .selectbox:before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    width: 0;
-    height: 0;
-    margin-top: -1px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid #333;
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  width: 0;
+  height: 0;
+  margin-top: -1px;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #333;
 }
 
 .selectbox label {
-    position: absolute;
-    top: 1px;  /* 위치정렬 */
-    left: 5px;  /* 위치정렬 */
-    padding: .8em .5em;  /* select의 여백 크기 만큼 */
-    color: #black;
-    z-index: -1;  /* IE8에서 label이 위치한 곳이 클릭되지 않는 것 해결 */
+  position: absolute;
+  top: 1px;
+  /* 위치정렬 */
+  left: 5px;
+  /* 위치정렬 */
+  padding: .8em .5em;
+  /* select의 여백 크기 만큼 */
+  color: #black;
+  z-index: -1;
+  /* IE8에서 label이 위치한 곳이 클릭되지 않는 것 해결 */
 }
 
 .selectbox select {
-    width: 100%;
-    height: auto;  /* 높이 초기화 */
-    line-height: normal;  /* line-height 초기화 */
-    font-family: inherit;  /* 폰트 상속 */
-    padding: .8em .5em;  /* 여백과 높이 결정 */
-    border: 0;
-    opacity: 0;  /* 숨기기 */
-    filter:alpha(opacity=0);  /* IE8 숨기기 */
-    -webkit-appearance: none; /* 네이티브 외형 감추기 */
-    -moz-appearance: none;
-    appearance: none;
+  width: 100%;
+  height: auto;
+  /* 높이 초기화 */
+  line-height: normal;
+  /* line-height 초기화 */
+  font-family: inherit;
+  /* 폰트 상속 */
+  padding: .8em .5em;
+  /* 여백과 높이 결정 */
+  border: 0;
+  opacity: 0;
+  /* 숨기기 */
+  filter: alpha(opacity=0);
+  /* IE8 숨기기 */
+  -webkit-appearance: none;
+  /* 네이티브 외형 감추기 */
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .selectbox.focus {
-    border-color: #66afe9;
-    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
-    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+  border-color: #66afe9;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
 }
 
 .text_bolder {
@@ -78,7 +102,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgb(0, 0, 0);
-  background-color: rgba(0, 0, 0, 0.4)
+  background-color: rgba(0, 0, 0, 0.6)
 }
 
 .dn-pt {
@@ -138,12 +162,14 @@
   margin-top: 35px;
   justify-content: flex-start;
 }
+
 /*-------------------------------------------------------*/
 /*시작하는 부분*/
 .patients_list_start {
   width: 100%;
   grid-column: 2 / 3;
 }
+
 /*환자 병실 선택 및 설정*/
 .patients_list_roomChoise_frame {
   display: none;
@@ -159,24 +185,26 @@
   border-radius: 3px;
 }
 
-.patients_list_roomChoise_items2{
+.patients_list_roomChoise_items2 {
   display: flex;
   width: 65px;
   height: 23px;
   justify-content: flex-start;
   font-size: 14px;
-  color: gray;
-  font-weight: 600;
   padding-left: 5px;
   border-radius: 3px;
 }
 
 .patients_list_roomChoise_Unselected {
   background-color: #F7E7D6;
+  font-weight: 300;
+  color: gray;
 }
 
 .patients_list_roomChoise_selected {
   background-color: #CCD1E4;
+  color: black;
+  font-weight: 500;
 }
 
 .patients_list_roomChoise_add {
@@ -198,11 +226,12 @@
   padding: 0;
   outline: 0;
   width: 400px;
-  grid-template-rows: minmax(40px, auto) 100px 70px;
+  grid-template-rows: 35px 100px 70px;
 }
 
 .List_roomOption_header {
   grid-row: 1 / 2;
+  padding-top: 5px;
 }
 
 .List_roomOption_body {
@@ -228,6 +257,7 @@
 }
 
 .List_roomOption_body2_text {
+  display: flex;
   min-width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -237,7 +267,7 @@
 
 .List_roomOption_button {
   display: grid;
-  grid-row:  3 / 4;
+  grid-row: 3 / 4;
   align-content: center;
   justify-content: center;
   margin: 0 30px;
@@ -252,7 +282,6 @@
   width: 100px;
   border-radius: 5px;
   background-color: #FEC0C1;
-
 }
 
 /*인원수에 맞는 빈 병상에 관한 css*/
@@ -270,7 +299,8 @@
   display: grid;
   grid-template-rows: 55px 182px;
   height: 248px;
-  border: 3px groove gray;
+  border: 1px groove gray;
+  border-radius: 15px;
 }
 
 .List_Empty_bed_name {
@@ -292,12 +322,14 @@
   grid-row: 2 / 3;
   align-self: center;
 }
+
 /*-------------------------------------------------------*/
 /*patients list화면에 표시되는 환자들*/
 .patients_grid {
   display: grid;
   grid-template-rows: 70px repeat(3, minmax(40px, auto)) minmax(50px, auto);
   grid-template-columns: 90px 1fr;
+  grid-row-gap: 5px;
   color: rgb(110, 110, 109);
 }
 
@@ -317,14 +349,19 @@
   padding-top: 5px;
   margin-bottom: 0px;
   border-right: 2px gray dashed;
+  font-weight: normal;
 }
+
 .pl_item_1-2 {
   grid-column: 2 / 3;
   grid-row: 2 / 3;
   padding-left: 15px;
   padding-top: 5px;
   margin-bottom: 0px;
+  font-weight: 600;
+  color: black;
 }
+
 .pl_item_2 {
   grid-column: 1 / 2;
   grid-row: 3 / 4;
@@ -332,14 +369,19 @@
   padding-top: 5px;
   margin-bottom: 0px;
   border-right: 2px gray dashed;
+  font-weight: normal;
 }
+
 .pl_item_2-2 {
   grid-column: 2 / 3;
   grid-row: 3 / 4;
   padding-left: 15px;
   padding-top: 5px;
   margin-bottom: 0px;
+  font-weight: 600;
+  color: black;
 }
+
 .pl_item_3 {
   grid-column: 1 / 2;
   grid-row: 4 / 5;
@@ -347,14 +389,19 @@
   padding-top: 5px;
   margin-bottom: 0px;
   border-right: 2px gray dashed;
+  font-weight: normal;
 }
+
 .pl_item_3-2 {
   grid-column: 2 / 3;
   grid-row: 4 / 5;
   padding-left: 15px;
   padding-top: 5px;
   margin-bottom: 0px;
+  font-weight: 600;
+  color: black;
 }
+
 .pl_item_4 {
   grid-column: 1 / 2;
   grid-row: 5 / 6;
@@ -362,13 +409,17 @@
   padding-top: 5px;
   margin-bottom: 10px;
   border-right: 2px gray dashed;
+  font-weight: normal;
 }
+
 .pl_item_4-2 {
   grid-column: 2 / 3;
   grid-row: 5 / 6;
   padding-left: 15px;
   padding-top: 5px;
   margin-bottom: 0px;
+  font-weight: 600;
+  color: black;
 }
 
 .pl_item_5 {
@@ -381,21 +432,27 @@
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
+
 .pl_mg {
   margin: 0px;
 }
+
 .pl_edit {
   margin-right: 15px
 }
+
 .pl_edit_color {
   background-color: #EED7CE !important;
 }
+
 .pl_del {
   margin-left: 15px;
 }
+
 .pl_del_color {
   background-color: #FFC7C7 !important
 }
+
 /*-----------------------------------------------------------*/
 .patients_plus {
   display: grid;
@@ -445,7 +502,7 @@
   outline: 0;
   width: 500px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: minmax(40px, auto) 250px 110px;
+  grid-template-rows: 35px 250px 110px;
 }
 
 .plus_color {
@@ -456,6 +513,7 @@
   grid-column-start: 1;
   grid-column-end: 3;
   grid-row: 1;
+  padding-top: 5px;
 }
 
 .plus_2 {
@@ -564,29 +622,31 @@
   white-space: nowrap;
 }
 
+.p_list_button_shadow {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
 /*환자 add를 클릭하면 나오는 팝업 창*/
 .p_add_grid {
   display: grid;
   margin: auto;
+  margin-bottom: 10px;
   background-color: #fff;
   position: relative;
   padding: 0;
   outline: 0;
   width: 500px;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 43px 200px 100px;
+  grid-template-rows: 35px 200px 80px;
+  border-radius: 15px;
 }
 
 .P_add_1 {
-  border-right: 2px gray dashed;
-  margin-left: 20px;
-  margin-right: 0px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  border-right: 1px gray dashed;
+  margin: 20px 0px 20px 20px;
   padding-right: 20px;
   margin-bottom: auto;
-  grid-column-start: 1;
-  grid-column-end: 2;
+  grid-column: 1 / 2;
   grid-row-start: 2;
 }
 
@@ -594,6 +654,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 .P_add_2 {
   margin-left: 20px;
   margin-right: 20px;

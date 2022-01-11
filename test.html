@@ -29,16 +29,14 @@
   }
 
   #main {
-    font-family: "Open Sans"
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: pink
   }
 
   #write {
     font-family: 'Sunflower', sans-serif;
   }
 
-    {
-    background-color: pink
-  }
 </style>
 
 <body>
@@ -120,7 +118,7 @@
     </div>
     <!--빈 병상 -->
     <div id="List_Empty_bed_0" class="w3-third w3-margin-bottom List_Empty_bed_none">
-      <div class="List_Empty_bed_frame w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2" style="border-radius:10px;" onclick="P_plusModal_open(this)" role="button">
+      <div class="List_Empty_bed_frame w3-hover-opacity patients_plus_color w3-card-2 w3-hover-shadow mx-auto mt-3 mb-2" onclick="P_plusModal_open(this)" role="button">
         <div class="List_Empty_bed_name">
           <p class="List_Empty_bed_nameStyle">1번 병상</p>
         </div>
@@ -133,24 +131,27 @@
     <div id="roomOption" class="dn-modal" style="padding-top:250px;">
       <div class="List_roomOption_grid w3-animate-top dn-color w3-card-4 text_bolder">
         <div class="List_roomOption_header w3-teal">
-          <p class="w3-large mt-2" style="margin-bottom:9px;">병실 설정</p><span onclick="roomOption_close()" class="w3-button w3-teal w3-large w3-display-topright">×</span>
+          <p style="margin:auto; font-weight:500; font-size:18px;">병실 설정</p>
+          <i role="button" style="font-size:18px; padding-right:10px; padding-top:11px;" class="material-icons w3-teal w3-display-topright" onclick="roomOption_close()">close</i>
         </div>
         <div class="List_roomOption_body">
           <div class="List_roomOption_body2">
             <div class="List_roomOption_body2_text">
-              <p style="margin-bottom:0px;">최대</p>
+              <p style="margin-bottom:0px; font-weight:400">최대</p>
             </div>
             <div class="List_roomOption_body2_input">
               <input style="height:30px; width:30px;" type="number" maxlength="1" id="roomOption_person">
             </div>
             <div class="List_roomOption_body2_text">
-              <p style="margin-bottom:0px;">인실인 병실</p>
+              <p style="margin-bottom:0px;">인실,</p>
             </div>
             <div class="List_roomOption_body2_input">
               <input style="height:30px; width:30px;" type="number" maxlength="1" id="roomOption_room">
             </div>
             <div class="List_roomOption_body2_text">
-              <p style="margin-bottom:0px;">개를 맡고 있어요!</p>
+              <p style="margin-bottom:0px; font-weight:400; margin-right:5px;">개의</p>
+              <p>병실</p>
+              <p style="font-weight:400">을 맡고 있어요!</p>
             </div>
           </div>
         </div>
@@ -164,10 +165,11 @@
     </div>
 
     <!-- Patient Modal -->
-    <div id="PatientsModal" class="dn-modal">
+    <div id="PatientsModal" class="dn-modal" style="padding-top:200px;">
       <div class="p_plus_grid w3-animate-top dn-color w3-card-4 text_bolder">
         <div class="plus_1 w3-teal">
-          <p class="w3-large mt-2" id="mp_id"></p><span onclick="PatientsModal_close()" class="w3-button w3-teal w3-large w3-display-topright">×</span>
+          <p id="mp_id" style="margin:auto; font-weight:500; font-size:18px;"></p>
+          <i role="button" style="font-size:18px; padding-right:10px; padding-top:11px;" class="material-icons w3-teal w3-display-topright" onclick="PatientsModal_close()">close</i>
         </div>
         <div class="plus_2 w3-center">
 
@@ -197,13 +199,12 @@
     <div id="P_plusModal" class="dn-modal">
       <div class="p_add_grid w3-animate-top dn-color w3-card-4 text_bolder">
         <div class="plus_1 w3-teal">
-          <p class="w3-large mt-2">Add Patient<span onclick="P_plusModal_close2()" class="w3-button w3-teal w3-large w3-display-topright">×</span></p>
+          <p style="margin:auto;" class="w3-large">Add Patient</p>
+          <i role="button" style="font-size:18px; padding-right:10px; padding-top:11px;" class="material-icons w3-teal w3-display-topright" onclick="P_plusModal_close2()">close</i>
         </div>
-
         <div class="P_add_1 text_bolder">
           <div class="P_add_id">
             <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> 환자 이름</label></p>
-
           </div>
           <input class="w3-input" type="text" placeholder="환자 이름" id="p_id">
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="far fa-calendar-alt"></i> 입원 날짜</label></p>
@@ -239,9 +240,9 @@
     <div id="Edit" class="dn-modal">
       <div class="p_add_grid w3-animate-top dn-color w3-card-4 text_bolder">
         <div class="plus_1 w3-teal">
-          <p class="w3-large mt-2">Edit Patient<span onclick="Edit_close()" class="w3-button w3-teal w3-large w3-display-topright">×</span></p>
+          <p style="margin:auto;" class="w3-large">Edit Patient</p>
+          <i role="button" style="font-size:18px; padding-right:10px; padding-top:11px;" class="material-icons w3-teal w3-display-topright" onclick="Edit_close()">close</i>
         </div>
-
         <div class="P_add_1 text_bolder">
           <p class="w3-left-align" style="margin-bottom:10px;"><label><i class="fas fa-portrait"></i> Patient id</label></p>
           <input class="w3-input " type="text" id="E-p_id" value="" />
@@ -500,23 +501,25 @@
             </div>
 
             <div style="display:none" ; class="info-contents-write" style="width:818.6px">
-              <div style="grid-column:1 / 4;">
+              <div style="grid-column:1 / 4; padding-right:40px;">
                 <div id="info-contents-hidden" class="info-contents-write1">
                   <div id="info-contents-hidden1" class="Info-basicInfo info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                    <div id="info-basicInfo-dia" class="Info-basicInfo-grid">
-                      <div class="Info-basicInfo-case2-1">
-                        <p class="w3-left-align mt-3 info-p-space">진단명</p>
-                        <input class="w3-input  info-input info-input-space" type="text" placeholder="진단명"></input>
-                      </div>
-                      <div class="Info-basicInfo-case2-2">
-                        <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-                        <input class="w3-input  info-input info-input-space" type="text" placeholder="증상 악화 정도"></input>
-                      </div>
-                      <div class="Info-basicInfo-case2-3">
-                        <p class="w3-left-align mt-3 info-p-space">자가약</p>
-                        <input class="w3-input  info-input info-input-space" type="checkbox"></input>
+                    <div id="info-basicInfo-dia">
+                      <div class="Info-basicInfo-grid2">
+                        <div class="Info-basicInfo-case2-1">
+                          <p class="w3-left-align mt-3 info-p-space">진단명</p>
+                          <input class="w3-input  info-input info-input-space" type="text" placeholder="진단명"></input>
+                        </div>
+                        <div style="padding-top:40px; padding-left:30px;" class="Info-basicInfo-case2-2" style="margin:auto;">
+                          <i style="font-size:40px; font-weight:100; color:gray;" class="material-icons">arrow_right_alt</i>
+                        </div>
+                        <div class="Info-basicInfo-case2-3">
+                          <p class="w3-left-align mt-3 info-p-space">내원이유</p>
+                          <p id="info-basicInfo-dia2" style="color:gray;" class="w3-left-align mt-3 info-p-space"></p>
+                        </div>
                       </div>
                     </div>
+
                     <div id="info-basicInfo-past">
                       <div class="Info-basicInfo-grid">
                         <div class="Info-basicInfo-case2-1">
