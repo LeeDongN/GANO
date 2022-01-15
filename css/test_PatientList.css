@@ -16,6 +16,13 @@
   unicode-range: U+AC00-D7A3;
 }
 
+input {
+  border-radius: 10px;
+}
+
+select {
+  border-radius: 10px;
+}
 .selectbox {
   position: relative;
   border-bottom: 1px solid #ccc;

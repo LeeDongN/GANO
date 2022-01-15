@@ -60,7 +60,12 @@
 
 .info-input-space {
   margin-left: 5px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
+}
+
+.info-input-space2 {
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .info-p-space {
@@ -481,13 +486,13 @@
   grid-column: 1 / 2;
   grid-row: 2 / 3;
   grid-auto-rows: minmax(100px, auto);
-  grid-template-columns: repeat(auto-fill, minmax(33.33%, auto));
+  grid-template-columns: repeat(auto-fill, minmax(50%, auto));
 }
 
 .info-contents-write1 {
   flex: 0 0 auto;
   padding-left: 5px;
-  padding-right: 5px;
+
   padding-bottom: 5px;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -498,6 +503,10 @@
 
 .info-contents-add-hidden {
   display: none;
+}
+
+.info-contents-add-appearance {
+  display: block;
 }
 
 .checkup-header input {
@@ -802,38 +811,109 @@
   position: relative;
   padding: 0;
   outline: 0;
-  margin-right: 150px;
 }
 
 .Info-basicInfo-grid {
   display: grid;
-  grid-template-columns: 3fr 3fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-left: 10px;
   margin-right: 10px;
-  border-bottom: 1px dashed rgba(55, 53, 47, 0.6);
+  border-bottom: 1px groove #EEE8AA;
+  grid-auto-flow: dense;
+  grid-column-gap: 15px;
 }
 
 .Info-basicInfo-grid2 {
   display: grid;
-  grid-template-columns: 3fr 2fr 3fr;
+  grid-template-columns: 3fr 1fr 3fr;
+  grid-template-rows: minmax(100px, auto) minmax(1px, auto);
   margin-left: 10px;
   margin-right: 10px;
-  border-bottom: 1px dashed rgba(55, 53, 47, 0.6);
+  border-bottom: 1px groove #EEE8AA;
 }
 
 .Info-basicInfo-case2-1 {
   grid-column: 1 / 2;
-  margin-right: 20px;
+}
+
+.Info-basicInfo-addPart1 {
+  grid-column: 1 / 4;
+  grid-row: 2 / 3;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, 45%);
+  margin-right: 10px;
+  grid-column-gap: 15px;
+}
+
+.Info-basicInfo-addPast1 {
+  display: grid;
+  grid-column: 1 / 3;
+  grid-template-columns: 1fr 1fr;
+}
+
+.Info-basicInfo-addPast2 {
+  grid-column: 2 / 3;
+  margin-right: 0px;
+  margin-left: 10px;
 }
 
 .Info-basicInfo-case2-2 {
   grid-column: 2 / 3;
-  margin-right: 20px;
+}
+
+.Info-basicInfo-selfdrug-flex {
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  margin-left: 15px;
+}
+
+.Info-basicInfo-plus-flex {
+  display: flex;
 }
 
 .Info-basicInfo-case2-3 {
   grid-column: 3 / 4;
-  margin-right: 20px; 
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.Info-basicInfo-case2-3-flex {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.Info-basicInfo-case2-3-icon-frame {
+  display: grid;
+  grid-template-rows: 24px auto;
+  border-radius: 5px;
+}
+
+.Info-basicInfo-case2-3-icon {
+  color:rgba(55, 53, 47, 0.4);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.Info-basicInfo-case2-3-icon:hover {
+  background-color: #F6E2CA;
+}
+
+.Info-basicInfo-title {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 21px;
+  margin-bottom: 0px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.Info-basicInfo-title-frame {
+  margin:15px 0px 5px 10px;
+  border-radius: 5px;
 }
 
 .Info-new-case2-4 {
@@ -849,6 +929,7 @@
   grid-row-start: 5;
   grid-row-end: 6;
 }
+
 
 /*--------------------------------------------------------------------*/
 /*검사를 눌렀을 때 나오는 창*/
@@ -1032,6 +1113,48 @@ div.info_basic-option-grid > div:nth-child(3) {
   background-color: #FAEEE0 ;
   margin: 0px;
   margin-bottom: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.info_basic-option-button3:hover {
+  background-color: #F6E2CA;
+}
+
+.info_basic-option-button3-carted {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0px;
+  height: 23px;
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 15px;
+  line-height: 120%;
+  color: rgb(93, 23, 21);
+  background-color: #FAEEE0 ;
+  margin: 0px;
+  margin-bottom: 15px;
+}
+
+.info_basic-option-button3-after {
+  display: inline-flex;
+  align-items: center;
+  min-width: 0px;
+  height: 23px;
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 15px;
+  line-height: 120%;
+  color: rgb(238, 78, 52);
+  background-color: #D9D7F1;
+  margin: 0px;
+  margin-bottom: 15px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.info_basic-option-button3-after:hover {
+  background-color: #EBEAF8;
 }
 
 .info_basic-option-button4 {
@@ -1083,7 +1206,12 @@ div.info_basic-option-grid > div:nth-child(3) {
   font-size: 15px;
   line-height: 120%;
   color: rgb(117, 81, 57);
-  background-color: #FAEEE0 ;
+  background-color: #FAEEE0;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+
+.info_basic-option-cart-button2:hover {
+  background-color: #EFCA9E;
 }
 
 .info_basic-option-button4 {

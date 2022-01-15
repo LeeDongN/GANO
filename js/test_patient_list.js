@@ -17,7 +17,7 @@ $('#itemAdd').click(function() {
   var i = 'patient_' + k++;
   contents += '<div id="' + i + '" style="margin-left:10px; margin-right:10px; margin-bottom:11px;">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
-  contents += '<div class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
+  contents += '<div title="인계작성, 인계보기" class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
 
   contents += '<p id="id_' + k + '" class="pl_item_header plus_color  text_bolder" style="font-size: 18px"><b>' + bedID + '</b></p>';
 
@@ -37,11 +37,11 @@ $('#itemAdd').click(function() {
 
   contents += '<div class="pl_item_5  ">'
   contents += '<span class="pl_edit">';
-  contents += '<a onclick="Edit_open(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_edit_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">수정</p></a>';
+  contents += '<a title="환자이름, 내원이유, 주치의 수정" onclick="Edit_open(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_edit_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">수정</p></a>';
   contents += '</span>'
 
   contents += '<span class="pl_del">';
-  contents += '<a onclick="onDelete(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_del_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">퇴원</p></a>';
+  contents += '<a title="인계내용을 포함한 환자 데이터가 모두 삭제됩니다." onclick="onDelete(this)" class="w3-section w3-button w3-card-2 w3-hover-shadow pl_del_color" style="border-radius:10px; width:40%; height:45%;"><p style="font-weight:normal;" class="text_bolder pl_mg">퇴원</p></a>';
   contents += '</span>'
   contents += '</div>';
   contents += '</div>';
