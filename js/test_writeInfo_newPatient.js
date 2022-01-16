@@ -5,6 +5,7 @@ const patientModal = document.querySelector("#PatientsModal");
 function begin_write(k) {
   document.getElementById("info-name").innerHTML = global_modalData.id.innerText;
   document.getElementById("info-header-name").innerHTML = global_modalData.id.innerText;
+  document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
   document.getElementById("PatientsModal").style.display = "none";
   main.style.WebkitAnimation = "fadeOut 0.5s";
   main.style.animation = "fadeOut 0.5s";
@@ -30,6 +31,12 @@ function ToList() {
     }, 200)
   }, 200);
 };
+
+// 신규환자 등록 누를 시 나오는 창 //
+function info_ToNewPatient() {
+  document.getElementById('info_newPatient').style.display = 'grid'
+  document.getElementById('info_Special').style.display = 'none'
+}
 
 //신규환자 팝업창
 function New_Info_open() {

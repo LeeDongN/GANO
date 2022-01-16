@@ -2,9 +2,10 @@
   display: none;
   font-weight: bold;
 }
+
 .info-hover:hover {
   background: #E6CCA9;
-  opacity:0.9;
+  opacity: 0.9;
 }
 
 .hvr-fade {
@@ -403,7 +404,7 @@
   padding-top: 3px;
 }
 
-.info-contents-write-frame {
+.info-contents-write-NewPatient-frame {
   grid-row: 3 / 4;
   display: grid;
   min-width: 100%;
@@ -413,13 +414,59 @@
   padding-right: 96px;
 }
 
-.info-contents-write-grid {
+.info-contents-write-Special-frame {
+  grid-row: 3 / 4;
+  display: grid;
+  min-width: 100%;
+  overflow: hidden;
+  float: left;
+  padding-right: 96px;
+  grid-template-columns: 96px auto;
+}
+
+.info-contents-write-NewPatient-grid {
   display: grid;
   position: relative;
   padding-bottom: 180px;
   min-width: 100%;
   grid-template-columns: auto;
   grid-template-rows: 42px minmax(200px, auto);
+}
+
+.info-contents-write-Special-grid {
+  display: grid;
+  grid-column: 2 / 3;
+  position: relative;
+  min-width: 100%;
+  grid-template-columns: auto;
+  grid-template-rows: 42px minmax(200px, auto);
+}
+
+.info-contents-write-Special-sortAdd {
+  grid-column: 1 / 2;
+  padding-top: 7px;
+  padding-left: 35px;
+}
+
+.info-contents-write-Special-sortAdd-icon {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 28px;
+  border-radius: 3px;
+}
+
+.info-contents-write-Special-sortAdd-icon2 {
+  width: 18px;
+  height: 18px;
+  display: block;
+  fill: rgba(55, 53, 47, 0.8);
+  flex-shrink: 0;
+  backface-visibility: hidden;
 }
 
 .info-contents-write-add {
@@ -489,10 +536,34 @@
   grid-template-columns: repeat(auto-fill, minmax(50%, auto));
 }
 
+.info-Special-contents-frame {
+  display: grid;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.info-Special-contents-frame2 {
+  display: grid;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #FCF5F9;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  grid-template-columns: repeat(4, 24.5%);
+  justify-content: flex-start;
+  grid-column-gap: 10px;
+  grid-row-gap: 15px;
+}
+
+.info-Special-contents-card {
+  background-color: #FFFDDE;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+  width: 260px;
+  height: 300px;
+}
 .info-contents-write1 {
   flex: 0 0 auto;
   padding-left: 5px;
-
   padding-bottom: 5px;
   margin-right: 10px;
   margin-bottom: 5px;
@@ -892,7 +963,7 @@
 }
 
 .Info-basicInfo-case2-3-icon {
-  color:rgba(55, 53, 47, 0.4);
+  color: rgba(55, 53, 47, 0.4);
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
@@ -912,7 +983,7 @@
 }
 
 .Info-basicInfo-title-frame {
-  margin:15px 0px 5px 10px;
+  margin: 15px 0px 5px 10px;
   border-radius: 5px;
 }
 
@@ -929,7 +1000,6 @@
   grid-row-start: 5;
   grid-row-end: 6;
 }
-
 
 /*--------------------------------------------------------------------*/
 /*검사를 눌렀을 때 나오는 창*/
@@ -1060,11 +1130,11 @@
   grid-auto-rows: minmax(150px, auto);
 }
 
-div.info_basic-option-grid > div:nth-child(1) {
+div.info_basic-option-grid>div:nth-child(1) {
   grid-row: 1 / 2;
 }
 
-div.info_basic-option-grid > div:nth-child(2) {
+div.info_basic-option-grid>div:nth-child(2) {
   grid-row: 2 / 3;
   padding-left: 25px;
   padding-right: 25px;
@@ -1072,7 +1142,7 @@ div.info_basic-option-grid > div:nth-child(2) {
   background-color: #FFF8F3;
 }
 
-div.info_basic-option-grid > div:nth-child(3) {
+div.info_basic-option-grid>div:nth-child(3) {
   grid-row: 3 / 4;
   padding-left: 25px;
   padding-right: 25px;
@@ -1110,7 +1180,7 @@ div.info_basic-option-grid > div:nth-child(3) {
   font-size: 15px;
   line-height: 120%;
   color: rgb(93, 23, 21);
-  background-color: #FAEEE0 ;
+  background-color: #FAEEE0;
   margin: 0px;
   margin-bottom: 15px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -1131,7 +1201,7 @@ div.info_basic-option-grid > div:nth-child(3) {
   font-size: 15px;
   line-height: 120%;
   color: rgb(93, 23, 21);
-  background-color: #FAEEE0 ;
+  background-color: #FAEEE0;
   margin: 0px;
   margin-bottom: 15px;
 }

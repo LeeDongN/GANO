@@ -220,7 +220,7 @@
               <option value="응급 수술 후 입원치료">응급 수술 후 입원치료</option>
             </select>
           </div>
-          <!--<input id="p_dia" class="w3-input" type="text" placeholder="진단명">-->
+
           <p class="w3-left-align mt-3" style="margin-bottom:10px;"><label><i class="fas fa-user-md"></i> 주치의</label></p>
           <input id="p_doc" class="w3-input" type="text" placeholder="주치의">
         </div>
@@ -336,7 +336,7 @@
             <div class="info-sidebar-conven-tool">
               <p style="word-spacing:3px; margin-bottom:0px; color:gray; font-size: 11px;">인계 작성란</p>
             </div>
-            <div class="info-sidebar-frame info-hover" role="button">
+            <div onclick="info_ToNewPatient()" class="info-sidebar-frame info-hover" role="button">
               <div class="info-sidebar-icon1" style="margin-bottom:5px;">
                 <div class="info-sidebar-icon2">
                   <div style="width:100%; height:100%; padding-left:7px;">
@@ -397,7 +397,7 @@
             </div>
 
 
-            <div id="info-sidebar-special" class="info-sidebar-frame info-hover" role="button">
+            <div id="info-sidebar-special" class="info-sidebar-frame info-hover" onclick="info_ToSpecial()" role="button">
               <div class="info-sidebar-icon1" style="margin-bottom:5px;">
                 <div class="info-sidebar-icon2">
                   <div style="width:100%; height:100%;">
@@ -405,7 +405,7 @@
                   </div>
                 </div>
               </div>
-              <p style="margin-bottom:0px; color:gray; font-weight:500">특별한 상황</p>
+              <p style="margin-bottom:0px; color:gray; font-weight:500">특이사항</p>
               <div id="info-sidebar-special-hover" class="info-sidebar-special-hover">
                 <div class="info-sidebar-icon1" style="margin-bottom:5px; margin-right:3px;">
                   <div class="info-sidebar-icon2">
@@ -448,9 +448,10 @@
           </div>
         </div>
       </div>
+      <!---00000000 sidebar 끝 000000000000000----------------------------->
 
       <!-- 인계 작성하는 컨텐츠가 나오는 칸 -->
-      <div class="info-contents">
+      <div id="info_newPatient" class="info-contents">
         <div class="info-contents-nameDate">
           <div class="info-sidebar-icon1">
             <div class="info-sidebar-icon2">
@@ -459,9 +460,11 @@
               </div>
             </div>
           </div>
-          <p id="info-header-name" style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px;">홍길동</p>
+          <p id="info-header-name2" style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px;">홍길동</p>
           <p style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px; margin-left:5px;">2021 .12 .19 Day</p>
         </div>
+
+        <!-- 인계 작성하는 부분의 헤더 시작-->
         <div class="info-contents-header">
           <div style="display: flex">
             <div class="info-contents-header-icon">
@@ -483,11 +486,11 @@
             </div>
           </div>
         </div>
-        <!--------------------------------------------------------->
+        <!---0헤더 작성 끝0----------------------------------->
 
         <!-- 신규환자 작성 시 컨텐츠 칸 -->
-        <div class="info-contents-write-frame">
-          <div class="info-contents-write-grid">
+        <div class="info-contents-write-NewPatient-frame">
+          <div class="info-contents-write-NewPatient-grid">
             <div class="info-contents-write-sort" style="width:818.6px">
               <div class="info-contents-wirte-sort1">
                 <div class="info-contents-wirte-sort2">
@@ -613,7 +616,124 @@
         </div>
         <!--------------------------------------------------------->
       </div>
+      <!-- 사이드바에 있는 네비게이션에 의해 페이지가 변화하는 부분-->
+
+
+      <!-- 특이사항 컨텐츠가 들어가는 부분-->
+      <div id="info_Special" style="display:none;" class="info-contents">
+        <div class="info-contents-nameDate">
+          <div class="info-sidebar-icon1">
+            <div class="info-sidebar-icon2">
+              <div style="width:100%; height:100%; padding-left:3px;">
+                <i class="fas fa-head-side-mask"></i>
+              </div>
+            </div>
+          </div>
+          <p id="info-header-name" style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px;">홍길동</p>
+          <p style="margin-bottom:0px; letter-spacing:2px; word-spacing:2px; margin-left:5px;">2021 .12 .19 Day</p>
+        </div>
+
+        <!-- 인계 작성하는 부분의 헤더 시작-->
+        <div class="info-contents-header">
+          <div style="display: flex">
+            <div class="info-contents-header-icon">
+              <div class="info-contents-header-icon2">
+                <div class="info-contents-header-icon3">
+                  <div class="info-contents-header-icon4">
+                    <i class="far fa-clipboard"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="info-contents-header-p">
+              <div class="info-contents-header-p2">특이사항 입력</div>
+            </div>
+          </div>
+          <div style="max-width: 100%; border-radius: 3px; overflow: hidden; margin-bottom: 12px;">
+            <div style="display: flex; cursor: text;">
+              <div class="info-contents-header-explain" style="font-weight: 250">금일 근무중에 있었던 특이사항을 입력하는 칸입니다.</div>
+            </div>
+          </div>
+        </div>
+        <!---0헤더 작성 끝0----------------------------------->
+
+        <!-- 신규환자 작성 시 컨텐츠 칸 -->
+        <div class="info-contents-write-Special-frame">
+          <div class="info-contents-write-Special-sortAdd ">
+            <div class="info-contents-write-Special-sortAdd-icon">
+              <span class="material-icons info-contents-write-Special-sortAdd-icon2">
+                more_horiz
+              </span>
+            </div>
+          </div>
+
+          <div style="grid-column: 2 / 3;">
+            <!--Vital-->
+            <div class="info-contents-write-Special-grid">
+              <div class="info-contents-write-sort" style="width:818.6px">
+                <div class="info-contents-wirte-sort1">
+                  <div class="info-contents-wirte-sort2">
+                    <div class="info-contents-wirte-sort3">
+                      <div class="info-contents-wirte-sort4">
+                        Vital
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="info-Special-contents-frame">
+                <div class="info-Special-contents-frame2">
+                  <div class="info-Special-contents-card ">
+                    
+                  </div>
+                  <div class="info-Special-contents-card ">
+
+                  </div>
+                  <div class="info-Special-contents-card ">
+
+                  </div>
+                  <div class="info-Special-contents-card ">
+
+                  </div>
+                  <div class="info-Special-contents-card ">
+
+                  </div>
+                  <div class="info-Special-contents-card ">
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--검사 정보-->
+            <div class="info-contents-write-Special-grid">
+              <div class="info-contents-write-sort" style="width:818.6px">
+                <div class="info-contents-wirte-sort1">
+                  <div class="info-contents-wirte-sort2">
+                    <div style="background-color:#DBEDDB; color:rgb(28, 56, 41)"class="info-contents-wirte-sort3">
+                      <div class="info-contents-wirte-sort4">
+                        검사 정보 특이사항
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="info-Special-contents-frame">
+                <div class="info-Special-contents-frame2">
+                  hi
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
+    <!--------------------------------------------------------->
+    </div>
+
+    </div>
+
     <!-- 환자 기본 정보를 적기 위한 옵션 modal-->
     <div id="Info_basic-option" class="dn-modal" style="padding-top: 200px; display: block;">
       <div class="info_basic-option-grid w3-animate-top dn-color w3-card-4 text_bolder">
@@ -672,295 +792,8 @@
         </div>
       </div>
     </div>
-    </div>
   </section>
-  <!--
-    <div class="info-contents-write-frame">
-      <div class="info-contents-write-grid">
-        <div class="info-contents-write-sort" style="width:818.6px">
-          <div class="info-contents-wirte-sort1">
-            <div class="info-contents-wirte-sort2">
-              <div class="info-contents-wirte-sort3">
-                <div class="info-contents-wirte-sort4">
-                  환자 기본 정보
-                </div>
-              </div>
-            </div>
-            <div id="info-contents-write-add1" class="info-contents-add-hidden">
-              <i onclick="add_checkup_box1()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
-            </div>
-          </div>
-          <div id="info-contents-write-hidden2-1" class="info-contents-wirte-sort1">
-            <div class="info-contents-wirte-sort2">
-              <div class="info-contents-wirte-sort3" style="background-color:#FDECC8">
-                <div class="info-contents-wirte-sort4">
-                  검사 정보
-                </div>
-              </div>
-            </div>
-            <div id="info-contents-write-add2" class="info-contents-add-hidden">
-              <i onclick="add_checkup_box2()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
-            </div>
-          </div>
-          <div class="info-contents-wirte-sort1">
-            <div class="info-contents-wirte-sort2">
-              <div class="info-contents-wirte-sort3" style="background-color:#DBEDD8">
-                <div class="info-contents-wirte-sort4">
-                  증상 관리
-                </div>
-              </div>
-            </div>
-            <div id="info-contents-write-add3" class="info-contents-add-hidden">
-              <i onclick="add_checkup_box3()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4);" role="button"></i>
-            </div>
-          </div>
-        </div>
-        <div class="info-contents-write-add">
-          <i class="fas fa-plus" style="color:gray;" role="button"></i>
-        </div>
-        <div class="info-contents-write" style="width:818.6px">
-          <div id="info-contents-hidden1" style="grid-column:1 / 2;">
-            <div id="info-contents-checkup1_0" class="info-contents-write1">
-              <div class="Info-new-case2-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                <div class="Info-new-case2-1">
-                  <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
-                  <input class="w3-input  info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
-                </div>
-                <div class="Info-new-case2-2">
-                  <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-                  <input class="w3-input  info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="info-contents-hidden2" style="grid-column:2 / 3;">
-            <div id="info-contents-checkup2_0" class="info-contents-write1">
-              <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                <div class="checkup-grid1">
-                  <div class="checkup-header">
-                    <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 항목</p>
-                    <input id="st2_0" class="checkup-checkbox-grid" type="checkbox"></input>
-                    <label for="st2_0" style="font-size: 10px; margin-top:7px"></label>
-                  </div>
-                  <input class="info-input info-input-space " type="text" placeholder="검사 항목"></input>
-                </div>
-                <div class="checkup-grid2">
-                  <p class="Info-new-case1-p" style="margin-bottom:5px;">검사 내용</p>
-                  <input class="info-input info-input-space " type="text" placeholder="검사 내용"></input>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div id="info-contents-hidden3" style="grid-column:3 / 4;">
-            <div id="info-contents-checkup3_0" class="info-contents-write1">
-              <div class="checkup-grid info-radius Info_new-color w3-card-4 text_bolder w3-center">
-                <div class="checkup-grid1">
-                  <div class="checkup-header">
-                    <p class="Info-new-case1-p" style="margin-bottom:5px;">치료 항목</p>
-                    <input id="st1_0" class="checkup-checkbox-grid" type="checkbox"></input>
-                    <label for="st1_0" style="font-size: 10px; margin-top:7px"></label>
-                  </div>
-                  <input class="info-input info-input-space " type="text" placeholder="치료 항목">
-                </div>
-                <div class="checkup-grid2">
-                  <p class="Info-new-case1-p" style="margin-bottom:5px;">치료 내용</p>
-                  <input class="info-input info-input-space " type="text" placeholder="치료 내용"></input>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
-  <!-- 신규환자 누를 시 나오는 창
-    <div id="New_Info" class="Info-modal">
-      <div class="Info_new w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="plus_1 info-popup-color">
-          <p class="w3-large mt-2">내원 이유</p><span onclick="New_Info_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="Info_new-1">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_1_open()" value="시술/수술">수술/시술</button>
-        </div>
-        <div class="Info_new-2">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_2_open()" value="증상/질병 악화">증상/질병 악화</button>
-        </div>
-        <div class="Info_new-3">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">검사</button>
-        </div>
-      </div>
-    </div>-->
 
-  <!-- 시술/수술을 클릭했을 때 나오는 창
-    <div id="New_1" class="Info-new-case1-modal">
-      <div class="Info-new-case1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="plus_1 info-popup-color">
-          <p class="w3-large mt-2">수술/시술</p><span onclick="New_1_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="Info-new-case1-1">
-          <button type="button" id="checkup_open" class="w3-card-2 w3-hover-shadow Info_new-case1-button" onclick="checkup_open()" value="검사">검사 정보</button>
-        </div>
-        <div class="checkup-">
-          <button type="button" id="surgery_open" class="w3-card-2 w3-hover-shadow Info_new-case1-button" onclick="surgery_open()" value="검사">
-            <p style="margin-top:15px; margin-bottom:0px;">수술/시술</p>
-            <p>정보</p>
-          </button>
-        </div>
-      </div>
-    </div>-->
-  <!--
-  증상악화를 클릭했을 때 나오는 창
-    <div id="New_2" class="Info-new-case2-modal">
-      <div class="Info-new-case2-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="plus_1 info-popup-color">
-          <p class="w3-large mt-2">증상/질병 악화</p><span onclick="New_2_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="Info-new-case2-1">
-          <p class="w3-left-align mt-3 info-p-space">과거 증상/질병</p>
-          <input class="w3-input  info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
-        </div>
-        <div class="Info-new-case2-2">
-          <p class="w3-left-align mt-3 info-p-space">증상 악화 정도</p>
-          <input class="w3-input  info-input info-input-space" type="text" placeholder="증상 악화 정도" id="E-p_date"></input>
-        </div>
-        <div class="Info-new-case2-3">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
-        </div>
-        <div class="Info-new-case2-4">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="care_open()" value="검사">증상 관리</button>
-        </div>
-        <div class="Info-new-case2-5">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" value="검사">저장하기</button>
-        </div>
-      </div>
-    </div>
--->
-  <!-- 검사를 클릭했을 때 나오는 창
-    <div id="New_3" class="Info-new-case3-modal">
-      <div class="Info-new-case3-grid w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="plus_1 info-popup-color">
-          <p class="w3-large mt-2">검사 정보</p><span onclick="New_3_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-
-        <div class="Info-new-case3-1">
-          <p class="info-p-space w3-left-align mt-3">주호소</p>
-          <input class="info-input-space info-input w3-input " type="text" placeholder="내원 시 상태">
-        </div>
-        <div class="Info-new-case3-2">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="checkup_open()" value="검사">검사 정보</button>
-        </div>
-        <div class="Info-new-case3-3">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="care_open()" value="검사">치료 상황</button>
-        </div>
-        <div class="Info-new-case3-4">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-button" onclick="New_3_open()" value="검사">저장하기</button>
-        </div>
-      </div>
-    </div>-->
-
-
-
-  <!-- #############################################################-->
-  <!--검사정보를 클릭했을 때 나오는 창
-    <div id="checkup" class="checkup-modal">
-      <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="checkup-a info-popup-color">
-          <p class="w3-large mt-2">검사 정보</p><span onclick="checkup_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="checkup-b1">
-          <p class="Info-new-case1-p">검사 항목</p>
-        </div>
-        <div class="checkup-b2">
-          <p class="Info-new-case1-p">검사 내용</p>
-        </div>
-        <div class="checkup-b3">
-          <p style="margin-top:15px; padding-right: 5px">미시행</p>
-        </div>
-        <div id="checkup-title" class="checkup-c1">
-          <input class="info-input info-input-space " type="text" placeholder="검사 항목">
-        </div>
-        <div id="checkup-contents" class="checkup-c2">
-          <input class="info-input info-input-space " type="text" placeholder="검사 내용">
-        </div>
-        <div id="checkup-box" class="checkup-c3">
-          <input class="info-input " style="margin-top: 10px; " type="checkbox">
-        </div>
-        <div class="checkup-d">
-          <button id="dashed" type="button" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" onclick="add_checkup_box()" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
-            <i class="fa fa-plus" style="font-size:20px; padding-top:15px"></i>
-          </button>
-        </div>
-        <div class="checkup-e">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
-        </div>
-      </div>
-    </div>-->
-
-  <!-- 수술 정보를 클릭했을 때 나오는 창
-    <div id="surgery" class="Info-new-case1-1-modal">
-      <div class="Info-new-case1-1-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="plus_1 info-popup-color">
-          <p class="w3-large mt-2">수술/시술 정보</p><span onclick="surgery_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="Info-new-case1-1a">
-          <p class="w3-left-align info-p-space"><label>수술명</label></p>
-          <input class="info-input info-input-space " type="text" placeholder="수술명">
-        </div>
-        <div class="Info-new-case1-1b">
-          <p class="w3-left-align info-p-space"><label>수술 날짜</label></p>
-          <input class="info-input info-input-space " type="text" placeholder="수술 날짜">
-        </div>
-        <div class="Info-new-case1-1c">
-          <p class="w3-left-align info-p-space"><label>식이</label></p>
-          <input class="info-input info-input-space " type="text" placeholder="식이">
-        </div>
-        <div class="Info-new-case1-1d">
-          <input type="checkbox" class="info-check-space" id="befor_sur" name="befor_sur">
-          <label for="befor_sur"> 수술 전 간호</label><br>
-        </div>
-        <div class="Info-new-case1-1e">
-          <input type="checkbox" class="info-check-space" id="after_sur" name="after_sur">
-          <label for="after_sur"> 수술 후 간호</label><br>
-        </div>
-        <div class="Info-new-case1-1f">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info_new-case1-button" style="margin-top:10px" onclick="New_3_open()" value="검사">저장하기</button>
-        </div>
-      </div>
-    </div>
-
-    증상 관리, 치료를 누를 시 나오는 창
-    <div id="care" class="checkup-modal">
-      <div class="checkup-grid info-radius w3-animate-top Info_new-color w3-card-4 text_bolder w3-center">
-        <div class="checkup-a info-popup-color">
-          <p class="w3-large mt-2">치료 상황</p><span onclick="care_close()" class="w3-button info-popup-color w3-large w3-display-topright">×</span>
-        </div>
-        <div class="checkup-b1">
-          <p class="Info-new-case1-p">치료 항목</p>
-        </div>
-        <div class="checkup-b2">
-          <p class="Info-new-case1-p">치료 내용</p>
-        </div>
-        <div class="checkup-b3">
-          <p style="margin-top:15px; padding-right: 5px">부작용</p>
-        </div>
-        <div class="checkup-c1">
-          <input class="info-input info-input-space " type="text" placeholder="치료 항목">
-        </div>
-        <div class="checkup-c2">
-          <input class="info-input info-input-space " type="text" placeholder="치료 내용">
-        </div>
-        <div class="checkup-c3">
-          <input class="info-input " style="margin-top: 10px; " type="checkbox">
-        </div>
-        <div class="checkup-d">
-          <div id="dashed" class="w3-hover-opacity w3-card-2 w3-hover-shadow mx-auto" style="border-radius:3px; width:400px; height:50px; margin-top:10px">
-            <i class="fa fa-plus" style="font-size:20px; padding-top:15px"></i>
-          </div>
-        </div>
-        <div class="checkup-e">
-          <button type="button" class="w3-card-2 w3-hover-shadow Info-new-case1-button">저장하기</button>
-        </div>
-      </div>
-    </div> -->
 
 
   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
@@ -968,7 +801,8 @@
   <script src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="js/test_main_page.js"></script>
   <script src="js/test_patient_list.js"></script>
-  <script src="js/test_writeInfo.js"></script>
+  <script src="js/test_writeInfo_newPatient.js"></script>
+  <script src="js/writeInfo_Special.js"></script>
 </body>
 
 </html>
