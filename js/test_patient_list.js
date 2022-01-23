@@ -142,10 +142,12 @@ function readModal(a) {
 };
 
 var global_modalData = {};
+var global_ID = {};
 
 function PatientsModal_open(k) {
-  var modalData = readModal(k)
+  var modalData = readModal(k);
   global_modalData = modalData;
+  global_ID = $(k).parent().parent().prop('id');
   document.getElementById("mp_id").innerHTML = modalData.id.innerText;
   document.getElementById('mp_dia').innerHTML = ". 진단명 : " + modalData.dia.innerText;
   document.getElementById('mp_date').innerHTML = ". 입원날짜 : " + modalData.date.innerText;
