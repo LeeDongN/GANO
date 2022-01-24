@@ -1,32 +1,53 @@
 const main = document.querySelector("#main");
 const writein = document.querySelector("#write");
 const patientModal = document.querySelector("#PatientsModal");
+//기존 것 백업
 var default_info_NewPatient = $('#info_write_Newpatient').clone();
 var default_info_Special = $('#info_Special').clone();
 var newPatient_ID = ""
+var info_ID_array = new Array;
+var temp_ID_array = new Array;
+var final_ID_array = new Array;
 
 function begin_write(k) {
-  var name = $('#info-header-name2').text();
+  info_ID_array_length = $('#info_write_Newpatient').nextAll('.info-contents-write-NewPatient-frame').length;
+  info_ID_array = $('#info_write_Newpatient').nextAll('.info-contents-write-NewPatient-frame')
+
+  //인계작성을 누를 때마다 기존에 있던 작성페이지를 모두 숨기는 함
+  for (k = 0; k < info_ID_array_length; k++) {
+    var a = $(info_ID_array[k]).prop('id')
+    $('#' + a).prop('style', 'display:none;')
+    temp_ID_array.push(a);
+  }
+  //중복된 배열 제거
+  $.each(temp_ID_array, function(k, val) {
+    if ($.inArray(val, final_ID_array) == -1) {
+      final_ID_array.push(val)
+    }
+  })
+
+  console.log(final_ID_array)
   newPatient_ID = 'info_write_Newpatient_' + global_ID
   var special_ID = 'info_Special' + global_ID
   var temp_NewPatient = default_info_NewPatient
   var temp_Special = default_info_Special
 
-  if (name=='elvhfxmrkqt'){
-    console.log(newPatient_ID)
+  $(temp_NewPatient).prop('style', 'display:grid;');
+  $(temp_NewPatient).prop('id', newPatient_ID);
 
-    $(temp_NewPatient).prop('style', 'display:grid;')
-    $(temp_NewPatient).prop('id', newPatient_ID);
-    console.log(temp_NewPatient)
-    $('#info_newPatient').append(temp_NewPatient)
-    $(temp_Special).prop('id', special_ID);
-    document.getElementById("info-name").innerHTML = global_modalData.id.innerText; document.getElementById("info-header-name").innerHTML = global_modalData.id.innerText; document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
+   // 작성되어 있는 인계가 없다면 새롭게 생성하고, 있다면 있는 것을 보여줌
+  if (final_ID_array.indexOf(newPatient_ID) != -1){
+    console.log('hi')
+    $('#' + newPatient_ID).prop('style', 'display:grid')
   }else {
-
+    info_basicOption_open();
+    var k = temp_NewPatient.clone();
+    $('#info_newPatient').append(k);
+    $(temp_Special).prop('id', special_ID);
+    document.getElementById("info-name").innerHTML = global_modalData.id.innerText;
+    document.getElementById("info-header-name").innerHTML = global_modalData.id.innerText;
+    document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
   }
-
-
-
 
     document.getElementById("PatientsModal").style.display = "none"; main.style.WebkitAnimation = "fadeOut 0.5s"; main.style.animation = "fadeOut 0.5s"; setTimeout(() => {
       writein.style.WebkitAnimation = "fadeIn 0.5s";
@@ -37,6 +58,7 @@ function begin_write(k) {
       }, 200)
     }, 200);
   };
+
 
   function ToList() {
     writein.style.WebkitAnimation = "fadeOut 0.5s";
@@ -169,7 +191,6 @@ function begin_write(k) {
     var dia = dia_inputValue();
     var tmp = "";
     var tmp_id = newPatient_ID;
-    console.log(tmp_id)
     $("#info-basicInfo-dia2").html(dia);
     tmp += $('#info-contents-hidden1').children('div:eq(0)').html();
     for (k = 1; k < id_length; k++) {
@@ -182,14 +203,9 @@ function begin_write(k) {
     $(a).children().children().children().children().detach();
     $(a).children().children().children().prepend(tmp);
     $(a).prop('style', 'display:grid');
-
-
     info_basicOption_close();
 
-
     //환자 기본정보 기록 옵션을 바꿀 수 있는 것 ///
-
-
 
     ///////마우스 호버 시 +버튼 나오는 거 ////////
     //remove를 해줬기 때문에 아이디에 다시 이벤트를 걸어줘야 함.//
