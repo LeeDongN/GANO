@@ -9,12 +9,13 @@ function readFormData() {
 }
 //환자 추가 버튼을 누르면 나오는 팝업창에서, 입력버튼을 눌렀을 때
 //Paitent list에 새로운 patient들이 등록된다.
-var k = 0;
+
 $('#itemAdd').click(function() {
   var p_Data = readFormData();
   var bedID = $('#' + global_bedID).find("p").text();
   var contents = '';
-  var i = 'patient_' + k++;
+  var i = 'patient_' + global_bedID.split('_')[3] +'_'+ global_bedID.split('_')[4];
+  var k = global_bedID.split('_')[3] +'_'+ global_bedID.split('_')[4];
   contents += '<div id="' + i + '" style="margin-left:10px; margin-right:10px; margin-bottom:11px;">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
   contents += '<div title="인계작성, 인계보기" class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
@@ -22,13 +23,13 @@ $('#itemAdd').click(function() {
   contents += '<p id="id_' + k + '" class="pl_item_header plus_color  text_bolder" style="font-size: 18px"><b>' + bedID + '</b></p>';
 
   contents += '<p class="w3-left-align pl_item_1">환자 이름</p>';
-  contents += '<p id="date_' + k + '" class="w3-left-align pl_item_1-2">' + p_Data.p_id + '</p>';
+  contents += '<p id="id_' + k + '" class="w3-left-align pl_item_1-2">' + p_Data.p_id + '</p>';
 
   contents += '<p class="w3-left-align pl_item_2">입원 날짜</p>';
   contents += '<p id="date_' + k + '" class="w3-left-align pl_item_2-2">' + p_Data.p_date + '</p>';
 
   contents += '<p class="w3-left-align pl_item_3">내원 이유</p>';
-  contents += '<p id="date_' + k + '" class="w3-left-align pl_item_3-2">' + p_Data.p_dia + '</p>';
+  contents += '<p id="dia_' + k + '" class="w3-left-align pl_item_3-2">' + p_Data.p_dia + '</p>';
 
   contents += '<p class="w3-left-align pl_item_4">주치의</p>';
   contents += '<p id="doc_' + k + '" class="w3-left-align pl_item_4-2">' + p_Data.p_doc + '</p>';
@@ -66,6 +67,12 @@ function resetForm() {
 function onDelete(e) {
   var remove_info = e.parentNode.parentNode.parentNode.parentNode.id;
   var remove_bed = e.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+  var writeInfo_delete_ID = "info_write_Newpatient_"+ remove_info.split('_')[1] + "_" + remove_info.split('_')[2];
+
+  //인계 내용도 같이 삭제
+  $('#' + writeInfo_delete_ID).remove();
+  //stored_ID_array에서 해당하는 ID를 삭제하여, 퇴원 후 다음 환자의 인계를 가능하게 함.
+  stored_ID_array = stored_ID_array.filter((element) => element !== writeInfo_delete_ID);
   if (confirm('퇴원을 진행하겠습니다. 오늘도 환자들을 도와주셔서 감사합니다.')) {
     $('#' + remove_info).remove();
     $('#' + remove_bed).children().show();
@@ -142,7 +149,7 @@ function readModal(a) {
 };
 
 var global_modalData = {};
-var global_ID = {};
+
 
 function PatientsModal_open(k) {
   var modalData = readModal(k);

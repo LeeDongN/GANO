@@ -47,8 +47,7 @@ function PatientsModal_close() {
   document.getElementById('PatientsModal').style.display = 'none';
 }
 
-var global_roomID = {};
-var global_bedID = {}; //각 침대마다의 고유 아이디
+
 //환자 추가 버튼 누를 시 나타나는 팝업 창
 function P_plusModal_open(a) {
   document.getElementById("P_plusModal").style.display = 'block';
@@ -91,7 +90,7 @@ function roomAdd_header() {
 function emptyBedAdd() {
   var empty = document.getElementById("roomOption_person").value;
   for (i = 0; i < empty; i++) {
-    var k = "List_Empty_bed_" + i;
+    var k = "List_Empty_bed_" + "0_"+ i;
     var contents = $('#List_Empty_bed_0').clone();
     contents.prop("id", k)
     contents.prop("class", "w3-third w3-margin-bottom List_Empty_bed_block")
@@ -109,7 +108,7 @@ function roomAdd() {
     contents.prop("id", k)
     //침대 id 부여(00_룸아이디_침대아이디)
     for (l = 0; l < bed; l++) {
-      var bedID = "List_Empty_bed_" + i + "_" + l;
+      var bedID = "List_Empty_bed_" + (i+1) + "_" + l;
       contents.children(':eq('+ (l+1) +')').prop("id", bedID)
     };
     $('#ListPage').append(contents);
