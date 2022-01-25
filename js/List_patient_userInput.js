@@ -20,7 +20,7 @@ $('#itemAdd').click(function() {
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
   contents += '<div title="인계작성, 인계보기" class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
 
-  contents += '<p id="id_' + k + '" class="pl_item_header plus_color  text_bolder" style="font-size: 18px"><b>' + bedID + '</b></p>';
+  contents += '<p class="pl_item_header plus_color  text_bolder" style="font-size: 18px"><b>' + bedID + '</b></p>';
 
   contents += '<p class="w3-left-align pl_item_1">환자 이름</p>';
   contents += '<p id="id_' + k + '" class="w3-left-align pl_item_1-2">' + p_Data.p_id + '</p>';
@@ -118,6 +118,7 @@ function Edit_open(a) {
   document.getElementById("E-p_label_selectbox").textContent = view_data.dia;
   document.getElementById("E-p_doc").value = view_data.doc;
   document.getElementById("Edit").style.display = 'block';
+  $('html, body').css({'overflow': 'hidden'});
 };
 
 $('#Editon').click(function() {
@@ -148,8 +149,6 @@ function readModal(a) {
   return modalData;
 };
 
-var global_modalData = {};
-
 
 function PatientsModal_open(k) {
   var modalData = readModal(k);
@@ -160,6 +159,7 @@ function PatientsModal_open(k) {
   document.getElementById('mp_date').innerHTML = ". 입원날짜 : " + modalData.date.innerText;
   document.getElementById('mp_doc').innerHTML = ". 주치의 : " + modalData.doc.innerText;
   document.getElementById('PatientsModal').style.display = 'block';
+  $('html, body').css({'overflow': 'hidden'});
   resetForm3();
 };
 

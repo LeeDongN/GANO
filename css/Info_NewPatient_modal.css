@@ -1,0 +1,38 @@
+.info_newPatient_modal {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.info_newPatient_modal2 {
+  display: grid;
+  margin: auto;
+  background-color: #FFF8F3;
+  position: relative;
+  padding: 0;
+  outline: 0;
+  width: 960px;
+  height: 648px;
+  grid-template-rows: 45px auto;
+  margin: 0px 90.8px 80px 90.8px
+}
+
+#info_newPatient_userinput .title {
+  grid-row: 1 / 2;
+}
+
+#info_newPatient_userinput .content {
+  grid-row: 2 / 3;
+}

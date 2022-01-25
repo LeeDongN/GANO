@@ -24,11 +24,13 @@ $('#p_id').change(function() {
 function w3_open() {
   document.getElementById("mySidebar").style.display = "block";
   document.getElementById("myOverlay").style.display = "block";
+  $('html, body').css({'overflow': 'hidden'});
 }
 
 function w3_close() {
   document.getElementById("mySidebar").style.display = "none";
   document.getElementById("myOverlay").style.display = "none";
+  $('html, body').css({'overflow': 'auto'});
 }
 
 $('input[type=number][maxlength]').on('input', function(ev) {
@@ -45,6 +47,7 @@ $('input[type=number][maxlength]').on('input', function(ev) {
 // When the user clicks anywhere outside of the modal, close it
 function PatientsModal_close() {
   document.getElementById('PatientsModal').style.display = 'none';
+  $('html, body').css({'overflow': 'auto'});
 }
 
 
@@ -52,14 +55,17 @@ function PatientsModal_close() {
 function P_plusModal_open(a) {
   document.getElementById("P_plusModal").style.display = 'block';
   global_bedID = $(a).parent().prop('id');
+  $('html, body').css({'overflow': 'hidden'});
 }
 
 function P_plusModal_close() {
   document.getElementById("P_plusModal").style.display = 'none';
+  $('html, body').css({'overflow': 'auto'});
 }
 
 function P_plusModal_close2() {
   document.getElementById("P_plusModal").style.display = 'none';
+  $('html, body').css({'overflow': 'auto'});
   resetForm();
 }
 
@@ -67,12 +73,14 @@ function P_plusModal_close2() {
 //병실 및 인원 설정
 function roomOption_open() {
   document.getElementById("roomOption").style.display = 'block';
+  $('html, body').css({'overflow': 'hidden'});
 }
 
 function roomOption_close() {
   document.getElementById("roomOption").style.display = 'none';
   document.getElementById("roomOption_room").value = "";
   document.getElementById("roomOption_person").value = "";
+  $('html, body').css({'overflow': 'auto'});
 }
 
 function roomAdd_header() {
@@ -125,6 +133,7 @@ function roomOption_choose() {
   roomAdd();
   document.getElementById("roomOption_room").value = "";
   document.getElementById("roomOption_person").value = "";
+  $('html, body').css({'overflow': 'auto'});
 }
 
 function roomChoise(a) {
@@ -142,4 +151,5 @@ function roomChoise(a) {
 function Edit_close() {
   document.getElementById("Edit").style.display = 'none';
   resetForm2();
+  $('html, body').css({'overflow': 'auto'});
 }
