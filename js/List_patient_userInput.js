@@ -14,8 +14,8 @@ $('#itemAdd').click(function() {
   var p_Data = readFormData();
   var bedID = $('#' + global_bedID).find("p").text();
   var contents = '';
-  var i = 'patient_' + global_bedID.split('_')[3] +'_'+ global_bedID.split('_')[4];
-  var k = global_bedID.split('_')[3] +'_'+ global_bedID.split('_')[4];
+  var i = 'patient_' + global_bedID.split('_')[3] + '_' + global_bedID.split('_')[4];
+  var k = global_bedID.split('_')[3] + '_' + global_bedID.split('_')[4];
   contents += '<div id="' + i + '" style="margin-left:10px; margin-right:10px; margin-bottom:11px;">';
   contents += '<div class="color_1 w3-card-2" style="border-radius:10px;">';
   contents += '<div title="인계작성, 인계보기" class="patients_grid w3-hover-opacity w3-hover-shadow" onclick="PatientsModal_open(this)" role="button">';
@@ -67,7 +67,7 @@ function resetForm() {
 function onDelete(e) {
   var remove_info = e.parentNode.parentNode.parentNode.parentNode.id;
   var remove_bed = e.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-  var writeInfo_delete_ID = "info_write_Newpatient_"+ remove_info.split('_')[1] + "_" + remove_info.split('_')[2];
+  var writeInfo_delete_ID = "info_write_Newpatient_" + remove_info.split('_')[1] + "_" + remove_info.split('_')[2];
 
   //인계 내용도 같이 삭제
   $('#' + writeInfo_delete_ID).remove();
@@ -118,7 +118,9 @@ function Edit_open(a) {
   document.getElementById("E-p_label_selectbox").textContent = view_data.dia;
   document.getElementById("E-p_doc").value = view_data.doc;
   document.getElementById("Edit").style.display = 'block';
-  $('html, body').css({'overflow': 'hidden'});
+  $('html, body').css({
+    'overflow': 'hidden'
+  });
 };
 
 $('#Editon').click(function() {
@@ -159,8 +161,19 @@ function PatientsModal_open(k) {
   document.getElementById('mp_date').innerHTML = ". 입원날짜 : " + modalData.date.innerText;
   document.getElementById('mp_doc').innerHTML = ". 주치의 : " + modalData.doc.innerText;
   document.getElementById('PatientsModal').style.display = 'block';
-  $('html, body').css({'overflow': 'hidden'});
+  $('html, body').css({
+    'overflow': 'hidden'
+  });
   resetForm3();
+  $(document).mouseup(function(e) {
+    var LayerPopup = $("#PatientsModal");
+    if (LayerPopup.has(e.target).length === 0) {
+      document.getElementById("PatientsModal").style.display = 'none';
+    }
+    $('html, body').css({
+      'overflow': 'auto'
+    })
+  });
 };
 
 function resetForm3() {

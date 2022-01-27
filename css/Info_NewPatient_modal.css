@@ -2,8 +2,6 @@
   width: 100%;
   height: 100%;
   position: absolute;
-  left: 0;
-  top: 0;
   display: none;
   z-index: 99;
   flex-direction: column;
@@ -14,11 +12,21 @@
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   overflow: hidden;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .info_newPatient_modal2 {
   display: grid;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 80px;
+  margin-bottom: 80px;
   background-color: #FFF8F3;
   position: relative;
   padding: 0;
@@ -26,7 +34,6 @@
   width: 960px;
   height: 648px;
   grid-template-rows: 45px auto;
-  margin: 0px 90.8px 80px 90.8px
 }
 
 #info_newPatient_userinput .title {
@@ -35,4 +42,124 @@
 
 #info_newPatient_userinput .content {
   grid-row: 2 / 3;
+  position: absolute;
+  right: 50px;
+  top: 0px;
+  bottom: 0;
+  left: 50px;
+}
+
+#info_newPatient_userinput .content .inner {
+  display: grid;
+  grid-template-rows: 60px auto;
+  height: 100%;
+  border-radius: 0 0 5px 5px;
+}
+
+#info_newPatient_userinput .content .option {
+  grid-row: 1 / 2;
+  padding: 20px 10px;
+  background-color: yellow;
+}
+
+#info_newPatient_userinput .content .box {
+  grid-row: 2 / 3;
+  padding: 20px 10px;
+  overflow: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+[contenteditable="true"]:focus {
+    outline: none;
+}
+
+div[contenteditable=true] {
+  border: 1px solid #ddd;
+  color : #333;
+  font-size: 12px;
+  width: 300px;
+}
+
+.info_newPatient_editable {
+  flex: 1 1 0px;
+  min-width: 1px;
+  display: flex;
+  flex-direction: column;
+  outline:none
+}
+
+.info_newPatient_editable .editable2 {
+  max-width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 3px 2px;
+  text-align: left;
+  flex-grow: 1;
+  min-height: 1em;
+  color: black;
+  font-size: 15px;
+  font-weight: 600;
+  -webkit-text-fill-color: black;
+}
+
+div:placeholder {
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.info_newPatient_editable_frame {
+  width: 100%;
+  max-width: 960px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
+
+.info_newPatient_editable_flex {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  padding-left: 2px;
+  color: inherit;
+  fill: inherit;
+}
+
+.info_newPatient_editable_flex .icon {
+  user-select: none;
+  --pseudoSelection--background: transparent;
+  margin-right: 2px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: calc(1.5em + 3px + 3px)
+}
+
+.info_newPatient_editable_flex .icon .icon2 {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: stretch;
+  justify-content: stretch;
+  flex-shrink: 0;
+  flex-grow: 0;
+  transition: background 200ms ease-out 0s;
+}
+
+.info_newPatient_editable_flex .icon .icon2 .icon3 {
+  width: 100%;
+  height: 100%;
+  display: block;
+  fill: inherit;
+  flex-shrink: 0;
+  backface-visibility: hidden;
+  justify-content: center;
 }

@@ -28,19 +28,16 @@ function begin_write(k) {
   })
 
   split_global_ID = global_ID.substring(8);
-  console.log(split_global_ID)
   newPatient_ID = 'info_write_Newpatient_' + split_global_ID
   new1 = '#info-contents-hidden_' + split_global_ID
   var special_ID = 'info_Special' + split_global_ID
   var temp_NewPatient = default_info_NewPatient
   var temp_Special = default_info_Special
-  console.log(split_global_ID)
   //환자에 맞게 모든 id 변경
   $(temp_NewPatient).prop('style', 'display:grid;');
   $(temp_NewPatient).prop('id', newPatient_ID);
   $(temp_NewPatient).find('#info-contents-hidden').prop('id', new1)
   $(temp_NewPatient).find('#info-contents-hidden1').prop('id','#info-contents-hidden1_' + split_global_ID)
-  console.log(split_global_ID)
    // 작성되어 있는 인계가 없다면 새롭게 생성하고, 있다면 있는 것을 보여줌
   if (stored_ID_array.indexOf(newPatient_ID) != -1){
     //저장된 인계 보여주기
@@ -51,7 +48,6 @@ function begin_write(k) {
     document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
     //내원이유 변경
     $("#info-basicInfo-dia2").html(dia);
-    console.log(dia)
   }else {
     //새로운 인계 저장(id 포함)
     info_basicOption_open();
