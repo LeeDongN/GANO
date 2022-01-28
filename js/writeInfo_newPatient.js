@@ -15,6 +15,18 @@ function info_newPatient_userinput_open() {
     'overflow': 'hidden',
     'height': '100%'
   });
+  //사용자가 입력할 수 있는 modal에 사용자가 원하는 옵션을 나오게 하기 위함.
+  var a = info_cart();
+  var id = a[0];
+  var cart_length = a[1];
+  var id_length = id.length;
+  for (k = 1; k < id_length; k++) {
+    var split_id = id[k].split("_")[2];
+    tmp_id = "info_newPatient_modal_"+split_id
+    $('#'+tmp_id).parent().show()
+  }
+
+  //modal 외의 다른 곳을 클릭하면 닫히게
   $(document).click(function(e) {
     if (!$(e.target).hasClass('info_newPatient_modal2')) {
       var LayerPopup = $(".info_newPatient_modal2");
@@ -79,9 +91,11 @@ $('#info_basicOption_past').click(function() {
   if (id.includes('info_basicOption_past_carted')) {
     $('#info_basicOption_past_carted').parent().remove();
     $('#info_basicOption_past').attr('class', 'info_basic-option-button3');
+    $('div[name="info_basicOption_past"]').attr('class', 'info_basic-option-button3');
   } else {
     $('#info_basic-option-cart').append(copy);
     $('#info_basicOption_past').attr('class', 'info_basic-option-button3-after');
+    $('div[name="info_basicOption_past"]').attr('class', 'info_basic-option-button3-after');
   }
 });
 
@@ -98,9 +112,11 @@ $('#info_basicOption_surgery').click(function() {
   if (id.includes('info_basicOption_surgery_carted')) {
     $('#info_basicOption_surgery_carted').parent().remove();
     $('#info_basicOption_surgery').attr('class', 'info_basic-option-button3');
+    $('div[name="info_basicOption_surgery"]').attr('class', 'info_basic-option-button3');
   } else {
     $('#info_basic-option-cart').append(copy);
     $('#info_basicOption_surgery').attr('class', 'info_basic-option-button3-after');
+    $('div[name="info_basicOption_surgery"]').attr('class', 'info_basic-option-button3-after');
   }
 });
 
@@ -117,9 +133,11 @@ $('#info_basicOption_allergy').click(function() {
   if (id.includes('info_basicOption_allergy_carted')) {
     $('#info_basicOption_allergy_carted').parent().remove();
     $('#info_basicOption_allergy').attr('class', 'info_basic-option-button3');
+    $('div[name="info_basicOption_allergy"]').attr('class', 'info_basic-option-button3');
   } else {
     $('#info_basic-option-cart').append(copy);
     $('#info_basicOption_allergy').attr('class', 'info_basic-option-button3-after');
+    $('div[name="info_basicOption_allergy"]').attr('class', 'info_basic-option-button3-after');
   }
 });
 
@@ -628,3 +646,17 @@ $(document).on('keydown',"div[name=Newpatient_pastDrug]", function(e){
     }
   }
 });
+
+$(function() {
+  $('#info_newPatient_userinput div.info_basic-option-button2').click(function(){
+    var split_id = $(this).children().attr('name').split("_")[2]
+    var tmp_id = "info_newPatient_modal_" + split_id
+    if ($(this).children().prop('class') == 'info_basic-option-button3'){
+      $(this).children().attr('class', 'info_basic-option-button3-after')
+      $('#'+tmp_id).parent().show()
+    }else {
+      $(this).children().attr('class', 'info_basic-option-button3')
+      $('#'+tmp_id).parent().hide()
+    }
+  })
+})
