@@ -8,7 +8,6 @@ function info_ToNewPatient() {
   });
 }
 
-///////////////////////////////////////////////////////////////////
 function info_newPatient_userinput_open() {
   document.getElementById("info_newPatient_userinput").style.display = 'block';
   $('html, body').css({
@@ -22,24 +21,23 @@ function info_newPatient_userinput_open() {
   var id_length = id.length;
   for (k = 1; k < id_length; k++) {
     var split_id = id[k].split("_")[2];
-    tmp_id = "info_newPatient_modal_"+split_id
-    $('#'+tmp_id).parent().show()
+    tmp_id = "info_newPatient_modal_" + split_id
+    $('#' + tmp_id).parent().show()
   }
 
   //modal 외의 다른 곳을 클릭하면 닫히게
-  $(document).click(function(e) {
-    if (!$(e.target).hasClass('info_newPatient_modal2')) {
-      var LayerPopup = $(".info_newPatient_modal2");
-      $(document).mouseup(function(e) {
-        if (LayerPopup.has(e.target).length === 0) {
-          document.getElementById("info_newPatient_userinput").style.display = 'none';
-        }
-      });
+  $('#info_newPatient_userinput').click(function(e) {
+    console.log(info_newPatient_modal_options)
+    if (!$('#info_newPatient_userinput div.info_newPatient_modal2').has(e.target).length) {
+      $("#info_newPatient_userinput").hide();
+      //modal창에서 입력했던 값이 저장되는 파트
+      info_newPatient_userinput_save()
+      $('#info_basic-option-cart').children().remove();
     }
-
   })
-
 }
+
+///////////////////////////////////////////////////////////////////
 
 function info_newPatient_userinput_close() {
   document.getElementById("info_newPatient_userinput").style.display = 'none';
@@ -47,6 +45,119 @@ function info_newPatient_userinput_close() {
     'overflow': 'auto',
     'height': '100%'
   });
+}
+
+//modal창에서 입력했던 값이 저장되는 파트
+function info_newPatient_userinput_save() {
+  //modal창이 닫힐 때 option클릭이 되어있는 게 신규환자 등록 페이지에 적용되게
+  var tmp_array_length = $('#info_newPatient_userinput div.userChoose').find('.info_basic-option-button3-after').length
+  info_newPatient_modal_options = new Array(tmp_array_length);
+  info_newPatient_modal_options = $('#info_newPatient_userinput div.userChoose').find('.info_basic-option-button3-after')
+  //global 배열을 가져오는 변수
+  var a = info_newPatient_modal_options;
+  var a_length = info_newPatient_modal_options.length;
+  var dia = dia_inputValue();
+  var tmp = "";
+  var tmp_id = newPatient_ID; //List에 있는 환자별로 보여지는 신규환자 입력창을 다르게 하기 위해 id 받음
+  var modal_dia = info_newPatient_modal_dia;
+  var modal_allergy = info_newPatient_modal_allergy;
+  var modal_past = info_newPatient_modal_past
+  var modal_pastDrug = info_newPatient_modal_pastDrug;
+  var modal_surgery = info_newPatient_modal_surgery;
+
+  //보여지는 창//
+  //화살표 옆에 내원이유 쓰기 위함
+  $("#info-basicInfo-dia2").html(dia);
+
+  //필수적으로 넣어야 하는 사용자 인풋 칸(진단명)//////
+  //진단명은 필수로 적어야 하기 때문에 무조건 tmp에 넣어 놓음///
+  var modal_dia_length = modal_dia.length
+  if (modal_dia_length > 1 ) {
+    //첫번째 거는 그대로 복사해서ㅓ text만 바꾸기
+    var tmp_dia = $('#info-contents-hidden1').children('div:eq(0)').clone()
+    //두번째 거는 추가되는 파트에다가 텍스트 넣기
+    var tmp_dia_plus = $(tmp_dia).children().children().children().next().clone()
+    //첫번째 dia 인풋 말고 2번째부터는 새로운 칸에 넣어야 하므로 새로운 변수 만들어 줌
+    var new_dia_array = "";
+    //첫번째 dia의 input
+    $(tmp_dia).children().children().children().next().text(modal_dia[0])
+    //두번째 dia input들
+    for (var k = 1; k < modal_dia_length; k ++) {
+      var new_dia = $(tmp_dia_plus).clone().text(modal_dia[k])
+      new_dia_array += $(new_dia).wrap('<div></div>').parent().html();
+    }
+    $(tmp_dia).children().children().last().append(new_dia_array)
+    tmp += $(tmp_dia).wrap('<div></div>').parent().html();
+  }else {
+    $('#info-contents-hidden1').children('div:eq(0)').children().children().children().next().text(modal_dia[0])
+    tmp += $('#info-contents-hidden1').children('div:eq(0)').html();
+  }
+
+////사용자 선택에 따라 넣을지 말지 결정할 수 있는 칸///
+//알러지
+var modal_length = modal_allergy.length
+if (modal_length > 1 ) {
+  //첫번째 거는 그대로 복사해서ㅓ text만 바꾸기
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(2)').clone()
+  //두번째 거는 추가되는 파트에다가 텍스트 넣기
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  //첫번째 인풋 말고 2번째부터는 새로운 칸에 넣어야 하므로 새로운 변수 만들어 줌
+  var new_array = "";
+  //첫번째 input
+  $(tmp_modal).children().children().children().next().text(modal_allergy[0])
+  //두번째 input들
+  for (var k = 1; k < modal_length; k ++) {
+    var new_1 = $(tmp_plus).clone().text(modal_allergy[k])
+    new_array += $(new_1).wrap('<div></div>').parent().html();
+  }
+  $(tmp_modal).children().append(new_array)
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}else {
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(2)').clone()
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  $(tmp_modal).children().children().children().next().text(modal_allergy[0])
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}
+
+//수술력
+var modal_length = modal_surgery.length
+if (modal_length > 1 ) {
+  //첫번째 거는 그대로 복사해서ㅓ text만 바꾸기
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(3)').clone()
+  //두번째 거는 추가되는 파트에다가 텍스트 넣기
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  //첫번째 인풋 말고 2번째부터는 새로운 칸에 넣어야 하므로 새로운 변수 만들어 줌
+  var new_array = "";
+  //첫번째 input
+  $(tmp_modal).children().children().children().next().text(modal_surgery[0])
+  //두번째 input들
+  for (var k = 1; k < modal_length; k ++) {
+    var new_1 = $(tmp_plus).clone().text(modal_surgery[k])
+    new_array += $(new_1).wrap('<div></div>').parent().html();
+  }
+  $(tmp_modal).children().append(new_array)
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}else {
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(3)').clone()
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  $(tmp_modal).children().children().children().next().text(modal_surgery[0])
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}
+
+//과거력
+
+
+
+  for (k = 0; k < a_length; k++) {
+    var l = ""
+    l = $(a[k]).attr('name');
+    var split_id = 'info-basicInfo-' + l.split("_")[2];
+    tmp += $("div[name='" + split_id + "']").wrap('<div></div>').parent().html();
+  }
+  var m = $('#' + tmp_id).children().children().next();
+  $(m).children().children().children().children().detach();
+  $(m).children().children().children().prepend(tmp);
+  $(m).prop('style', 'display:grid');
 }
 ///////////////////////////////////////////////////////////////
 /////////환자 기본 정보 추가를 위한 옵션 선택 창 /////
@@ -68,7 +179,7 @@ function info_basicOption_close() {
   });
 };
 
-
+//cart에 있는 것을 array에 담음
 function info_cart() {
   var cart_length = $('#info_basic-option-cart').find('div.info_basic-option-button3-carted').length;
   var id = new Array();
@@ -78,6 +189,7 @@ function info_cart() {
   };
   return [id, cart_length]
 };
+
 
 $('#info_basicOption_past').click(function() {
   var copy = $('#info_basicOption_past').parent().clone();
@@ -99,7 +211,6 @@ $('#info_basicOption_past').click(function() {
   }
 });
 
-
 $('#info_basicOption_surgery').click(function() {
   var copy = $('#info_basicOption_surgery').parent().clone();
   copy.children().prop('id', 'info_basicOption_surgery_carted');
@@ -119,7 +230,6 @@ $('#info_basicOption_surgery').click(function() {
     $('div[name="info_basicOption_surgery"]').attr('class', 'info_basic-option-button3-after');
   }
 });
-
 
 $('#info_basicOption_allergy').click(function() {
   var copy = $('#info_basicOption_allergy').parent().clone();
@@ -157,72 +267,11 @@ function dia_inputValue() {
 
 //카트에 담겨져있는 것 입력//
 $('#info_basic-option-input').click(function() {
-  var a = info_cart();
-  var id = a[0];
-  var cart_length = a[1];
-  var id_length = id.length;
-  var dia = dia_inputValue();
-  var tmp = "";
-  var tmp_id = newPatient_ID;
-  $("#info-basicInfo-dia2").html(dia);
-  tmp += $('#info-contents-hidden1').children('div:eq(0)').html();
-  for (k = 1; k < id_length; k++) {
-    var l = ""
-    l = id[k];
-    var split_id = '#info-basicInfo-' + l.split("_")[2];
-    tmp += $(split_id).wrap('<div></div>').parent().html();
-  }
-  var a = $('#' + tmp_id).children().children().next();
-  $(a).children().children().children().children().detach();
-  $(a).children().children().children().prepend(tmp);
-  $(a).prop('style', 'display:grid');
   info_basicOption_close();
+  $('#info_basicOption_allergy').attr('class', 'info_basic-option-button3');
+  $('#info_basicOption_surgery').attr('class', 'info_basic-option-button3');
+  $('#info_basicOption_past').attr('class', 'info_basic-option-button3');
   info_newPatient_userinput_open();
-  //환자 기본정보 기록 옵션을 바꿀 수 있는 것 ///
-
-  ///////마우스 호버 시 +버튼 나오는 거 ////////
-  //remove를 해줬기 때문에 아이디에 다시 이벤트를 걸어줘야 함.//
-  $("#info-basicInfo-dia-mouse").mouseover(function() {
-    $('#info-basicInfo-dia-plus').fadeIn(100);
-  });
-  $("#info-basicInfo-dia-mouse").mouseleave(function() {
-    $('#info-basicInfo-dia-plus').fadeOut(100);
-  });
-
-  $("#info-basicInfo-past1").mouseover(function() {
-    $('#info-basicInfo-past-plus').fadeIn(100);
-  });
-  $("#info-basicInfo-past1").mouseleave(function() {
-    $('#info-basicInfo-past-plus').fadeOut(100);
-  });
-
-  $("#info-basicInfo-past2").mouseover(function() {
-    $('#info-basicInfo-pastdrug-plus').fadeIn(100);
-  });
-  $("#info-basicInfo-past2").mouseleave(function() {
-    $('#info-basicInfo-pastdrug-plus').fadeOut(100);
-  });
-
-  $("#info-basicInfo-allergy").mouseover(function() {
-    $('#info-basicInfo-allergy-plus').fadeIn(100);
-  });
-  $("#info-basicInfo-allergy").mouseleave(function() {
-    $('#info-basicInfo-allergy-plus').fadeOut(100);
-  });
-
-  $("#info-basicInfo-surgery").mouseover(function() {
-    $('#info-basicInfo-surgery-plus').fadeIn(100);
-  });
-  $("#info-basicInfo-surgery").mouseleave(function() {
-    $('#info-basicInfo-surgery-plus').fadeOut(100);
-  });
-
-  $("#info-contents-hidden1").mouseover(function() {
-    $('#info-basicInfo-edit').fadeIn(100);
-  });
-  $("#info-contents-hidden1").mouseleave(function() {
-    $('#info-basicInfo-edit').fadeOut(100);
-  });
 });
 
 //////////////환자 기본 정보 적을 때////////////////////
@@ -319,15 +368,16 @@ $('#special-icon').click(function() {
   }
 });
 
+
 //NewPatient 모달창에서 사용자가 입력할 때 동적으로 생성되는 것들
 //진단명
-$(document).on('keydown',"div[name=Newpatient_dia]", function(e){
+$(document).on('keydown', "div[name=Newpatient_dia]", function(e) {
   var name = $('div[name=Newpatient_dia]').length
+  //한개밖에 존재하지 않으면 텍스트가 없는 상태에서 엔터나 백스페이스를 누르더라도 삭제 안 함
+  var index = $(this).parent().parent().parent().parent().index();
   if (name === 1) {
-    //아무런 텍스트가 없을 때 엔터를 누르면 삭제
     if (e.which === 13) {
-      if ($(this).text() == "") {
-      } else {
+      if ($(this).text() == "") {} else {
         var contents = ""
         e.preventDefault();
         contents += '<div class="info_newPatient_editable_frame">'
@@ -345,10 +395,11 @@ $(document).on('keydown',"div[name=Newpatient_dia]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_dia').append(contents)
+        $('div[name=Newpatient_dia]')[index + 1].focus();
         contents = ""
       }
     }
-  }else {
+  } else {
     //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
     if (e.keyCode === 8) {
       if ($(this).text() == "") {
@@ -378,6 +429,7 @@ $(document).on('keydown',"div[name=Newpatient_dia]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_dia').append(contents)
+        $('div[name=Newpatient_dia]')[index + 1].focus();
         contents = ""
       }
     }
@@ -385,13 +437,13 @@ $(document).on('keydown',"div[name=Newpatient_dia]", function(e){
 });
 
 //수술력
-$(document).on('keydown',"div[name=Newpatient_surgery]", function(e){
+$(document).on('keydown', "div[name=Newpatient_surgery]", function(e) {
   var name = $('div[name=Newpatient_surgery]').length
+  var index = $(this).parent().parent().parent().parent().index();
   if (name === 1) {
     //아무런 텍스트가 없을 때 엔터를 누르면 삭제
     if (e.which === 13) {
-      if ($(this).text() == "") {
-      } else {
+      if ($(this).text() == "") {} else {
         var contents = ""
         e.preventDefault();
         contents += '<div class="info_newPatient_editable_frame">'
@@ -409,10 +461,11 @@ $(document).on('keydown',"div[name=Newpatient_surgery]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_surgery').append(contents)
+        $('div[name=Newpatient_surgery]')[index + 1].focus();
         contents = ""
       }
     }
-  }else {
+  } else {
     //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
     if (e.keyCode === 8) {
       if ($(this).text() == "") {
@@ -442,19 +495,20 @@ $(document).on('keydown',"div[name=Newpatient_surgery]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_surgery').append(contents)
+        $('div[name=Newpatient_surgery]')[index + 1].focus();
         contents = ""
       }
     }
   }
 });
 //알러지
-$(document).on('keydown',"div[name=Newpatient_allergy]", function(e){
+$(document).on('keydown', "div[name=Newpatient_allergy]", function(e) {
   var name = $('div[name=Newpatient_allergy]').length
+  var index = $(this).parent().parent().parent().parent().index();
   if (name === 1) {
     //아무런 텍스트가 없을 때 엔터를 누르면 삭제
     if (e.which === 13) {
-      if ($(this).text() == "") {
-      } else {
+      if ($(this).text() == "") {} else {
         var contents = ""
         e.preventDefault();
         contents += '<div class="info_newPatient_editable_frame">'
@@ -472,10 +526,11 @@ $(document).on('keydown',"div[name=Newpatient_allergy]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_allergy').append(contents)
+        $('div[name=Newpatient_allergy]')[index + 1].focus();
         contents = ""
       }
     }
-  }else {
+  } else {
     //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
     if (e.keyCode === 8) {
       if ($(this).text() == "") {
@@ -505,101 +560,23 @@ $(document).on('keydown',"div[name=Newpatient_allergy]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_allergy').append(contents)
+        $('div[name=Newpatient_allergy]')[index + 1].focus();
         contents = ""
       }
     }
   }
 });
 
-//과거 증상/질병
-$(document).on('keydown',"div[name=Newpatient_past]", function(e){
-  var name = $('div[name=Newpatient_past]').length
-  if (name === 1) {
-    //아무런 텍스트가 없을 때 엔터를 누르면 삭제
-    if (e.which === 13) {
-      if ($(this).text() == "") {
-      } else {
-        var contents = ""
-        e.preventDefault();
-        contents += '<div class="info_newPatient_editable_frame">'
-        contents += '<div class="info_newPatient_editable_flex">'
-        contents += '<div class="icon">'
-        contents += '<div class="icon2">'
-        contents += '<span class="material-icons icon3" style="font-size:13px; color:gray;">noise_control_off</span>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '<div style="display:flex; width:812px;">'
-        contents += '<div style="cursor:text; padding-right:10px; margin-right:10px;" class="info_newPatient_editable">'
-        contents += '<div style="display:flex">'
-        contents += '<div placeholder="과거 증싱/질병" name="Newpatient_past" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '<div style="cursor:text" class="info_newPatient_editable">'
-        contents += '<div style="display:flex">'
-        contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        $('#info_newPatient_modal_past').append(contents)
-        contents = ""
-      }
-    }
-  }else {
-    //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
-    if (e.keyCode === 8) {
-      if ($(this).text() == "") {
-        $(this).parent().parent().parent().parent().remove()
-      }
-    }
-    //아무런 텍스트가 없을 때 엔터를 누르면 삭제
-    if (e.which === 13) {
-      if ($(this).text() == "") {
-        $(this).parent().parent().parent().parent().remove()
-        //$(this).parent().parent().parent().parent().remove()
-      } else {
-        var contents = ""
-        e.preventDefault();
-        contents += '<div class="info_newPatient_editable_frame">'
-        contents += '<div class="info_newPatient_editable_flex">'
-        contents += '<div class="icon">'
-        contents += '<div class="icon2">'
-        contents += '<span class="material-icons icon3" style="font-size:13px; color:gray;">noise_control_off</span>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '<div style="display:flex; width:812px;">'
-        contents += '<div style="cursor:text; padding-right:10px; margin-right:10px;" class="info_newPatient_editable">'
-        contents += '<div style="display:flex">'
-        contents += '<div placeholder="과거 증싱/질병" name="Newpatient_past" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '<div style="cursor:text" class="info_newPatient_editable">'
-        contents += '<div style="display:flex">'
-        contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        contents += '</div>'
-        $('#info_newPatient_modal_past').append(contents)
-        contents = ""
-      }
-    }
-  }
-});
-
-//과거 질병 -->복용약
-$(document).on('keydown',"div[name=Newpatient_pastDrug]", function(e){
+//과거 질병 -->복용약 enter, backspace 이벤트
+$(document).on('keydown', "div[name=Newpatient_pastDrug]", function(e) {
   var name = $('div[name=Newpatient_pastDrug]').length
+  var index = ($('div[name=Newpatient_pastDrug]').length - 1);
+  //한개밖에 존재하지 않을 때는 엔터 눌러도 삭제 안 함
   if (name === 1) {
-    //아무런 텍스트가 없을 때 엔터를 누르면 삭제
     if (e.which === 13) {
-      if ($(this).text() == "") {
-      } else {
+      if ($(this).text() == "") {} else {
         var contents = ""
         e.preventDefault();
-        contents += '<div class="info_newPatient_editable_frame">'
         contents += '<div class="info_newPatient_editable_flex" style="width:396px; margin-left:442px;">'
         contents += '<div style="display:flex; width:812px;">'
         contents += '<div style="cursor:text" class="info_newPatient_editable">'
@@ -609,12 +586,101 @@ $(document).on('keydown',"div[name=Newpatient_pastDrug]", function(e){
         contents += '</div>'
         contents += '</div>'
         contents += '</div>'
-        contents += '</div>'
-        $('#info_newPatient_modal_past').append(contents)
+        $(this).parent().parent().parent().parent().parent().append(contents)
+        $('div[name=Newpatient_pastDrug]')[index + 1].focus();
         contents = ""
       }
     }
-  }else {
+  } else {
+    //past에 값이 존재한다면 삭제하지 않음
+    if ($(this).parent().parent().prev().prop('class') == "info_newPatient_editable") {
+      if (e.which === 13) {
+        if ($(this).text() == "") {} else {
+          var contents = ""
+          e.preventDefault();
+          contents += '<div class="info_newPatient_editable_flex" style="width:396px; margin-left:442px;">'
+          contents += '<div style="display:flex; width:812px;">'
+          contents += '<div style="cursor:text" class="info_newPatient_editable">'
+          contents += '<div style="display:flex">'
+          contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
+          contents += '</div>'
+          contents += '</div>'
+          contents += '</div>'
+          contents += '</div>'
+          $(this).parent().parent().parent().parent().parent().append(contents)
+          $('div[name=Newpatient_pastDrug]')[index + 1].focus();
+          contents = ""
+        }
+      }
+    } else {
+      //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
+      if (e.keyCode === 8) {
+        if ($(this).text() == "") {
+          $(this).parent().parent().parent().parent().remove()
+        }
+      }
+      //아무런 텍스트가 없을 때 엔터를 누르면 삭제
+      if (e.which === 13) {
+        if ($(this).text() == "") {
+          $(this).parent().parent().parent().parent().remove()
+          //$(this).parent().parent().parent().parent().remove()
+        } else {
+          var contents = ""
+          e.preventDefault();
+          contents += '<div class="info_newPatient_editable_flex" style="width:396px; margin-left:442px;">'
+          contents += '<div style="display:flex; width:812px;">'
+          contents += '<div style="cursor:text" class="info_newPatient_editable">'
+          contents += '<div style="display:flex">'
+          contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
+          contents += '</div>'
+          contents += '</div>'
+          contents += '</div>'
+          contents += '</div>'
+          $(this).parent().parent().parent().parent().parent().append(contents)
+          $('div[name=Newpatient_pastDrug]')[index + 1].focus();
+          contents = ""
+        }
+      }
+    }
+  }
+});
+
+$(document).on('keydown', "div[name=Newpatient_past]", function(e) {
+  var name = $('div[name=Newpatient_past]').length
+  var index = $(this).parent().parent().parent().parent().parent().index();
+  if (name === 1) {
+    //아무런 텍스트가 없을 때 엔터를 누르면 삭제
+    if (e.which === 13) {
+      if ($(this).text() == "") {} else {
+        var contents = ""
+        e.preventDefault();
+        contents += '<div class="info_newPatient_editable_frame">'
+        contents += '<div class="info_newPatient_editable_flex">'
+        contents += '<div class="icon">'
+        contents += '<div class="icon2">'
+        contents += '<span class="material-icons icon3" style="font-size:13px; color:gray;">noise_control_off</span>'
+        contents += '</div>'
+        contents += '</div>'
+        contents += '<div style="display:flex; width:812px;">'
+        contents += '<div style="cursor:text; padding-right:10px; margin-right:10px;" class="info_newPatient_editable">'
+        contents += '<div style="display:flex">'
+        contents += '<div placeholder="과거 증상/질병" name="Newpatient_past" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
+        contents += '</div>'
+        contents += '</div>'
+        contents += '<div style="cursor:text" class="info_newPatient_editable">'
+        contents += '<div style="display:flex">'
+        contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
+        contents += '</div>'
+        contents += '</div>'
+        contents += '</div>'
+        contents += '</div>'
+        contents += '</div>'
+        $('#info_newPatient_modal_past').append(contents)
+        $('div[name=Newpatient_past]')[index + 1].focus();
+        contents = ""
+      }
+    }
+  } else {
     //아무런 텍스트가 없을 때 벡스페이스를 누르면 삭제
     if (e.keyCode === 8) {
       if ($(this).text() == "") {
@@ -630,8 +696,18 @@ $(document).on('keydown',"div[name=Newpatient_pastDrug]", function(e){
         var contents = ""
         e.preventDefault();
         contents += '<div class="info_newPatient_editable_frame">'
-        contents += '<div class="info_newPatient_editable_flex" style="width:396px; margin-left:442px;">'
+        contents += '<div class="info_newPatient_editable_flex">'
+        contents += '<div class="icon">'
+        contents += '<div class="icon2">'
+        contents += '<span class="material-icons icon3" style="font-size:13px; color:gray;">noise_control_off</span>'
+        contents += '</div>'
+        contents += '</div>'
         contents += '<div style="display:flex; width:812px;">'
+        contents += '<div style="cursor:text; padding-right:10px; margin-right:10px;" class="info_newPatient_editable">'
+        contents += '<div style="display:flex">'
+        contents += '<div placeholder="과거 증상/질병" name="Newpatient_past" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
+        contents += '</div>'
+        contents += '</div>'
         contents += '<div style="cursor:text" class="info_newPatient_editable">'
         contents += '<div style="display:flex">'
         contents += '<div placeholder="복용약" name="Newpatient_pastDrug" data-content-editable-leaf="true" contenteditable="true" class="editable2"></div>'
@@ -641,22 +717,90 @@ $(document).on('keydown',"div[name=Newpatient_pastDrug]", function(e){
         contents += '</div>'
         contents += '</div>'
         $('#info_newPatient_modal_past').append(contents)
+        $('div[name=Newpatient_past]')[index + 1].focus();
         contents = ""
       }
     }
   }
 });
+//////////////////////////////////////////////////////////
+///과거 증상/질병 enter, backspace  이벤트
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_past]", function() {
+  var value = $(this).text();
+  index = $(this).parent().parent().parent().parent().parent().index();
+  if ($(this).text() == "") {
+    info_newPatient_modal_past.splice(index, 1)
+    console.log(info_newPatient_modal_past)
+  } else {
+    info_newPatient_modal_past.splice(index, 1, value)
+    console.log(info_newPatient_modal_past)
+  }
+})
 
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_dia]", function() {
+  var value = $(this).text();
+  var index = $(this).parent().parent().parent().parent().index();
+  if ($(this).text() == "") {
+    info_newPatient_modal_dia.splice(index, 1)
+    console.log(info_newPatient_modal_dia)
+  } else {
+    info_newPatient_modal_dia.splice(index, 1, value)
+    console.log(info_newPatient_modal_dia)
+  }
+})
+
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_allergy]", function() {
+  var value = $(this).text();
+  var index = $(this).parent().parent().parent().parent().index();
+  if ($(this).text() == "") {
+    info_newPatient_modal_allergy.splice(index, 1)
+    console.log(info_newPatient_modal_allergy)
+  } else {
+    info_newPatient_modal_allergy.splice(index, 1, value)
+    console.log(info_newPatient_modal_allergy)
+  }
+})
+
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_pastDrug]", function() {
+  var value = $(this).text();
+  var index = $('div[name=Newpatient_pastDrug]').length - 1
+  if ($(this).text() == "") {
+    info_newPatient_modal_pastDrug.splice(index, 1)
+    console.log(info_newPatient_modal_pastDrug)
+  } else {
+    info_newPatient_modal_pastDrug.splice(index, 1, value)
+    console.log(info_newPatient_modal_pastDrug)
+  }
+})
+
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_surgery]", function() {
+  var value = $(this).text();
+  var index = $(this).parent().parent().parent().parent().index();
+  if ($(this).text() == "") {
+    info_newPatient_modal_surgery.splice(index, 1)
+    console.log(info_newPatient_modal_surgery)
+  } else {
+    info_newPatient_modal_surgery.splice(index, 1, value)
+    console.log(info_newPatient_modal_surgery)
+  }
+})
+
+
+//modal 창에서 basicoption을 고를 수 있게
 $(function() {
-  $('#info_newPatient_userinput div.info_basic-option-button2').click(function(){
+  $('#info_newPatient_userinput div.info_basic-option-button2').click(function() {
     var split_id = $(this).children().attr('name').split("_")[2]
     var tmp_id = "info_newPatient_modal_" + split_id
-    if ($(this).children().prop('class') == 'info_basic-option-button3'){
+    if ($(this).children().prop('class') == 'info_basic-option-button3') {
       $(this).children().attr('class', 'info_basic-option-button3-after')
-      $('#'+tmp_id).parent().show()
-    }else {
+      $('#' + tmp_id).parent().show()
+    } else {
       $(this).children().attr('class', 'info_basic-option-button3')
-      $('#'+tmp_id).parent().hide()
+      $('#' + tmp_id).parent().hide()
     }
+    var tmp_array_length = $('#info_newPatient_userinput div.userChoose').find('.info_basic-option-button3-after').length
+    info_newPatient_modal_options = new Array(tmp_array_length);
+    info_newPatient_modal_options = $('#info_newPatient_userinput div.userChoose').find('.info_basic-option-button3-after')
+    console.log(info_newPatient_modal_options)
   })
 })

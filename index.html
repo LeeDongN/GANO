@@ -510,16 +510,13 @@
                   <div id="info-contents-hidden1" class="Info-basicInfo info-radius Info_new-color w3-card-4 text_bolder w3-center">
                     <div>
                       <div class="Info-basicInfo-grid2">
-                        <div id="info-basicInfo-dia-mouse" class="Info-basicInfo-case2-1">
+                        <div class="Info-basicInfo-case2-1">
                           <div style="display:flex;">
                             <div style="background-color:#E8DEEE" class="w3-left-align Info-basicInfo-title-frame">
                               <p class="Info-basicInfo-title" style="color:rgb(65, 36, 84)">진단명</p>
                             </div>
-                            <div id="info-basicInfo-dia-plus" class="info-contents-add-hidden">
-                              <i title="진단명 추가" onclick="info_add_dia()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4); margin-top:18px; margin-left:15px;" role="button"></i>
-                            </div>
                           </div>
-                          <input style="border-radius:15px;" class="w3-input  info-input info-input-space" type="text" placeholder="진단명"></input>
+                          <div class="info-input info-input-space" type="text" placeholder="진단명"></div>
                         </div>
                         <div style="padding-top:40px; padding-left:20px;" class="Info-basicInfo-case2-2" style="margin:auto;">
                           <i style="font-size:40px; font-weight:100; color:gray;" class="material-icons">arrow_right_alt</i>
@@ -527,8 +524,8 @@
                         <div style="margin:10px 20px 20px 20px;" class="Info-basicInfo-case2-3">
                           <div class="Info-basicInfo-case2-3-icon-frame">
                             <div style="grid-row:1 / 2;">
-                              <div id="info-basicInfo-edit" class="Info-basicInfo-case2-3-flex">
-                                <span title="환자 기본정보 옵션을 추가 혹은 삭제" onclick="info_basicOption_open()" role="button" class="material-icons Info-basicInfo-case2-3-icon">
+                              <div class="Info-basicInfo-case2-3-flex">
+                                <span onclick="info_newPatient_userinput_open()" id="info-basicInfo-edit" title="환자 기본정보 옵션을 추가 혹은 삭제"  role="button" class="material-icons Info-basicInfo-case2-3-icon">
                                   more_horiz
                                 </span>
                               </div>
@@ -538,50 +535,43 @@
                             </div>
                           </div>
                         </div>
-                        <div id="info-basicInfo-dia-add" class="Info-basicInfo-addPart1">
+                        <div class="Info-basicInfo-addPart1">
 
                         </div>
                       </div>
                     </div>
 
-                    <div id="info-basicInfo-past">
+                    <div name="info-basicInfo-past">
                       <div class="Info-basicInfo-grid">
-                        <div id="info-basicInfo-past1" class="Info-basicInfo-case2-1">
+                        <div class="Info-basicInfo-case2-1">
                           <div style="display:flex;">
                             <p style="background-color:#F5E0E9; color:rgb(76, 35, 55); border-radius:8px; width:115px; margin-bottom:6px;" class="w3-left-align mt-3 info-p-space Info-basicInfo-title">과거 증상/질병</p>
-                            <div id="info-basicInfo-past-plus" class="info-contents-add-hidden">
-                              <i title="과거 증싱/질병과 복용약 추가" onclick="info_add_past1()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4); margin-top:18px; margin-left:15px;" role="button"></i>
-                            </div>
                           </div>
-                          <input style="border-radius:15px;" class="w3-input  info-input info-input-space" type="text" placeholder="과거 증상/질병"></input>
+                          <div style="border:0px;" class="info-input info-input-space" type="text" placeholder="과거 증상/질병"></div>
                         </div>
-                        <div id="info-basicInfo-past2" class="Info-basicInfo-case2-2">
+                        <div class="Info-basicInfo-case2-2">
                           <div class="Info-basicInfo-selfdrug-flex">
                             <div style="margin-left:5px; margin-right:15px;" class="w3-left-align">
                               <p style="color:rgb(76, 35, 55);" class="Info-basicInfo-title">복용약</p>
                             </div>
                             <p style="margin-right:10px; margin-bottom:0px; color:gray; font-weight:500;">자가약</p>
                             <input style="margin-top:5px; margin-right:15px;" type="checkbox"></input>
-                            <div id="info-basicInfo-pastdrug-plus" class="info-contents-add-hidden">
-                              <i title="복용약 추가" onclick="info_add_past2()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4); margin-top:4px; margin-left:15px;" role="button"></i>
+                            <div  class="info-contents-add-hidden">
                             </div>
                           </div>
-                          <input style="border-radius:15px;" class="w3-input info-input info-input-space" type="text" placeholder="복용약"></input>
+                          <div style="border:0px" class="info-input info-input-space" type="text" placeholder="복용약"></div>
                         </div>
                       </div>
                     </div>
-                    <div id="info-basicInfo-allergy">
+                    <div name="info-basicInfo-allergy">
                       <div class="Info-basicInfo-grid">
-                        <div id="info-basicInfo-allergy2" class="Info-basicInfo-case2-1">
+                        <div class="Info-basicInfo-case2-1">
                           <div style="display:flex;">
                             <div style="background-color:#EEE0DA;" class="w3-left-align Info-basicInfo-title-frame">
                               <p class="Info-basicInfo-title" style="color:rgb(68, 42, 30)">알러지</p>
                             </div>
-                            <div id="info-basicInfo-allergy-plus" class="info-contents-add-hidden">
-                              <i title="알러지 항목 추가" onclick="info_add_allergy()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4); margin-top:18px; margin-left:15px;" role="button"></i>
-                            </div>
                           </div>
-                          <input style="border-radius:15px;" class="w3-input info-input info-input-space" type="text" placeholder="알러지"></input>
+                          <div style="border:0px;" class="info-input info-input-space" type="text" placeholder="알러지"></div>
                         </div>
                         <div class="Info-basicInfo-case2-2">
                           <span class="material-icons" style="font-size:40px; margin-top:35px;">
@@ -590,18 +580,15 @@
                         </div>
                       </div>
                     </div>
-                    <div id="info-basicInfo-surgery">
+                    <div name="info-basicInfo-surgery">
                       <div class="Info-basicInfo-grid">
-                        <div id="info-basicInfo-surgery2" class="Info-basicInfo-case2-1">
+                        <div class="Info-basicInfo-case2-1">
                           <div style="display:flex;">
                             <div style="background-color:#FADEC9;" class="w3-left-align Info-basicInfo-title-frame">
                               <p class="Info-basicInfo-title" style="color:rgb(73, 41, 14)">수술력</p>
                             </div>
-                            <div id="info-basicInfo-surgery-plus" class="info-contents-add-hidden">
-                              <i title="수술력 추가" onclick="info_add_surgery()" class="fas fa-plus" style="color:rgba(55, 53, 47, 0.4); margin-top:18px; margin-left:15px;" role="button"></i>
-                            </div>
                           </div>
-                          <input style="border-radius:15px;" class="w3-input  info-input info-input-space" type="text" placeholder="수술력"></input>
+                          <div style="border:0px;" class=" info-input info-input-space" type="text" placeholder="수술력"></div>
                         </div>
                         <div class="Info-basicInfo-case2-2">
                           <i style="font-size:40px; margin-top:35px;" class="fas fa-procedures"></i>
@@ -868,22 +855,22 @@
                   </div>
                 </div>
                 <div class="info_basic-option-button2">
+                  <div name="info_basicOption_surgery" role="button" class="info_basic-option-button3">
+                    <div class="info_basic-option-button4">
+                      수술력
+                    </div>
+                  </div>
+                </div>
+                <div class="info_basic-option-button2">
                   <div name="info_basicOption_allergy" role="button" class="info_basic-option-button3">
                     <div class="info_basic-option-button4">
                       알러지
                     </div>
                   </div>
                 </div>
-                <div class="info_basic-option-button2">
-                  <div name="info_basicOption_surgery" role="button" class="info_basic-option-button3">
-                    <div class="info_basic-option-button4">
-                      수술명
-                    </div>
-                  </div>
-                </div>
               </div>
               <div class="button">
-                
+
               </div>
             </div>
             <div class="box">

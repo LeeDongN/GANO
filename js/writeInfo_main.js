@@ -37,9 +37,9 @@ function begin_write(k) {
   $(temp_NewPatient).prop('style', 'display:grid;');
   $(temp_NewPatient).prop('id', newPatient_ID);
   $(temp_NewPatient).find('#info-contents-hidden').prop('id', new1)
-  $(temp_NewPatient).find('#info-contents-hidden1').prop('id','#info-contents-hidden1_' + split_global_ID)
-   // 작성되어 있는 인계가 없다면 새롭게 생성하고, 있다면 있는 것을 보여줌
-  if (stored_ID_array.indexOf(newPatient_ID) != -1){
+  $(temp_NewPatient).find('#info-contents-hidden1').prop('id', '#info-contents-hidden1_' + split_global_ID)
+  // 작성되어 있는 인계가 없다면 새롭게 생성하고, 있다면 있는 것을 보여줌
+  if (stored_ID_array.indexOf(newPatient_ID) != -1) {
     //저장된 인계 보여주기
     $('#' + newPatient_ID).prop('style', 'display:grid')
     //이름 바꾸기
@@ -48,7 +48,7 @@ function begin_write(k) {
     document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
     //내원이유 변경
     $("#info-basicInfo-dia2").html(dia);
-  }else {
+  } else {
     //새로운 인계 저장(id 포함)
     info_basicOption_open();
     var k = temp_NewPatient.clone();
@@ -60,27 +60,35 @@ function begin_write(k) {
     document.getElementById("info-header-name2").innerHTML = global_modalData.id.innerText
   }
 
-    document.getElementById("PatientsModal").style.display = "none"; main.style.WebkitAnimation = "fadeOut 0.5s"; main.style.animation = "fadeOut 0.5s"; setTimeout(() => {
-      writein.style.WebkitAnimation = "fadeIn 0.5s";
-      writein.style.animation = "fadeIn 0.5s";
-      setTimeout(() => {
-        main.style.display = "none";
-        writein.style.display = "block"
-      }, 200)
-    }, 200);
-    $('html, body').css({'overflow': 'auto', 'height': '100%'});
-  };
-
-
-  function ToList() {
-    writein.style.WebkitAnimation = "fadeOut 0.5s";
-    writein.style.animation = "fadeOut 0.5s";
+  document.getElementById("PatientsModal").style.display = "none";
+  main.style.WebkitAnimation = "fadeOut 0.5s";
+  main.style.animation = "fadeOut 0.5s";
+  setTimeout(() => {
+    writein.style.WebkitAnimation = "fadeIn 0.5s";
+    writein.style.animation = "fadeIn 0.5s";
     setTimeout(() => {
-      main.style.WebkitAnimation = "fadeIn 0.5s";
-      main.style.animation = "fadeIn 0.5s";
-      setTimeout(() => {
-        writein.style.display = "none";
-        main.style.display = "block";
-      }, 200)
-    }, 200);
-  };
+      main.style.display = "none";
+      writein.style.display = "block"
+    }, 200)
+  }, 200);
+  $('html, body').css({
+    'overflow': 'auto',
+    'height': '100%'
+  });
+};
+
+
+function ToList() {
+  writein.style.WebkitAnimation = "fadeOut 0.5s";
+  writein.style.animation = "fadeOut 0.5s";
+  setTimeout(() => {
+    main.style.WebkitAnimation = "fadeIn 0.5s";
+    main.style.animation = "fadeIn 0.5s";
+    setTimeout(() => {
+      writein.style.display = "none";
+      main.style.display = "block";
+    }, 200)
+  }, 200);
+  info_newPatient_modal_options = [];
+  console.log(info_newPatient_modal_options)
+};
