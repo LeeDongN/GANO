@@ -140,20 +140,43 @@ if (modal_length > 1 ) {
 }else {
   var tmp_modal = $('#info-contents-hidden1').children('div:eq(3)').clone()
   var tmp_plus = $(tmp_modal).children().children().children().next().clone()
-  $(tmp_modal).children().children().children().next().text(modal_surgery[0])
+  $(tmp_modal).children().children().children().next().text(modmodal_surgery[0])
   tmp += $(tmp_modal).wrap('<div></div>').parent().html();
 }
 
 //과거력
-
-
-
+/*var modal_length = modal_past.length
+var modal_length2 = modal_pastDrug.length
+if (modal_length > 1 ) {
+  //첫번째 거는 그대로 복사해서ㅓ text만 바꾸기
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(3)').clone()
+  //두번째 거는 추가되는 파트에다가 텍스트 넣기
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  //첫번째 인풋 말고 2번째부터는 새로운 칸에 넣어야 하므로 새로운 변수 만들어 줌
+  var new_array = "";
+  //첫번째 input
+  $(tmp_modal).children().children().children().next().text(modal_surgery[0])
+  //두번째 input들
+  for (var k = 1; k < modal_length; k ++) {
+    var new_1 = $(tmp_plus).clone().text(modal_surgery[k])
+    new_array += $(new_1).wrap('<div></div>').parent().html();
+  }
+  $(tmp_modal).children().append(new_array)
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}else {
+  var tmp_modal = $('#info-contents-hidden1').children('div:eq(3)').clone()
+  var tmp_plus = $(tmp_modal).children().children().children().next().clone()
+  $(tmp_modal).children().children().children().next().text(modal_surgery[0])
+  tmp += $(tmp_modal).wrap('<div></div>').parent().html();
+}
+*/
+/*
   for (k = 0; k < a_length; k++) {
     var l = ""
     l = $(a[k]).attr('name');
     var split_id = 'info-basicInfo-' + l.split("_")[2];
     tmp += $("div[name='" + split_id + "']").wrap('<div></div>').parent().html();
-  }
+  }*/
   var m = $('#' + tmp_id).children().children().next();
   $(m).children().children().children().children().detach();
   $(m).children().children().children().prepend(tmp);
@@ -730,11 +753,21 @@ $(document).on('blur DOMSubtreeModified', "div[name=Newpatient_past]", function(
   index = $(this).parent().parent().parent().parent().parent().index();
   if ($(this).text() == "") {
     info_newPatient_modal_past.splice(index, 1)
-    console.log(info_newPatient_modal_past)
   } else {
     info_newPatient_modal_past.splice(index, 1, value)
-    console.log(info_newPatient_modal_past)
   }
+  console.log(info_newPatient_modal_past)
+})
+
+$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_pastDrug]", function() {
+  var value = $(this).text();
+  var index = $('div[name=Newpatient_pastDrug]').length - 1
+  if ($(this).text() == "") {
+    info_newPatient_modal_pastDrug.splice(index, 1)
+  } else {
+    info_newPatient_modal_pastDrug.splice(index, 1, value)
+  }
+  console.log(info_newPatient_modal_pastDrug)
 })
 
 $(document).on('blur DOMSubtreeModified', "div[name=Newpatient_dia]", function() {
@@ -742,10 +775,8 @@ $(document).on('blur DOMSubtreeModified', "div[name=Newpatient_dia]", function()
   var index = $(this).parent().parent().parent().parent().index();
   if ($(this).text() == "") {
     info_newPatient_modal_dia.splice(index, 1)
-    console.log(info_newPatient_modal_dia)
   } else {
     info_newPatient_modal_dia.splice(index, 1, value)
-    console.log(info_newPatient_modal_dia)
   }
 })
 
@@ -754,34 +785,19 @@ $(document).on('blur DOMSubtreeModified', "div[name=Newpatient_allergy]", functi
   var index = $(this).parent().parent().parent().parent().index();
   if ($(this).text() == "") {
     info_newPatient_modal_allergy.splice(index, 1)
-    console.log(info_newPatient_modal_allergy)
   } else {
     info_newPatient_modal_allergy.splice(index, 1, value)
-    console.log(info_newPatient_modal_allergy)
   }
 })
 
-$(document).on('blur DOMSubtreeModified', "div[name=Newpatient_pastDrug]", function() {
-  var value = $(this).text();
-  var index = $('div[name=Newpatient_pastDrug]').length - 1
-  if ($(this).text() == "") {
-    info_newPatient_modal_pastDrug.splice(index, 1)
-    console.log(info_newPatient_modal_pastDrug)
-  } else {
-    info_newPatient_modal_pastDrug.splice(index, 1, value)
-    console.log(info_newPatient_modal_pastDrug)
-  }
-})
 
 $(document).on('blur DOMSubtreeModified', "div[name=Newpatient_surgery]", function() {
   var value = $(this).text();
   var index = $(this).parent().parent().parent().parent().index();
   if ($(this).text() == "") {
     info_newPatient_modal_surgery.splice(index, 1)
-    console.log(info_newPatient_modal_surgery)
   } else {
     info_newPatient_modal_surgery.splice(index, 1, value)
-    console.log(info_newPatient_modal_surgery)
   }
 })
 
